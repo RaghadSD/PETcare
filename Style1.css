@@ -10,14 +10,14 @@ html,body{
   height: 100%;
   width: 100%;
   place-items: center;
-  background-image:url('/Users/dalalgheshiyan/Desktop/level 6 /pets 1 pixabay copy.jpg') ;
+  background-image:url('andrew-schultz-DTSDD968Mpw-unsplash.jpg') ;
  background-repeat: no-repeat;
  background-size: cover;
  background-attachment: fixed;;
  
 }
 ::selection{
-  background: #FF676D;
+  background: #617470;
   color: #f2f2f2;
 }
 .wrapper{
@@ -36,7 +36,7 @@ html,body{
   color: #fff;
   user-select: none;
   border-radius: 15px 15px 0 0;
-  background: linear-gradient(-135deg, #FF676D, #f2f2f2);
+  background: linear-gradient(-135deg, #617470, #f2f2f2);
 }
 .wrapper form{
   padding: 10px 30px 50px 30px;
@@ -49,7 +49,7 @@ html,body{
     width: 130px;
     border-radius: 50%;
     padding: 3px;
-    background: #FF676D;
+    background: #617470;
     margin-bottom: 14px;
     
   }
@@ -74,7 +74,7 @@ html,body{
 }
 .wrapper form .field input:focus,
 form .field input:valid{
-  border-color: #FF676D;
+  border-color: #617470;
 }
 .wrapper form .field label{
   position: absolute;
@@ -91,7 +91,7 @@ form .field input:focus ~ label,
 form .field input:valid ~ label{
   top: 0%;
   font-size: 16px;
-  color: #FF676D;
+  color: #617470;
   background: #f2f2f2;
   transform: translateY(-50%);
 }
@@ -118,7 +118,7 @@ form .content .radio{
 form .content input{
   width: 15px;
   height: 15px;
-  background: #FF676D;
+  background: #617470;
 }
 form .content label{
   color: #262626;
@@ -136,7 +136,7 @@ form .field input[type="submit"]{
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #FF676D, #f2f2f2);
+  background: linear-gradient(-135deg, #617470, #f2f2f2);
   transition: all 0.3s ease;
 }
 form .field input[type="submit"]:active{
@@ -149,7 +149,7 @@ form .signup-link{
 }
 form .pass-link a,
 form .signup-link a{
-  color: #FF676D;
+  color: #617470;
   text-decoration: none;
 }
 form .pass-link a:hover,
