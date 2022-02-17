@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+   
+    <link rel="stylesheet" href="/Users/dalalgheshiyan/Desktop/level 6 /RgisterStyle.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Regestration Form</div>
+     
+      <!--<p style="padding: 3%;color: #FF676D;">Please fill in this form to create an account:</p>-->
+
+      <div class="field">
+      <form method = "post" action = "#">
+      
+      <div class="field"  >
+        <input type="email" name ="Email"required>
+        <label>Email Address</label>
+      </div>
+
+      <div class="field">
+        <input type="text" name ="FName"required>
+        <label>First Name</label>
+      </div>
+
+      <div class="field">
+        <input type="text" name ="LName"required>
+        <label>Last Name </label>
+      </div>
+ 
+      <div class="field">
+        <input type="password" name ="Password"required>
+        <label> Password </label>
+      </div>
+
+      <div class="field">
+        <input type="tel" name ="Phone Number"required>
+        <label> Phone Number </label>
+      </div>
+
+      <div class="content">
+      <div class="radio">
+       <label style="color: #FF676D;" for="gender">Gender</label>
+          <input type="radio" name="gender" value="Male" required>
+          <label for="male">male</label>
+          <input type="radio" name="gender" value="Female" required>
+          <label for="female">female</label>
+      </div></div>
+      
+      <p> <lable style="color: #FF676D;"> Profile photo <br<>
+          <input type="file" id="myFile" name="filename">
+      <p>
+        <div class="field">
+            <input type="submit" value="Sign Up">
+          </div>
+      </p>
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
