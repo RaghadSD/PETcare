@@ -1,0 +1,77 @@
+<!DOCTYPE html> 
+
+<html>
+    <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="Style1.css">
+  <title> Add Pet </title>
+  </head> 
+
+  <body>
+
+    <div class="wrapper">
+        <div class="title">Add Pet</div>
+        
+        <div class="field">
+            <form method = "post" action = "#">
+            
+      
+        <div class="field">
+            <input type="text" name ="PName"required>
+            <label>Pet Name</label>
+          </div>
+    
+          <div class="field">
+            <input type="date" name ="date" required>
+            <label>Date Of Birth</label>
+          </div>
+        
+
+        <div class="field">
+            <input type="text" name ="PBreed required"required>
+            <label> Pet Breed </label>
+          </div>
+
+          <div class="content">
+            <div class="radio" style="padding-top: 5%;">
+             <label style="color: #617470;" for="gender">Gender</label>
+                <input type="radio" name="gender" value="Male"required >
+                <label for="male">male</label>
+                <input type="radio" name="gender" value="Female"required >
+                <label for="female">female</label>
+            </div></div>
+
+            <div class="content">
+                <div class="radio">
+              <label style="color: #617470;" for="Neutered Status">Neutered </label>
+                        <input type="radio" name="NStatus" value="Spayed" required>
+                        <label for="Spayed">Spayed</label>
+                        <input type="radio" name="NStatus" value="UnSpayed"required >
+                        <label for="UnSpayed">UnSpayed</label><br>
+                    </div></div>
+
+
+            <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
+                <input style="b" type="file" id="myFile" name="vaccinations">
+            </div>
+      
+      <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
+        <input style="b" type="file" id="myFile" name="MHistory">
+    </div>
+
+
+    <div style=" padding-bottom: 6%;padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+        <input style="b" type="file" id="myFile" name="Petphoto">
+    </div>
+
+        <div class="field">
+            <input type="submit" value="Add">
+          </div>
+           
+        
+        </form>
+</div> 
+
+  </body>
+
+</html>

@@ -72,6 +72,9 @@ html,body{
   border-radius: 25px;
   transition: all 0.3s ease;
 }
+
+
+
 .wrapper form .field input:focus,
 form .field input:valid{
   border-color: #617470;
@@ -156,3 +159,4 @@ form .pass-link a:hover,
 form .signup-link a:hover{
   text-decoration: underline;
 }
+
