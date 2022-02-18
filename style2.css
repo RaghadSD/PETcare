@@ -17,7 +17,7 @@ body{
 #view {
   align-items: center;
   font-size: x-large;
-  color: #FF676D;
+  color: #617470;
   text-align: center;
    margin-top: 3%;
    margin-left: -3%;
@@ -29,13 +29,13 @@ body::before{
   content: '';
   position: absolute;
   width: 100%;
-  background: #FF676D;
+  background: #617470;
   clip-path: inset(47% 0 0 0);
   z-index: -1;
   height: 100%;
 }
 ::selection{
-  background:	#FF676D;
+  background:	#617470;
   color: #fff;
 }
 .container{
@@ -88,7 +88,7 @@ body::before{
   width: 130px;
   border-radius: 50%;
   padding: 3px;
-  background: #FF676D;
+  background: #617470;
   margin-bottom: 14px;
 }
 .card .content .img img{
@@ -104,7 +104,7 @@ body::before{
 }
 .card .content .gender{
   font-size: 20px;
-  color: #FF676D;
+  color: #617470;
 }
 .card .content .media-icons{
   margin-top: 10px;
@@ -122,13 +122,13 @@ body::before{
   color: #FFF;
   border-radius: 30%;
   border: 2px solid transparent;
-  background: #FF676D;
+  background: #617470;
   transition: all 0.3s ease;
 }
 .media-icons a:hover{
-  color: #FF676D;
+  color: #617470;
   background-color: #fff;
-  border-color: #FF676D;
+  border-color: #617470;
 }
  .container .button{
   width: 100%;

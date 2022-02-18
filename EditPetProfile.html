@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+   
+    <link rel="stylesheet" href="Style1.css">
+  </head>
+  <body>
+    <div class="wrapper">
+      <div class="title">Edit Pet Profile</div>
+
+      <div class="field">
+      <form method = "post" action = "#">
+      
+
+      <div class="field">
+        <input type="text" name ="PName">
+        <label>Pet Name</label>
+      </div>
+
+      <div class="field">
+        <input type="date" name ="date">
+        <label>Date Of Birth</label>
+      </div>
+
+      <div class="field">
+        <input type="text" name ="PBreed">
+        <label> Pet Breed </label>
+      </div>
+
+      <div class="content">
+      <div class="radio">
+       <label style="color: #617470;" for="gender">Gender</label>
+          <input type="radio" name="gender" value="Male" >
+          <label for="male">male</label>
+          <input type="radio" name="gender" value="Female" >
+          <label for="female">female</label>
+      </div></div>
+
+      <div class="content">
+        <div class="radio">
+      <label style="color: #617470;" for="Neutered Status">Neutered </label>
+                <input type="radio" name="NStatus" value="Spayed" >
+                <label for="Spayed">Spayed</label>
+                <input type="radio" name="NStatus" value="UnSpayed" >
+                <label for="UnSpayed">UnSpayed</label><br>
+            </div></div>
+
+            <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
+                <input  type="file" id="myFile" name="vaccinations">
+            </div>
+      
+      <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
+        <input  type="file" id="myFile" name="MHistory">
+    </div>
+
+
+    <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+        <input  type="file" id="myFile" name="Petphoto">
+    </div>
+
+        <div class="field">
+            <input type="submit" value="Update">
+          </div>
+      </p>
+      </form>
+
+
+
+    </div>
+  </body>
+</html>
