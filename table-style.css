@@ -1,0 +1,113 @@
+body{
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-size: 12pt;
+    color: white;
+    background: #ede9e4
+}
+.header{
+    overflow: hidden;
+    background-color: #ede9e4;
+    padding: 40px 30px;
+}
+
+.header a{
+float: right;
+color: black;
+text-align: center;
+padding: 10px;
+text-decoration: none;
+font-size: 18px;
+line-height: 30px;
+border-radius: 3px;
+}
+
+.header a:hover
+{
+    background-color: #ddd;
+    color: black;
+
+}
+
+.header h1{
+    color: #617470;
+
+}
+
+
+table{ 
+    border-collapse: collapse; 
+    background: white;
+    border-radius:5px;
+    overflow: hidden;
+    width:90%;
+    position:relative;
+    margin:auto;
+    border: white;
+    margin-top: 50px;
+    box-shadow: 0 0 10px gray;
+    
+}
+
+th,td{ 
+     text-align: center;
+     
+    }
+  
+thead tr{ 
+      height:60px;
+      background:#617470;
+      font-size:16px;
+
+    }
+    
+tbody tr{ 
+    height:48px;
+     border-bottom:1px solid #dddddd ;
+    }
+
+    tbody tr:nth-of-type(even){
+        background-color: #f3f3f3 ;
+
+    }
+     
+  
+  td{
+      font-weight: bold;
+      color: #617470; 
+  }
+
+  button
+  {
+      color: white ;
+      background-color: #617470;
+      font-family: 'Calibri', 'Times New Roman', serif ;
+      font-size: 12pt;
+      border-radius: 6px;
+      border: white;
+  }
+  .del
+  {
+      margin: 5px;
+      padding:7px;
+  }
+
+  .ed{
+      padding: 7px;
+  }
+
+  button:hover
+  {
+      background-color: #b4c9d3;
+  }
+
+  a{
+      text-decoration: none;
+      color: #617470;
+  }
+
+  a:hover{
+      color: #b4c9d3;
+  }
+
+
+

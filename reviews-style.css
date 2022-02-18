@@ -1,0 +1,157 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Calibri', 'Times New Roman', serif;
+    
+}
+
+body{
+    background-color: #ede9e4;
+}
+
+a{
+    text-decoration: none;
+}
+
+#heading
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+
+}
+
+.header
+{
+    letter-spacing: 1px;
+    margin: 30px 0px;
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.header h1{
+    font-size: 2.2rem;
+    font-weight: 500;
+    background-color: #617470;
+    color: white;
+    padding: 10px 70px;
+
+}
+
+.header span
+{
+   font-size: 1.3rem;
+    color: black;
+    margin-bottom:10px ;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+
+}
+
+.container
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.box
+{
+    width: 500px;
+    box-shadow: 2px 2px 10px gray;
+    background-color: white;
+    padding: 20px;
+    margin: 15px;
+    cursor: pointer;
+}
+.pic
+{
+    width: 50px;
+    height: 50px;
+    border-radius: 50% ;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
+.pic img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+
+}
+.profile
+{
+    display: flex;
+    align-items: center;
+
+}
+
+.username
+{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.username strong{
+    color: #617470;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+
+}
+
+.username span{
+    color: #b4c9d3;
+    font-size: 0.8rem;
+}
+
+
+.box-header
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+
+}
+
+.comment p
+{
+font-size: 0.9rem;
+color: #617470;
+
+}
+
+.b{
+    overflow: hidden;
+    padding: 40px 30px;
+}
+
+.b a{
+float: right;
+color: black;
+text-align: center;
+padding: 10px;
+text-decoration: none;
+font-size: 18px;
+line-height: 30px;
+border-radius: 3px;
+}
+
+.b a:hover
+{
+    background-color: #ddd;
+    color: black;
+
+}
+
