@@ -19,11 +19,39 @@ nav{
     justify-content: space-between;
     align-items: center;
 }
-
-.OwnerOrManger a{ 
-  background-color: transparent;
+.dropbtn {
+    background-color: transparent;
+    color: #617470;
+    font-size: 20px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px #61747057;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .dropdown-content a {
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #61747057;
 }
-
 /*
 #logo{
     text-decoration: none;
@@ -42,11 +70,12 @@ text-align: right;
 
 .header-links ul li {
     position: relative;
-    padding: 8px 12px;
     list-style: none;
     display: inline-block;  
-    margin-top: 1.25%; 
-    margin-bottom: 1.25%;
+    margin-top: 1.6%; 
+    margin-bottom: 1.6%;
+    margin-left: 1%;
+    margin-right: 1%;
 }
 
 .header-links ul li a{
@@ -60,7 +89,7 @@ text-align: right;
     width: 100%;
     color: #CBC3BA;
     position: absolute;
-    top: -20%;
+    top: 20%;
     left: 50%;
     background-color: transparent;
     text-align: center;
@@ -91,6 +120,9 @@ text-align: right;
 .OwnerOrManger p {
     font-size: 25px;
     text-align: center;
+}
+.OwnerOrManger a{ 
+    background-color: transparent;
 }
 .more{
     display: inline-block;    
