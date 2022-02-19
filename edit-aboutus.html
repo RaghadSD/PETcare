@@ -1,23 +1,37 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="utf-8">
-        <title>edit</title>
-    </head>
 
-    <body>
-       <h1>About Us</h1> 
-       <div contenteditable="true">Our caring team creates a relaxing environment for your pet in our modern spa <br> 
-        facilities, which are designed to cater to the comfort of our furry guests. 
-        <br> 
-        Our pet spa is fully stocked with hypoallergenic shampoos, conditioners and <br> 
-        products designed specifically to be safe and gentle on a pet’s skin and coat. <br> 
-        Our place attendants are highly trained at handling pets of all sizes and breeds, <br> 
-        and know how to put your pup at ease during any treatment.</div><br>
-        <input type = "file" name = "photo" id = "photo"><br><br>
+<head>
+    <link rel="stylesheet" href="home page style.css">
+    <meta charset="utf-8">
+    <title>edit</title>
+</head>
+
+<body>
+    <section class="edit-about-section" id="ABOUTUS">
+    <div>
+        <form action="#">
+            <h1> Edit About Us</h1>
+            <label for="label">Label</label> <br>
+
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <input type="email" class="feilds" id="email" name="email" placeholder="About us!" required>
+                </div>
+            </div>
+            <br>
+            <label for="label">Text</label> <br>
+            <textarea class="feilds" id="message" rows="5" placeholder=" Our caring team creates a relaxing environment for your pet in our modern spa facilities, which are designed to cater to the comfort of our furry guests. Our pet spa is fully stocked with hypoallergenic shampoos, conditioners and products designed specifically to be safe and gentle on a pet’s skin and coat. Our place attendants are highly trained at handling pets of all sizes and breeds, and know how to put your pup at ease during any treatment." name="Textt" required></textarea>
+            <br>
+            
+
+            <a href="Manger homepage.html" class="editAbout"> Submit </a>
+              <a href="Manger homepage.html" class="editAbout"> Cancel </a>
+            </section>
+        </form>
+    </div>
+
+    </section>
 
 
-       <input type="submit" value="Submit">
-       <a href="aboutus.html"><button>Cancel</button></a>
-    </body>
 </html>

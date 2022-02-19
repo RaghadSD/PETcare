@@ -84,6 +84,60 @@ text-align: right;
     text-decoration: none;
     font-size: 20px;
 }
+.editAbout {
+  display: inline-block;    
+  border: 1.5px solid #b4c9d3;
+  border-radius: 25px;
+  position: relative;
+  text-align: center;
+  font-size: 18px;
+  margin-top: -12%;
+  margin-right: 30px;
+  margin-left: 12px;
+  margin-bottom: -2%;
+  padding: 12px 13px;
+  background-color: transparent;
+  text-decoration: none;
+  margin-top: 10px;
+  height: 20px;
+  width: 120px;
+  color: #617470;
+  letter-spacing: 1px;
+}
+
+.edit-about-section{
+background-size: 55%;
+background-color: #EDE9E4;
+overflow: hidden;
+height: 100%;
+min-height: 100vh;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.editAbout a{
+background-color: transparent;
+}
+
+.editAbout:hover {
+  border: 1px solid #617470;
+  background: #61747057;
+  transition: 0.5s;
+}
+.edit-about-section h1{
+  margin-bottom: 30px;
+  font-size: 32px;
+  font-weight: 700;
+  color: #617470;
+  background-color: transparent;
+  letter-spacing: 4px;
+}
+.edit-about-section label{
+  margin-bottom: 30px;
+  font-size: 17px;
+  color: #617470;
+  background-color: transparent;
+}
 
 .description{
     width: 100%;
@@ -302,7 +356,7 @@ transition: 0.25s;
 
 
 }
-.Services-column p, .Services-column h3{
+.Services-column p, .Services-column h3, label{
     background-color: transparent;
     color: #617470;
     text-align: center;
