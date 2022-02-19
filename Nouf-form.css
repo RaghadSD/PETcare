@@ -1,4 +1,5 @@
 
+
 body{
   background-image: url("..//Web-Nouf/catBlue.jpg");
     background-position:550px;
@@ -27,15 +28,40 @@ body{
     display: inline-block;
     
 }
+.center label{
+  color:#617470;
+  font-weight: bolder;
+}
 
-button
+.button-add
 {
     color: white ;
     background-color: #617470;
     font-family: 'Calibri', 'Times New Roman', serif ;
-    font-size: 18pt;
-    border-radius: 20px;
+    font-size:13pt;
+    border-radius: 12px;
+    width: 100px;
     border: white;
+    position: absolute;
+    left:200px;
+    
+
+}
+
+.button-submit
+{
+    color: white ;
+    background-color: #617470;
+    font-family: 'Calibri', 'Times New Roman', serif ;
+    font-size:13pt;
+    border-radius: 12px;
+    width: 100px;
+    border: white;
+    position: absolute;
+    top:480px;
+    left:160px;
+    
+
 }
 
 .center h1{
@@ -55,20 +81,12 @@ input , select {
     border-radius: 8px;
     box-sizing: border-box;
   }
-    textarea {
-    width: 170px;
-    padding: 20px 20px;
-    margin: px 0;
-    display: inline-block;
-    border: 1px solid #617470;
-    border-radius: 8px;
-    box-sizing: border-box;
-  }
+
+  
   .header{
     overflow: hidden;
-    background-color: #f1f1f1;
-    ;
-    padding: 40px 30px;
+    background-color: #f1f1f1; ;
+    padding: 40px;
 }
 
 
@@ -93,7 +111,7 @@ border-radius: 1px;
 
 .header h1{
   position: absolute;
-    left: 100px;
+    left:120px;
   
     color: #617470;
 
@@ -101,5 +119,48 @@ border-radius: 1px;
 
   div {
     border-radius: 5px;
+   /* background-color: #f2f2f2;*/
     padding: 20px;
+  }
+  input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=file] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=number] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  textarea {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=Date] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  input[type=Time] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
   }
