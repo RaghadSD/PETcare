@@ -1,6 +1,6 @@
 
 body{
-  background-image: url("/images/andrew-schultz-DTSDD968Mpw-unsplash.jpg");
+  background-image: linear-gradient(rgba(62, 66, 82, 0.7), rgba(62, 66, 82, 0.7)), url("welcome.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
@@ -12,8 +12,10 @@ body{
 }
 
 .center{
-
-    position: absolute;
+  margin-left: -20px;
+  margin-top: -18px;
+  height: 1000px;
+  position: absolute;
     background-color: #EDE9E4;
     top: 380px;
     left: 275px;
@@ -22,7 +24,6 @@ body{
    background: #EDE9E4;
     color:#2c1c1c;
     cursor: pointer;
-    box-shadow: 0 0 10px #EDE9E4;
     display: inline-block;
     
 }
@@ -85,6 +86,9 @@ input , select {
     overflow: hidden;
     background-color: #EDE9E4; ;
     padding: 40px 60px;
+    width: 9000px;
+    margin-left: -10px;
+    margin-top: -10px;
     
 }
 
