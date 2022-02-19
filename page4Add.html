@@ -1,55 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel = "stylesheet" href = "Nouf-form.css">
+</head>
+<body>
+    <div class="header">
+        <p class="logout"><a href="">Logout</a> </p> 
+        <p class="button"><a href="Manager home.html">Home page</a> </p>     
+        <h1> Set Available Appointment </h1>
+     </div>
+    <div class = "center" style = "position: absolute;top: 450px; left: 300px;">
+    <form>
+        <div>
+            <label>Service</label>
+            <select name = "service">
+                <option value = "checkup"> checkup </option>
+                <option value = "grooming"> grooming </option>
+                <option value = "shaving/haircut"> shaving/haircut </option>
+                <option value = "Brush&Nails"> Brush&Nails </option>
+                <option value = "deluxe bath"> deluxe bath </option>
 
-   <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <title>Document</title>
-        <link rel = "stylesheet" href = "Nouf-form.css">
-    </head>
-    <body>
-        <div class="header">
-            <p class="logout"><a href="Home.html">Logout</a> </p> 
-            <p class="button"><a href="Manger homepage.html">Home page</a> </p>     
-            <h1> Add Appointment</h1>
-         </div>
-          <form>
-            <div class = "center" style = "position: absolute;top: 470px; left:280px ;">
-              
-              <div calss>
-                  <label for = Service Name> Service Name:              </label>
-                  <input type = "text" name = "Service Name" id = "Service Name" placeholder = "checkup,grooming,....">
-              </div>
-              
+            </select>
+         
+        </div>
+       
+        <div>
+            <lable>Date</lable>
+            <input type = "date" name ="date">
+        </div>
 
-              <div style = "font-weight: bolder; color:#617470" >
-                  <lable for = "photo"> Photo: </lable>
-                  <input type = "file" name = "photo" id = "photo">
     
+        <div>
+            <lable> Time </lable>
+            <input type = "time" name ="time">
+        </div>
+        
+        <p>
+            <div>
+                <a href ="Manger homepage.html"><button class="button-add" style = "position: absolute; top:400px" type="submit" value="Add">Submit</button></a>
               </div>
               
-
-              <div style = "font-weight: bolder; color:#617470" >
-                <lable for = "price" > Price: </lable>
-                <input type = "number" name = "price" id = "price" >
-             </div>
-            
-              <div class = "txt_field">
-                  <label for = "des"> Description: </label>
-                  <textarea name = "des" id = "des" > </textarea>
-              </div>
-              <br>
-              <br>
-              <div>
-                
-                <a href ="Manger homepage.html"><button class="button-add" style = "position: absolute; top:520px" type="submit" value="Add">Add</button></a>
-               
-              
-            
-            </div>
-            </div>
-          </form>
-
-    </html>
-
+        
+    </form>
+    
+    
+    
 </body>
 </html>

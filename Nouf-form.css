@@ -1,28 +1,28 @@
+
 body{
-  background-image: url("images/andrew-schultz-DTSDD968Mpw-unsplash.jpg");
-    background-position:550px;
+  background-image: url("/images/andrew-schultz-DTSDD968Mpw-unsplash.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
  
   font-family: 'Calibri', 'Times New Roman', serif;
   font-size: 12pt;
-  color: white;
-  background-color:#f0f1f3;
+  color: #EDE9E4;
+  background-color:#EDE9E4;
 }
 
 .center{
 
     position: absolute;
-    background-color: #b4c9d3;
+    background-color: #EDE9E4;
     top: 380px;
     left: 275px;
     transform: translate(-290px , -290px);
     width: 500px;
-   background: #f1f1f1;
+   background: #EDE9E4;
     color:#2c1c1c;
     cursor: pointer;
-    box-shadow: 0 0 10px #b4c9d3;
+    box-shadow: 0 0 10px #EDE9E4;
     display: inline-block;
     
 }
@@ -64,7 +64,7 @@ body{
 
 .center h1{
     text-align: center;
-    color: #617470;
+    color: #ddd;
     padding : 0 0  20px 0;
     border-bottom: 1px solid rgb(139, 83, 83);
     
@@ -83,8 +83,9 @@ input , select {
   
   .header{
     overflow: hidden;
-    background-color: #f1f1f1; ;
-    padding: 40px;
+    background-color: #EDE9E4; ;
+    padding: 40px 60px;
+    
 }
 
 
@@ -109,7 +110,7 @@ border-radius: 1px;
 
 .header h1{
   position: absolute;
-    left:120px;
+    left:149px;
   
     color: #617470;
 
