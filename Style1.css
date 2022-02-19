@@ -125,6 +125,7 @@ form .content input{
   height: 15px;
   background: #617470;
 }
+
 form .content label{
   color: #262626;
   user-select: none;
@@ -144,6 +145,10 @@ form .field input[type="submit"]{
   background: linear-gradient(-135deg, #617470, #f2f2f2);
   transition: all 0.3s ease;
 }
+
+
+
+
 form .field input[type="submit"]:active{
   transform: scale(0.95);
 }

@@ -15,53 +15,57 @@
         <div class="field">
             <form method = "post" action = "#">
             
-      
-        <div class="field">
-            <div class="content">
-            <label> Pet : 
-                <select name = "rating" >
-                    <option selected > Dog </option>
-                    <option > Cat </option>
-                    <option> Rabbit </option>
-                </select></label>
-            </div>  </div>
+      <div> 
+                <label> Pet :
+                    <select  name = "rating" >
+                        <option  > Cat </option>
+                        <option selected  > Dog </option>
+                        <option >Rabbit </option>
+                        <option> Shaving\haircut </option>
+                        
+                
+                    </select></label></div>
 
           
             <label> Service :
                 <select name = "rating" >
-                    <option  > Vaccines </option>
-                    <option selected  > classic BATH, BRUSH & NAILS </option>
+                    <option selected > Vaccines </option>
+                    <option   > classic BATH, BRUSH & NAILS </option>
                     <option > DELUXE BATH, BRUSH & NAILS </option>
                     <option> Shaving\haircut </option>
                     
             
                 </select></label>
-            
-            
+
+
     
+        
+
+
           <div class="field">
-            <input type="date" name ="date" required>
+            <input type="date" name ="date" >
             <label>Date </label>
           </div>
 
           <div class="field">
-         <lable> Time:  <br<>
-            <input name ="time" type = "time" size = "25" required>  </lable>
-        </div>
+            <input type="time" name ="time" >
+            <label>Time </label>
+          </div>
     
 
-          <div class="content" style="padding-top: 10%;">
+        <!-- 
+        <div class="content" style="padding-top: 10%;">
           <div class="radio" style="padding-top: 5%;">
           <label style="color: #617470;" for="Allergy">Allergy </label>
           <input type="radio" name="Allergy" value="Yes" >
           <label for="Yes">Yes</label>
           <input type="radio" name="Allergy" value="No" >
           <label for="No">No</label><br>
-        </div></div>
+        </div></div>-->  
 
-        <div class="content" style="padding-top: 25%;color: #617470;">
-        <label> Notes: <br>
-            <textarea style="border-radius: 30%;" name="Notes" rows="4" cols="30" placeholder="Anything You Want To Tell Us About Your Pet" > </textarea>
+        <div class="content" style="padding-top: 25%;color: #617470;padding-bottom: 15%;">
+        <label style="color: #617470;"  > Notes: <br>
+            <textarea style="border-radius: 15%;overflow: scroll;" name="Notes" rows="3" cols="30" placeholder="Anything You Want To Tell Us About Your Pet" > </textarea>
         </label></div>
     
 
