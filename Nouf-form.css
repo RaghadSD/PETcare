@@ -1,14 +1,14 @@
 
 body{
-  background-image: url("..//Web-Nouf/welcome.jpg");
+  background-image: url("/images/andrew-schultz-DTSDD968Mpw-unsplash.jpg");
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: contain;
  
   font-family: 'Calibri', 'Times New Roman', serif;
   font-size: 12pt;
-  color: white;
-  background-color:#f0f1f3;
+  color: #EDE9E4;
+  background-color:#EDE9E4;
 }
 
 .center{
