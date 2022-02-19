@@ -13,6 +13,17 @@
     background-size: cover;
     position: relative;
 } 
+
+#logo{
+  text-decoration: none;
+  position: absolute;
+  margin-top: -110px;
+  top: 36px;
+  left: 0px;
+  height: 130px;
+  width: 150px;
+}
+
 nav{
     display: flex;
     padding: 4% 6%;
@@ -24,20 +35,17 @@ nav{
   background-color: transparent;
 }
 
-/*
-#logo{
-    text-decoration: none;
-    color: #fff;
-    font-size: 20px;
-    position: relative;
-    text-align: center;
-    
-}*/
+
 
 
 .header-links{
+
+  top: -30px;
+  height: 1px;
+  min-width: 100vh;
 flex: 1;
 text-align: right;
+margin-right: -8%;
 }
 
 .header-links ul li {
