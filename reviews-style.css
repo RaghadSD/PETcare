@@ -47,7 +47,7 @@ a{
 .header span
 {
    font-size: 1.3rem;
-    color: black;
+    color: #617470;
     margin-bottom:10px ;
     letter-spacing: 2px;
     text-transform: uppercase;
@@ -139,7 +139,7 @@ color: #617470;
 
 .b a{
 float: right;
-color: black;
+color: #617470;
 text-align: center;
 padding: 10px;
 text-decoration: none;
