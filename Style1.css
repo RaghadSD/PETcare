@@ -144,6 +144,10 @@ form .content label{
 form .content .pass-link{
   color: "";
 }
+#content1 a{
+
+  text-decoration: none;
+}
 form .field input[type="submit"]{
   color: #f2f2f2;
   border: none;
