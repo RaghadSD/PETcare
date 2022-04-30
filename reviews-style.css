@@ -23,7 +23,7 @@ a{
 
 }
 
-.header
+.headerr
 {
     letter-spacing: 1px;
     margin: 30px 0px;
@@ -35,7 +35,7 @@ a{
 
 }
 
-.header h1{
+.headerr h1{
     font-size: 2.2rem;
     font-weight: 500;
     background-color: #617470;
@@ -44,7 +44,7 @@ a{
 
 }
 
-.header span
+.headerr span
 {
    font-size: 1.3rem;
     color: #617470;
@@ -155,3 +155,180 @@ border-radius: 3px;
 
 }
 
+
+
+nav{
+    display: flex;
+    padding: 4% 6%;
+    justify-content: space-between;
+    align-items: center;
+}
+.dropbtn {
+    background-color: transparent;
+    color: #617470;
+    font-size: 20px;
+    border: none;
+  }
+  
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px #61747057;
+    z-index: 1;
+    text-align: center;
+  }
+  
+  .dropdown-content a {
+    background-color: #ede9e4;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: #ddd;}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
+  .dropdown:hover .dropbtn {background-color: #61747057;
+}
+
+#logo{
+    text-decoration: none;
+    position: absolute;
+    margin-top: -110px;
+    top: 110px;
+    left: 0px;
+    height: 130px;
+    width: 150px;
+}
+
+
+.header-links{
+  top: -30px;
+  height: 1px;
+  min-width: 100vh;
+flex: 1;
+text-align: right;
+margin-right: -8%;
+}
+
+.header-links ul li {
+    position: relative;
+    list-style: none;
+    display: inline-block;  
+    margin-top: 1.6%; 
+    margin-bottom: 1.6%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+
+.header-links ul li a{
+  color: #617470;
+  /*to remove the underline*/
+    text-decoration: none;
+    font-size: 20px;
+}
+
+.editAbout {
+    display: inline-block;    
+    border: 1.5px solid #b4c9d3;
+    border-radius: 25px;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    margin-top: -12%;
+    margin-right: 30px;
+    margin-left: 12px;
+    margin-bottom: -2%;
+    padding: 12px 13px;
+    background-color: transparent;
+    text-decoration: none;
+    margin-top: 10px;
+    height: 20px;
+    width: 120px;
+    color: #617470;
+    letter-spacing: 1px;
+  }
+  
+  .edit-about-section{
+  background-size: 55%;
+  background-color: #EDE9E4;
+  overflow: hidden;
+  height: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .editAbout a{
+  background-color: transparent;
+  }
+  
+  .editAbout:hover {
+    border: 1px solid #617470;
+    background: #61747057;
+    transition: 0.5s;
+  }
+  .edit-about-section h1{
+    margin-bottom: 30px;
+    font-size: 32px;
+    font-weight: 700;
+    color: #617470;
+    background-color: transparent;
+    letter-spacing: 4px;
+  }
+  .edit-about-section label{
+    margin-bottom: 30px;
+    font-size: 17px;
+    color: #617470;
+    background-color: transparent;
+  }
+
+  .feilds, textarea {
+    width: 400px;
+    height: 23px;
+    background-color: #b4c9d3;
+    color: #6174708c;
+    letter-spacing: 1px;
+    border-radius: 15px;
+    margin-bottom: 1.5%;
+    margin-top: 1.5%;
+    padding-left: 1%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+    border-color: transparent;
+  }
+
+  #message{
+    height: 300px;
+  }
+  .name, .email, textarea {
+    width: 280px;
+  } 
+  
+  .editAboutt{
+    display: inline-block;    
+    border: 1.5px solid #b4c9d3;
+    border-radius: 25px;
+    position: relative;
+    text-align: center;
+    font-size: 18px;
+    margin-top: 1%;
+    margin-right: 30px;
+    margin-left: 12px;
+    margin-bottom: 52%;
+    padding: 12px 13px;
+    background-color: transparent;
+    text-decoration: none;
+    margin-top: 10px;
+    height: 20px;
+    width: 120px;
+    color: #617470;
+    letter-spacing: 1px;
+  }  
