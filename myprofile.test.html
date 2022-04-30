@@ -66,40 +66,57 @@
 
     </section>
     <div class="wrapper" style="margin-top:-48% ;">
-        <div class="title"> My Profile</div>
+        <div class="title">Book Appointment</div>
        
   
         <div class="field">
+            <form method = "post" action = "#">
   
-     <form >
   
-   <img style="padding-left: 18%;border-radius: 80%;" src="images/images-1.jpeg" alt="my profile photo">
-            
-        
-        <div class="content">
-          <p> <lable style="color: #617470;font-size: x-large;padding-top: 15%;"> Dalal Gheshiyan </p>
-       </div>
-  
-       
-       
-        <div class="content" >
-          <p> <label> <a style=" color: #000;font-size: large;"href="mailto:Dalal.ghesh@gmail.com">Dalal.ghesh@gmail.com</a></p>
-       </div>
-   
-        <div class="content">
-          <p> <lable style="color: #617470;font-size: large;"> 0547181033 </p>
-       </div>
-  
-        <div class="content">
-          <p> <lable style="color: #000000;font-size: large;"> Fmale </p>
-       </div>
-        
-       <div class="content">
-        <a style="color: #617470;font-size: large;" href="Edit My Profile.html">Edit</a>
-        <a style="color: #617470;font-size: large;" href="#">Delete</a>
-     </div>
-        
+           <div class="field"> 
+            <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
+             <option value="Millow" >Millo</option>
+             <option value="CoCo">CoCo</option>
+             <option value="Louis">Louis</option>
+           </select>
+           </div></div>
+
+
+           <div class="field"> 
+            <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="pet" id="pet">
+             <option value="Classic Bath,Brush & Nails" >Classic Bath,Brush & Nails</option>
+             <option value="Deluxe Bath,Brush & Nails">Deluxe Bath,Brush & Nails</option>
+             <option value="Spaying Surgery">Spaying Surgery</option>
+             <option value="Exams & Consultations">Exams & Consultations</option>
+             <option value="Dentistry">Dentistry</option>
+           </select>
+           </div></div> 
+           
+           <div class="field">
+            <input type="date" name ="date" >
+            <label>Date </label>
+          </div>
+
+          <div class="field">
+            <input type="time" name ="time" >
+            <label>Time </label>
+          </div>
+
+          <div class="field">
+            <label>Notes</label>
+          <textarea name="Notes" placeholder="Any thing You want to tell us about!">
+              </textarea>
+        </div>
+
+        <div class="field">
+            <input type="submit" value="Book">
+          </div>
+
+     
         </form>
+</div> 
 
 
   </body>
