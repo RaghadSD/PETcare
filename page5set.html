@@ -1,51 +1,94 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Document</title>
-    <link rel = "stylesheet" href = "Nouf-form.css">
-</head>
-<body>
-    <div class="header">
-        <p class="button"><a href="Manger homepage.html">Home page</a> </p>     
-        <h1 style ="position: absolute; left:90px;" > Set Available Appointment </h1>
-     </div>
-    <div class = "center" style = "position: absolute;top: 500px; left: 290px;">
-    <form>
-        <div>
-            <label>Service</label>
-            <select name = "service">
-                <option value = "checkup"> checkup </option>
-                <option value = "grooming"> grooming </option>
-                <option value = "shaving/haircut"> shaving/haircut </option>
-                <option value = "Brush&Nails"> Brush&Nails </option>
-                <option value = "deluxe bath"> deluxe bath </option>
-                <option value = "spaying surgery">Spaying Surgery</option>
+<!DOCTYPE html> 
 
-            </select>
-         
-        </div>
-       
-        <div>
-            <lable>Date</lable>
-            <input type = "date" name ="date">
-        </div>
+<html>
+    <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="Style1.css">
+<link rel="stylesheet" href="home page style.css">
+  <title> Set Appointment</title>
+  </head> 
 
-    
-        <div>
-            <lable> Time </lable>
-            <input type = "time" name ="time">
-        </div>
-        
-        <p>
+  <body>
+    <section class="header">
+        <nav> 
+            <a href="Manger homepage.html"> <img id=logo src="Image (2).jpeg"></a>
             <div>
-                <a href ="Manger homepage.html"><button class="button-add" style = "position: absolute; top:400px" type="submit" value="Add">Submit</button></a>
-              </div>
-              
-        
-    </form>
+
+                <div class="header-links">
+    
+                    <ul>
+                        <li> <a href="#ABOUTUS"> About </a> </li>
+                        <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
+                        <li> <a href="#services"> Services </a> </li>
+                        <li> <a href="page4Add.html"> Add Service </a> </li>
+    
+                        <li>
+                            <div class="dropdown">
+                                <button class="dropbtn"> Appointments </button>
+                                <div class="dropdown-content">
+                                    <a href="page5set.html"> Set Appointment </a>
+                                    <a href="page7ViewAppoitment.html"> All Appointments </a>
+                                    <a href="page6AcceptDecline.html"> Appointment Requests </a>
+                                    <a href="previous.html"> Previous Appointments </a>
+                                    <a href="page 3Upcoming.html"> Upcoming Appointments </a>
+                                </div>
+                            </div>
+                        </li>
+                        <li> <a href="Reviews.html"> Owners Review </a> </li>
+                        <li> <a href="Home.html"> Logout </a> </li>
+                        <li> <a href="owners.html"> Contact </a> </li>
+                    </ul>
     
     
+                </div>
     
-</body>
+            </div>
+        </nav>
+       
+
+    </section>
+    <div class="wrapper" style="margin-top:-48% ;">
+        <div class="title">Set Appointment</div>
+       
+  
+        <div class="field">
+            <form method = "post" action = "#">
+  
+  
+
+
+           <div class="field"> 
+            <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="pet" id="pet">
+             <option value="Classic Bath,Brush & Nails" >Classic Bath,Brush & Nails</option>
+             <option value="Deluxe Bath,Brush & Nails">Deluxe Bath,Brush & Nails</option>
+             <option value="Spaying Surgery">Spaying Surgery</option>
+             <option value="Exams & Consultations">Exams & Consultations</option>
+             <option value="Dentistry">Dentistry</option>
+           </select>
+           </div></div> 
+           
+           <div class="field">
+            <input type="date" name ="date" >
+            <label>Date </label>
+          </div>
+
+          <div class="field">
+            <input type="time" name ="time" >
+            <label>Time </label>
+          </div>
+
+    
+
+        <div class="field">
+            <input type="submit" value="Set">
+          </div>
+
+     
+        </form>
+</div> 
+
+
+  </body>
+
 </html>
