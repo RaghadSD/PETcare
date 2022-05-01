@@ -1,4 +1,36 @@
+<?php
+            if (!($database = mysqli_connect("localhost", "root", "")))
+                die("<p>Could not connect to database</p>");
 
+            if (!mysqli_select_db($database, "petcare1"))
+                die("<p>Could not open URL database</p>");
+
+
+
+            if (isset($_POST['Add'])) {
+
+                $FName = $_POST['FName'];
+                $date = $_POST['date'];
+                $PBreed = $_POST['PBreed'];
+                $gender = $_POST['gender'];
+                $NStatus = $_POST['NStatus'];
+                $vaccinations =$_POST['vaccinations'];
+                $MHistory =$_POST['MHistory'];
+                $Petphoto =$_POST['Petphoto'];
+                
+                
+
+                $query = "INSERT INTO pet VALUES('$FName','$FName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','$gender')";
+                $result = mysqli_query($database, $query);
+                if ($result) {
+                    header('Location: Owner homepage.html');
+                } else {
+                    echo "Error: can not Add new Pet!";
+                    echo  $database->error;
+                    exit();
+                }
+            }
+            ?>
 
 <!DOCTYPE html> 
 
@@ -73,7 +105,8 @@
         <div class="title">Add Pet</div>
         
         <div class="field">
-            <form method = "post" action = "#">
+        <form action="addpet.php" method="POST">
+           
             
       
         <div class="field">
@@ -88,7 +121,7 @@
         
 
         <div class="field">
-            <input type="text" name ="PBreed required"required>
+            <input type="text" name ="PBreed "required>
             <label> Pet Breed </label>
           </div>
 
@@ -125,7 +158,7 @@
     </div>
 
         <div class="field">
-            <input  type="submit" value="Add">
+            <input type="submit" value="Add" name="Add"> 
           </div>
            
         </form>
@@ -135,5 +168,3 @@
 
 
   </body>
-
-</html>
