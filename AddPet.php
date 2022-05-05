@@ -9,7 +9,7 @@
 
             if (isset($_POST['Add'])) {
 
-                $FName = $_POST['PName'];
+                $PName = $_POST['PName'];
                 $date = $_POST['date'];
                 $PBreed = $_POST['PBreed'];
                 $gender = $_POST['gender'];
