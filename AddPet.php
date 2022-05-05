@@ -9,7 +9,7 @@
 
             if (isset($_POST['Add'])) {
 
-                $FName = $_POST['FName'];
+                $FName = $_POST['PName'];
                 $date = $_POST['date'];
                 $PBreed = $_POST['PBreed'];
                 $gender = $_POST['gender'];
@@ -18,9 +18,9 @@
                 $MHistory =$_POST['MHistory'];
                 $Petphoto =$_POST['Petphoto'];
                 
-                
+               
 
-                $query = "INSERT INTO pet VALUES('$FName','$FName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','$gender')";
+                $query = "INSERT INTO pet VALUES('111','$FName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','$gender')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
                     header('Location: Owner homepage.html');
@@ -121,7 +121,7 @@
         
 
         <div class="field">
-            <input type="text" name ="PBreed "required>
+            <input type="text" name ="PBreed"required>
             <label> Pet Breed </label>
           </div>
 
