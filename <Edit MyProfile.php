@@ -9,15 +9,16 @@ die("<p>Could not open URL database</p>");
 
 if(isset($_POST['Update']))
 {
-    $Email = $_POST['Email'];
+    $email = $_POST['email'];
 
     $query ="UPDATE 'owner' set 
-    password ='$_POST[password]',
+    
     phoneNumber ='$_POST[phoneNumber]',
     profilePic ='$_POST[profilePic]', 
     Fname ='$_POST[Fname]',
     Lname ='$_POST[Lname]',
-    where email='$_POST[Email]'";
+    where email='$_POST[email]'";
+
 
     $query_run= mysqli_query($database, $query );
 
@@ -111,7 +112,7 @@ if(isset($_POST['Update']))
             <form method = "post" action = "#">
             
             <div class="field"  >
-              <input type="email" name ="Email">
+              <input type="email" name ="email">
               <label>Email Address</label>
             </div>
       
@@ -127,7 +128,7 @@ if(isset($_POST['Update']))
        
         
             <div class="field">
-              <input type="tel" name ="Phone Number">
+              <input type="tel" name ="phoneNumber">
               <label> Phone Number </label>
             </div>
       
@@ -135,7 +136,7 @@ if(isset($_POST['Update']))
             
             
              <lable style="color: #617470;"> Change Profile photo?<br<>
-                <input type="file" id="myFile" name="filename">
+                <input type="file" id="myFile" name="profilePic">
              
     
               <div class="field">
