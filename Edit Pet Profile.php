@@ -7,7 +7,7 @@
 
                 if(isset($_POST['Update']))
                 {
-                    $PName = $_POST['PName'];
+                    $id = $_POST['id'];
 
                     $query ="UPDATE 'pet' SET 
                     PName = '$_POST[PName]',
@@ -18,7 +18,7 @@
                 vaccinations ='$_POST[vaccinations]',
                 MHistory ='$_POST[MHistory]',
                 Petphoto ='$_POST[Petphoto]',
-                where Id ='$_POST[Id]'";
+                where id ='$_POST[id]'";
                 $query_run = mysqli_query($database,$query);
                 
                 if($query_run){
@@ -30,16 +30,9 @@
                     echo  $database->error;
                     exit();
                    }
-$result = mysqli_query($database, $sql);
-if ($result) {
-    header('Location: My Profile .html');
-} else {
-    echo "Error: can not Add new Pet!";
-    echo  $database->error;
-    exit();}
 
                 
-?> 
+?>
 
 <!DOCTYPE html> 
 
