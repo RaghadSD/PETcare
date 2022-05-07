@@ -11,12 +11,12 @@ if(isset($_POST['Update']))
 {
     $email = $_POST['email'];
 
-    $query ="UPDATE 'owner' set 
+    $query ="UPDATE 'owner' SET 
     phoneNumber ='$_POST[phoneNumber]',
     profilePic ='$_POST[profilePic]', 
     Fname ='$_POST[Fname]',
     Lname ='$_POST[Lname]',
-    where email='$_POST[email]'";
+    where email='$_POST[email]';";
 
 
     $query_run= mysqli_query($database, $query );
