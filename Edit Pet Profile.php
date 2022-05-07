@@ -5,8 +5,9 @@
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
 
-                if(isset($_POST['Update'])){
-                    $Id = $_POST['Id'];
+                if(isset($_POST['Update']))
+                {
+                    $PName = $_POST['PName'];
 
                     $query ="UPDATE 'pet' SET 
                     PName = '$_POST[PName]',
@@ -19,7 +20,7 @@
                 Petphoto ='$_POST[Petphoto]',
                 where Id ='$_POST[Id]'";
                 $query_run = mysqli_query($database,$query);
-
+                
                 if($query_run){
                     echo '<script type ="text/javascript"> alert ("data updated")</script>';
                     header('Location:  Pet profiles .html');
@@ -28,21 +29,18 @@
                     echo '<script type ="text/javascript"> alert ("data not updated")</script>';
                     echo  $database->error;
                     exit();
-                }
-            
-
-                
-            
-
+                   }
 $result = mysqli_query($database, $sql);
 if ($result) {
     header('Location: My Profile .html');
 } else {
     echo "Error: can not Add new Pet!";
     echo  $database->error;
-    exit();
-}
- ?>
+    exit();}
+
+                
+?> 
+
 <!DOCTYPE html> 
 
 <html>
@@ -116,7 +114,10 @@ if ($result) {
         <div class="field">
         <form method = "post" action = "#">
         
-  
+            <div class="field">
+                <input type="text" name ="id">
+                <label>Pet id</label>
+              </div>
         <div class="field">
           <input type="text" name ="PName">
           <label>Pet Name</label>
@@ -164,7 +165,7 @@ if ($result) {
       </div>
   
           <div  class="field">
-              <input type="submit"  name ="Update" value="Update">
+              <input type="submit" name="Update" value="Update">
               <div class="content">
                 <a style="color: #617470;font-size: large;" href="PetProfile.html">Back</a>
              </div>

@@ -1,3 +1,40 @@
+<?php
+            if (!($database = mysqli_connect("localhost", "root", "")))
+                die("<p>Could not connect to database</p>");
+
+            if (!mysqli_select_db($database, "petcare1"))
+                die("<p>Could not open URL database</p>");
+
+                if(isset($_POST['Update']))
+                {
+                    $PName = $_POST['PName'];
+
+                    $query ="UPDATE 'pet' SET 
+                    PName = '$_POST[PName]',
+                    date = '$_POST[date]',
+                PBreed = '$_POST[PBreed]',
+                gender = '$_POST[gender]',
+                NStatus = '$_POST[NStatus]',
+                vaccinations ='$_POST[vaccinations]',
+                MHistory ='$_POST[MHistory]',
+                Petphoto ='$_POST[Petphoto]',
+                where Id ='$_POST[Id]'";
+                $query_run = mysqli_query($database,$query);
+                
+                if($query_run){
+                    echo '<script type ="text/javascript"> alert ("data updated")</script>';
+                    header('Location:  Pet profiles .html');
+                }
+                else{
+                    echo '<script type ="text/javascript"> alert ("data not updated")</script>';
+                    echo  $database->error;
+                    exit();
+                   }
+
+                
+?> 
+
+
 <!DOCTYPE html> 
 
 <html>
