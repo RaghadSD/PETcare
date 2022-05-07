@@ -10,13 +10,19 @@ die("<p>Could not open URL database</p>");
 if(isset($_POST['Update']))
 {
     $email = $_POST['email'];
+    $phoneNumber =  $_POST['phoneNumber'];
+    $profilePic = $_POST['profilePic'];
+    $Fname =  $_POST['Fname'];
+    $Lname =  $_POST['Lname'];
+    
 
-    $query ="UPDATE 'owner' SET 
-    phoneNumber ='$_POST[phoneNumber]',
-    profilePic ='$_POST[profilePic]', 
-    Fname ='$_POST[Fname]',
-    Lname ='$_POST[Lname]',
-    where email='$_POST[email]';";
+    $query = "UPDATE `owner` SET 
+phoneNumber='$phoneNumber',
+profilePic='$profilePic',
+Fname='$Fname',
+Lname='$Lname',
+WHERE email='$email';
+";
 
 
     $query_run= mysqli_query($database, $query );
