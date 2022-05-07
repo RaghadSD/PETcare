@@ -17,9 +17,10 @@
                 $vaccinations =$_POST['vaccinations'];
                 $MHistory =$_POST['MHistory'];
                 $Petphoto =$_POST['Petphoto'];
-              
 
-                $query = "INSERT INTO pet VALUES('111','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','Dalal.ghesh@gmail.com')";
+               var id =000; 
+
+                $query = "INSERT INTO pet VALUES('id++','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','Dalal.ghesh@gmail.com')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
                     header('Location: Owner homepage.html');
