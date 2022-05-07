@@ -35,15 +35,16 @@
 ?>
 
 <!DOCTYPE html> 
-<html> 
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" href="Style1.css">
-  <link rel="stylesheet" href="home page style.css">
-  <title>Edit Pet Profile </title>
-  </head> 
-<body>
 
+<html>
+    <head>
+<meta charset="utf-8">
+<link rel="stylesheet" href="Style1.css">
+<link rel="stylesheet" href="home page style.css">
+  <title> Edit Pet Profile</title>
+  </head> 
+
+  <body>
     <section class="header">
         <nav> 
             <a href="Manger homepage.html"> <img id=logo src="Image (2).jpeg"></a>
@@ -100,76 +101,71 @@
        
 
     </section>
+
+
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title">Edit Pet Profile</div>
-  
-        <div class="field">
-        <form method = "post" action = "#">
-        
-            <div class="field">
-                <input type="text" name ="id">
-                <label>Pet id</label>
-              </div>
-        <div class="field">
-          <input type="text" name ="PName">
-          <label>Pet Name</label>
-        </div>
-  
-        <div class="field">
-          <input type="date" name ="date">
-          <label>Date Of Birth</label>
-        </div>
-  
-        <div class="field">
-          <input type="text" name ="PBreed">
-          <label> Pet Breed </label>
-        </div>
-  
-        <div class="content">
-        <div class="radio">
-         <label style="color: #617470;padding-right: 5%;font-size: larger;" for="gender">Gender:</label>
-            <input type="radio" name="gender" value="Male" >
-            <label for="male">male</label>
-            <input type="radio" name="gender" value="Female" >
-            <label for="female">female</label>
-        </div></div>
-  
-        <div class="content">
-          <div class="radio">
-        <label style="color: #617470;padding-right: 5%;font-size: larger; "for="Neutered Status">Neutered: </label>
-                  <input type="radio" name="NStatus" value="Spayed" >
-                  <label for="Spayed">Spayed</label>
-                  <input type="radio" name="NStatus" value="UnSpayed" >
-                  <label for="UnSpayed">UnSpayed</label><br>
-              </div></div>
-  
-              <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
-                  <input  type="file" id="myFile" name="vaccinations">
-              </div>
-        
-        <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
-          <input  type="file" id="myFile" name="MHistory">
-      </div>
-  
-  
-      <div style="padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
-          <input  type="file" id="myFile" name="Petphoto">
-      </div>
-  
-          <div  class="field">
-              <input type="submit" name="Update" value="Update">
-              <div class="content">
-                <a style="color: #617470;font-size: large;" href="PetProfile.html">Back</a>
-             </div>
-            </div>
-        </p>
-        </form>
-  
+
       
-  
-      </div>
+           
+            <div class="field">
+        <form method = "editpet.php" action = "POST">
+        <div class="field">
+            <input type="text" name ="PName"required>
+            <label>Pet Name</label>
+          </div>
+    
+          <div class="field">
+            <input style="color: #617470;" type="date" name ="date"   >
+            <label>Date Of Birth</label>
+          </div>
+        
+
+        <div class="field">
+            <input type="text" name ="PBreed"required>
+            <label> Pet Breed </label>
+          </div>
+
+          <div class="content">
+            <div class="radio" style="padding-top: 5%;">
+             <label style="color: #617470;padding-right: 5%;font-size: larger;" for="gender">Gender:</label>
+                <input type="radio" name="gender" value="Male"required >
+                <label for="male">male</label>
+                <input type="radio" name="gender" value="Female"required >
+                <label  for="female">female</label>
+            </div></div>
+
+            <div class="content">
+                <div class="radio">
+              <label style="color: #617470;padding-right: 5%;font-size: larger;" for="Neutered Status">Neutered:</label>
+                        <input type="radio" name="NStatus" value="Spayed" required>
+                        <label for="Spayed">Spayed</label>
+                        <input type="radio" name="NStatus" value="UnSpayed"required >
+                        <label for="UnSpayed">UnSpayed</label><br>
+                    </div></div>
+
+
+            <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
+                <input  type="file" id="myFile" name="vaccinations">
+            </div>
+      
+      <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
+        <input type="file" id="myFile" name="MHistory">
+    </div>
+
+
+    <div style=" padding-bottom:6%;padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+        <input  type="file" id="myFile" name="Petphoto">
+    </div>
+
+        <div class="field">
+            <input type="submit" value="Update" name="Update"> 
+          </div>
+           
+        </form>
+</div> 
+</div>
+
 
 
   </body>
-
-</html> 
