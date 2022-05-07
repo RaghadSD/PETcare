@@ -35,16 +35,15 @@
 ?>
 
 <!DOCTYPE html> 
-
-<html>
-    <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="Style1.css">
-<link rel="stylesheet" href="home page style.css">
+<html> 
+<head>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="Style1.css">
+  <link rel="stylesheet" href="home page style.css">
   <title>Edit Pet Profile </title>
   </head> 
+<body>
 
-  <body>
     <section class="header">
         <nav> 
             <a href="Manger homepage.html"> <img id=logo src="Image (2).jpeg"></a>
@@ -173,4 +172,4 @@
 
   </body>
 
-</html>
+</html> 
