@@ -164,7 +164,7 @@ if ($result) {
       </div>
   
           <div  class="field">
-              <input type="submit" name="Update" value="Update">
+              <input type="submit"  name ="Update" value="Update">
               <div class="content">
                 <a style="color: #617470;font-size: large;" href="PetProfile.html">Back</a>
              </div>
