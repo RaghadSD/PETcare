@@ -24,7 +24,7 @@
                  vaccinations ='$vaccinations',
                  MHistory ='$MHistory',
                  Petphoto ='$Petphoto',
-                    WHERE Id="dalal.ghesh@gmail.com" ";
+                    WHERE Id="112" ";
 
 $result = mysqli_query($database, $sql);
 if ($result) {
