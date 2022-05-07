@@ -12,7 +12,6 @@ if(isset($_POST['Update']))
     $email = $_POST['email'];
 
     $query ="UPDATE 'owner' set 
-    
     phoneNumber ='$_POST[phoneNumber]',
     profilePic ='$_POST[profilePic]', 
     Fname ='$_POST[Fname]',
@@ -117,12 +116,12 @@ if(isset($_POST['Update']))
             </div>
       
             <div class="field">
-              <input type="text" name ="FName">
+              <input type="text" name ="Fname">
               <label>First Name</label>
             </div>
       
             <div class="field">
-              <input type="text" name ="LName">
+              <input type="text" name ="Lname">
               <label>Last Name </label>
             </div>
        
