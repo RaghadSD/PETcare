@@ -42,7 +42,7 @@
 <meta charset="utf-8">
 <link rel="stylesheet" href="Style1.css">
 <link rel="stylesheet" href="home page style.css">
-  <title>Edit Pet Profile </title>
+  <title>Edit Pett Profile </title>
   </head> 
 
   <body>
