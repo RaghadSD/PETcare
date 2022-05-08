@@ -21,8 +21,7 @@ if(isset($_POST['Update']))
     profilePic='$profilePic',
      Fname='$Fname',
     Lname='$Lname',
-    WHERE email='$email';
-            ";
+    WHERE email='$email';";
 
 
     $query_run= mysqli_query($database, $query );
