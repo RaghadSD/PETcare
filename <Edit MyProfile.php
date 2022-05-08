@@ -21,7 +21,7 @@ phoneNumber='$phoneNumber',
 profilePic='$profilePic',
 Fname='$Fname',
 Lname='$Lname',
-WHERE email='$email';
+WHERE email='$email'
 ";
 
 
