@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -58,7 +57,7 @@
           <input type="file" id="myFile" name="profile">
       <p>
         <div class="field">
-          <input type="submit" value="Sign Up" name="create"> 
+          <input type="submit" value="Sign Up" name="create">
           <div class="content">
             <a style="color: #617470;font-size: large;" href="Login Form.html">Back</a>
          </div>
@@ -76,11 +75,23 @@
 
 
             if (isset($_POST['create'])) {
-
                 $FName = $_POST['FName'];
                 $LName = $_POST['LName'];
                 $email = $_POST['email'];
+                $isExist = isEmailExists($database, "owner", $email);
+                if($isExist == 1){
+                function_alert("Email is already exist, try to sign in");
+                exit();
+              }
+              $password = $_POST['password'];
+              $rePassword = $_POST['re_password'];
+              
+              if ( $password != $rePassword) {
+                function_alert("Oops! Password did not match! Try again.");
+                exit();
+              }
                 $password = $_POST['password'];
+                
                 $gender = $_POST['gender'];
                 $phone = $_POST['phone'];
                 $profile =$_POST['profile'];
@@ -90,25 +101,34 @@
                 if ($result) {
                     header('Location: Owner homepage.html');
                 } else {
-                    echo "Error: can not create new user!";
-                    echo  $database->error;
+                  function_alert( "Error: can not create new user!");
+                   // echo  $database->error;
                     exit();
                 }
             }
+
+
+            function isEmailExists($db, $tableName, $email){
+              // SQL Statement
+              $sql = "SELECT * FROM ".$tableName." WHERE email='".$email."'";
+              // Process the query
+              $results = $db->query($sql);
+              // Fetch Associative array
+              $row = $results->fetch_assoc();
+              // Check if there is a result and response to  1 if email is existing
+              return (is_array($row) && count($row)>0);
+            }
+
+            function function_alert($message) {
+      
+              // Display the alert box
+              echo "<script>alert('$message');</script>";
+          }
             ?>
 
 
 
 
-    </div>
-
-    <?php
-    if (isset($_POST['create'])) {
-        if ($_POST['Password'] != $_POST['re_password']) {
-            echo ("Oops! Password did not match! Try again. ");
-        }
-    }
-    ?>
 
   </body>
 </html>

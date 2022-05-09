@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 
 if (!($database = mysqli_connect("localhost", "root", "")))
@@ -11,23 +11,38 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 if(isset($_POST['login'])){
   $email=$_POST['email'];
   $password=$_POST['password'];
+  $who = $_POST['OnOrMa'];
+  if($who == "owner"){
+    $query="select * from owner where email='$email' AND password='$password' ";
+  }
+  else if ($who == "manager"){
+    $query="select * from manager where email='$email' AND password='$password' ";
+  }
 
-  $query="select * from manager where email='$email' AND password='$password' ";
 
   $result=mysqli_query($database, $query);
 
   if(mysqli_num_rows($result)>0){
     $_SESSION['email'] = $email;
+    if($who == "owner")
+    header('Location: Owner homepage.html');
+
+    else if ($who == "manager")
     header('Location: Manger homepage.html');
+
     exit();
   }
 
   else{
-    echo "You have entered incorrect Password/Email";
+    function_alert( "You have entered incorrect Password/Email");
   }
 
 }
-
+function function_alert($message) {
+      
+    // Display the alert box
+    echo "<script>alert('$message');</script>";
+}
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +57,18 @@ if(isset($_POST['login'])){
     <div class="wrapper">
       <div class="title">Login Form</div>
       <form action="login-manager.php" method="POST">
+
+
+        <div id=cont>
+        <label id = "qq">Are you?</label> <br>
+        
+        <input type="radio" id="Owner" name="OnOrMa" value="owner" required>
+        <label id="OnOrMa">Owner</label>
+
+        <input type="radio" id="Manager" name="OnOrMa" value="manager">
+        <label id="OnOrMa">Manager</label><br>
+        </div>
+
         <div class="field">
           <input type="email" name ="email" required>
           <label>Email Address</label>

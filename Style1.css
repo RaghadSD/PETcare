@@ -121,8 +121,25 @@ form .content .checkbox{
   align-items: center;
   justify-content: center;
 }
+#qq{
+  color: #617470;
+  margin-bottom: 20px;
+}
+#Manager , #Owner{
+  padding-left: 17px;
+  margin-top: 10px;
+}
+#OnOrMa{
+  padding-left: 1px;
+  margin-left: 3px;
+  align-items: center;
+  justify-content: center;
+  padding-right: 11px;
 
-
+}
+#cont{
+padding-left: 20px;
+}
 
 form .content .radio{
     display: flex;
@@ -238,5 +255,7 @@ form .signup-link a:hover{
 .logohome{
   float:left;
 }
+
+
 
 
