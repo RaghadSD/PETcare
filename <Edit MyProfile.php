@@ -17,12 +17,11 @@ if(isset($_POST['Update']))
     
 
     $query = "UPDATE `owner` SET 
-phoneNumber='$phoneNumber',
-profilePic='$profilePic',
-Fname='$Fname',
-Lname='$Lname',
-WHERE email='$email';
-";
+    phoneNumber='$phoneNumber',
+    profilePic='$profilePic',
+     Fname='$Fname',
+    Lname='$Lname',
+    WHERE email='$email';";
 
 
     $query_run= mysqli_query($database, $query );
