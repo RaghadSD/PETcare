@@ -23,7 +23,7 @@
                 $query = "INSERT INTO pet VALUES('$id','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','Dalal.ghesh@gmail.com')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
-                    header('Location: Owner homepage.html');
+                    
                     $id++;
                 } else {
                     echo "Error: can not Add new Pet!";
