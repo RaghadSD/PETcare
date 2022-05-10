@@ -24,6 +24,9 @@
   
 }
 
+#decoration{
+  text-decoration: none;
+}
 .editAboutt{
   display: inline-block;    
   border: 1.5px solid #b4c9d3;
@@ -336,6 +339,7 @@ background-color: transparent;
   justify-content: space-between;
   font-weight: 600;
   font-size: 13px;
+  text-decoration: none;
 }
 
 
@@ -349,6 +353,7 @@ padding: 10px;
   box-sizing: border-box;
   background-color: transparent ;
   letter-spacing: 2px;
+  text-decoration: none;
 
 
 }
@@ -357,12 +362,16 @@ background-image: linear-gradient(to right top, #b4c9d3, #b4c9d3, #b4c9d3, #b4c9
 color: #fff;
 border-radius: 20px;
 transition: 0.25s;
+text-decoration: none;
+
  
 }
 .active{
   background-image: linear-gradient(to right top, #b4c9d3, #b4c9d3, #b4c9d3, #b4c9d3, #b4c9d3);
   color: 617470;
   border-radius: 20px;
+  text-decoration: none;
+
 }
 
 

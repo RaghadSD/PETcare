@@ -1,3 +1,21 @@
+<?php 
+        
+    require "mail.php";
+
+    if(isset($_POST['sendM'])) {
+       $email = $_POST['Email'];
+       $message = $_POST['message'];
+       $Subject = $_POST['title'];
+       send_mail($email, $Subject, $message);
+       function_alert("Email has been sent successfully");
+    }
+
+    function function_alert($message) {
+        // Display the alert box
+        echo "<script>alert('$message');</script>";
+    }
+?>
+
 
 <!DOCTYPE HTML>
 <html>
@@ -151,9 +169,10 @@
                 and know how to put your pup at ease during any treatment.
             </p>
             <div class="words">
-                <span class="active">Thalassotherapy</span>
-                <span>Balneotherapy</span>
-                <span>Aromatherapy</span>
+               
+            <span class="active">Riyadh, Hitten</span>
+                <span ><a  href="tel:1-212-555-5555" style="text-decoration: none; color: #617470; background-color: transparent ;"> (212) 555-2368 </a></span>
+                <span ><a id ="words" href="mailto:PetCare@gmail.com" style="text-decoration: none; color: #617470; background-color: transparent ;">PetCare@gmail.com </a></span>
             </div>
         </div>
     </section>
@@ -166,23 +185,23 @@
 
             <!-- Left contact page -->
 
-            <form id="contact-form" class="form-horizontal" role="form">
+            <form id="contact-form" class="form-horizontal" role="form" method = "post" action = "Owner homepage.php">
 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="text" class="feilds" id="name" name="name" placeholder="NAME" required>
+                        <input type="text" class="feilds" id="name" name="title" placeholder="TITLE" required>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <div class="col-sm-12">
-                        <input type="email" class="feilds" id="email" name="email" placeholder="EMAIL" required>
+                        <input type="email" class="feilds" id="email" name="Email" placeholder="EMAIL" required>
                     </div>
                 </div>
 
                 <textarea class="feilds" id="message" rows="5" placeholder="MESSAGE" name="message" required></textarea>
 
-                <button class="send-button" id="submit" type="submit"> SEND </button>
+                <button class="send-button" name = "sendM" id="submit" type="submit"> SEND </button>
 
             </form>
 
@@ -197,7 +216,7 @@
                             </a></span></li>
 
                     <li class="list-item"><span class="contact-text email"><a href="mailto:PetCare@gmail.com">
-                                PetCare@gmail.com </span></li>
+                                PetCare@gmail.com </a></span></li>
                 </ul>
 
                 <hr>

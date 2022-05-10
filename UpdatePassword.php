@@ -99,28 +99,6 @@
           <input type="email" name ="Email"required>
           <label>Email Address</label>
         </div>
-
-
-       
-        
-        <!--
-
-        <div class="field">
-          <input type="text" name ="Code"required>
-          <label>Received Code</label>
-        </div>
-
-        <div class="field">
-            <input type="password" name ="Password"required>
-            <label> Password </label>
-          </div>
-   
-        <div class="field">
-          <input type="password" name ="Password"required>
-          <label> ReWrite Password </label>
-        </div> 
-        -->
-  
     
           <div class="field" style="padding-top:2% ;">
               <input name ="reset" type="submit" value="Update">

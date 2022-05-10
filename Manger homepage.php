@@ -134,9 +134,10 @@
                 and know how to put your pup at ease during any treatment.
             </p>
             <div class="words">
-                <span class="active">Thalassotherapy</span>
-                <span>Balneotherapy</span>
-                <span>Aromatherapy</span>
+                    
+            <span class="active">Riyadh, Hitten</span>
+                <span ><a  href="tel:1-212-555-5555" style="text-decoration: none; color: #617470; background-color: transparent ;"> (212) 555-2368 </a></span>
+                <span ><a id ="words" href="mailto:PetCare@gmail.com" style="text-decoration: none; color: #617470; background-color: transparent ;">PetCare@gmail.com </a></span>
             </div>
             <br> <br>
             <a href="edit-aboutus.html" class="editAbout"> Edit About us </a>
