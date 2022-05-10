@@ -54,7 +54,7 @@ if(isset($_POST['Update']))
   <body>
     <section class="header">
         <nav> 
-            <a href="Manger homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -96,7 +96,7 @@ if(isset($_POST['Update']))
                             </div>
                         </div>
                     </li>
-                    <li> <a href="Home.html"> Logout </a> </li>
+                    <li> <a href="logout.php"> Logout </a> </li>
                     <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 

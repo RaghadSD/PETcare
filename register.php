@@ -99,7 +99,7 @@
                 $query = "INSERT INTO owner VALUES('$email','$password','$gender','$phone','$profile','$FName','$LName')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
-                    header('Location: Owner homepage.html');
+                    header('Location: Manger homepage.php');
                 } else {
                   function_alert( "Error: can not create new user!");
                    // echo  $database->error;

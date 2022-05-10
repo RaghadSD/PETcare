@@ -24,10 +24,10 @@ if(isset($_POST['login'])){
   if(mysqli_num_rows($result)>0){
     $_SESSION['email'] = $email;
     if($who == "owner")
-    header('Location: Owner homepage.html');
+    header('Location: Owner homepage.php');
 
     else if ($who == "manager")
-    header('Location: Manger homepage.html');
+    header('Location: Manger homepage.php');
 
     
     $_SESSION['email'] = $email;
