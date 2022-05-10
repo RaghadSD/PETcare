@@ -59,7 +59,7 @@
         <div class="field">
           <input type="submit" value="Sign Up" name="create">
           <div class="content">
-            <a style="color: #617470;font-size: large;" href="Login Form.html">Back</a>
+            <a style="color: #617470;font-size: large;" href="login-manager.php">Back</a>
          </div>
 
           </div>

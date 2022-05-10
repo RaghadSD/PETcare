@@ -1,6 +1,4 @@
 <?php
-
-
 if (!($database = mysqli_connect("localhost", "root", "")))
                 die("<p>Could not connect to database</p>");
 
@@ -82,7 +80,7 @@ function function_alert($message) {
             <input type="checkbox" id="remember-me">
             <label for="remember-me">Remember me</label>
           </div>
-          <div class="pass-link"><a href="Update Password -manger.html">Forgot password?</a></div>
+          <div class="pass-link"><a href="UpdatePassword.php">Forgot password?</a></div>
         </div>
         <!-- <div class="field">
           <input type="submit" value="Login" >
