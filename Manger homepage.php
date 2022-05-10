@@ -36,7 +36,7 @@
                             </div>
                         </li>
                         <li> <a href="Reviews.html"> Owners Review </a> </li>
-                        <li> <a href="Home.html"> Logout </a> </li>
+                        <li> <a href="logout.php"> Logout </a> </li>
                         <li> <a href="owners.html"> Contact </a> </li>
                     </ul>
     

@@ -5,6 +5,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
 
+                session_start();
 
 if(isset($_POST['login'])){
   $email=$_POST['email'];
@@ -28,6 +29,9 @@ if(isset($_POST['login'])){
     else if ($who == "manager")
     header('Location: Manger homepage.html');
 
+    
+    $_SESSION['email'] = $email;
+    $_SESSION['password'] = $password;
     exit();
   }
 

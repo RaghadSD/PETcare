@@ -54,7 +54,7 @@
                             </div>
                         </div>
                     </li>
-                    <li> <a href="Home.html"> Logout </a> </li>
+                    <li> <a href="logout.php"> Logout </a> </li>
                     <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
