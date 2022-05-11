@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location:login.php");
+    header("location: login.php");
     exit();
 }
 
@@ -49,7 +49,7 @@ if (isset($_POST['update'])) {
     <body >
     <section class="header">
         <nav> 
-            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -109,20 +109,30 @@ if (isset($_POST['update'])) {
         <div class="title"> Edit My Profile</div>
 
                 <form id="addform" action="dalalabout.php" method="POST" enctype="multipart/form-data">
+
+                <?php
+
+
+                   $query3 = "SELECT * FROM owner";
+                   $result3 = mysqli_query($database,$query3);
+
+
+                   $rows2 = mysqli_fetch_array($result3);?>
+
                    
                         <div class="field">
-                            <input type="text" name ="Fname">
+                            <input type="text" name ="Fname" value="<?php echo $rows2['Fname'];?>">
                             <label>First Name</label>
                         </div>
 
                         <div class="field">
-                            <input type="text" name ="Lname">
+                            <input type="text" name ="Lname" value="<?php echo $rows2['Lname'];?> ">
                             <label>Last Name </label>
                         </div>
 
 
                         <div class="field">
-                            <input type="tel" name ="phoneNumber">
+                            <input type="tel" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
                             <label> Phone Number </label>
                         </div>					
 
@@ -130,11 +140,9 @@ if (isset($_POST['update'])) {
                         <lable style="color: #617470;" for="myfile">Change Profile photo?</label>
                         <input type="file" id="fileToUpload1" name="fileToUpload1"  > 
 
-                        <!--<input type="hidden" id="id" name="id" value="<?php// echo $id ?>"-->
-
                         <br><br>
                         <div class="field">
-                        <input type="submit" value="update" name="update" onclick="check();" />
+                        <input type="submit" value="update" name="update" />
                         </div>
                    
 
