@@ -1,4 +1,5 @@
 <?php 
+        session_start();
         
     require "mail.php";
 
@@ -69,7 +70,7 @@
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
                                 <a href="MyProfile.html"> View My Profile </a>
-                                <a href="Edit My Profile.html"> Edit My Profile </a>
+                                <a href="dalalabout.php"> Edit My Profile </a>
                             </div>
                         </div>
                     </li>

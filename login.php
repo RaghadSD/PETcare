@@ -1,5 +1,5 @@
 <?php 
-
+  session_start();
 
 if (!($database = mysqli_connect("localhost", "root", "")))
                 die("<p>Could not connect to database</p>");
@@ -18,7 +18,7 @@ if(isset($_POST['login'])){
 
   if(mysqli_num_rows($result)>0){
     $_SESSION['email'] = $email;
-    header('Location: Owner homepage.html');
+    header('Location: Owner homepage.php');
     exit();
   }
 
