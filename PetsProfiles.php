@@ -97,7 +97,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
      $emaill = $_SESSION['email'];
 
-   $query="SELECT * FROM `pet` ";
+   $query="SELECT * FROM `pet` WHERE emailO='$emaill'";
    $result = mysqli_query($database, $query);
 
    if ($result) {
@@ -112,7 +112,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
           <td> <a href ="coco-manager.html"> <button>'.$name.'</button></a> </td>
           <td> '.$gender.'</td>
           <td><button> <a href="add Pet.html"> View </a> </button> 
-           <button><a href="add Pet.html"> Edit </a></button>
+           <button><a href="UpdatePetProfile.php?Updateid='.$id.'"> Edit </a></button>
             <button><a href="Delete.php?deleteid='.$id.'"> Delete </a></button></td> 
           
 
