@@ -73,7 +73,7 @@ if (isset($_POST['update'])) {
                         <div class="dropdown">
                             <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.html"> Book Appointment </a>
+                                <a href="Book Appointment.php"> Book Appointment </a>
                                 <a href="Appointment requests.html"> Appointment Requests </a>
                                 <a href="Upcoming appointments.html"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.html"> Previous Appointment </a>

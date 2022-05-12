@@ -1,3 +1,50 @@
+<?php
+
+session_start();
+
+$ID = $_SESSION['ID'];
+
+if (!isset($_SESSION['email']) ) { 
+    header("location: login.php");
+    exit();
+}
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "petcare1"))
+die("<p>Could not open URL database</p>");
+
+if(isset($_POST['book'])){
+
+    $petName = $_POST['pet'];
+    $service = $_POST['service'];
+    $date = $_POST['date'];
+    $time = $_POST['time'];
+    $note = $_POST['Notes'];
+
+   
+    $petID = "SELECT id From pet where idO = $ID " ;
+    $result = mysqli_query($database, $petID);
+    $query_executed = mysqli_fetch_assoc ($result);
+    $petID = $query_executed['id'];
+    
+$query = "INSERT INTO appointment VALUES (DEFAULT , DEFAULT, '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$ID')";
+if ($result=mysqli_query($database, $query))
+function_alert("Appointment requested successfully");
+
+
+
+
+}
+function function_alert($message) {
+      
+    // Display the alert box
+    echo "<script>alert('$message');</script>";
+}
+               
+
+?>
 <!DOCTYPE html> 
 
 <html>
@@ -35,10 +82,10 @@
                         <div class="dropdown">
                             <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.html"> Book Appointment </a>
-                                <a href="Appointment requests.html"> Appointment Requests </a>
-                                <a href="Upcoming appointments.html"> Upcoming Appointment </a>
-                                <a href="Previous Appointments.html"> Previous Appointment </a>
+                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Appointment requests.php"> Appointment Requests </a>
+                                <a href="Upcoming appointments.php"> Upcoming Appointment </a>
+                                <a href="Previous Appointments.php"> Previous Appointment </a>
 
                             </div>
                         </div>
@@ -68,29 +115,42 @@
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title">Book Appointment</div>
        
-  
+  <!-- <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
+             <option value="Millow" >Millo</option>
+             <option value="CoCo">CoCo</option>
+             <option value="Louis">Louis</option>
+           </select> -->
         <div class="field">
-            <form method = "post" action = "#">
+            <form method = "post" action = "Book Appointment.php">
   
   
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
-             <option value="Millow" >Millo</option>
-             <option value="CoCo">CoCo</option>
-             <option value="Louis">Louis</option>
-           </select>
+            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
+            <option disabled selected>Choose your pet</option>
+            <?php
+
+            $records = mysqli_query($database, "SELECT name From pet where idO = '$ID';");
+
+            while ($data = mysqli_fetch_array($records)) {
+            echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . "</option>";
+             }
+             ?>
+            </select>
            </div></div>
 
 
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="pet" id="pet">
-             <option value="Classic Bath,Brush & Nails" >Classic Bath,Brush & Nails</option>
-             <option value="Deluxe Bath,Brush & Nails">Deluxe Bath,Brush & Nails</option>
-             <option value="Spaying Surgery">Spaying Surgery</option>
-             <option value="Exams & Consultations">Exams & Consultations</option>
-             <option value="Dentistry">Dentistry</option>
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="service" id="pet">
+           <option disabled selected>Choose service</option>
+        <?php
+        $records = mysqli_query($database, "SELECT name From service");
+
+        while ($data = mysqli_fetch_array($records)) {
+            echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . "</option>";
+        }
+        ?>
            </select>
            </div></div> 
            
@@ -112,7 +172,7 @@
           </div>
 
         <div class="field">
-            <input type="submit" value="Book">
+            <input name= "book" type="submit" value="Book">
           </div>
 
      
