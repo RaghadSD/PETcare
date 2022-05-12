@@ -23,13 +23,12 @@ if(isset($_POST['book'])){
     $time = $_POST['time'];
     $note = $_POST['Notes'];
 
-   
-    $petID = "SELECT id From pet where idO = $ID " ;
+    $petID = "SELECT id From pet where idO = $ID && name ='$petName' " ;
     $result = mysqli_query($database, $petID);
     $query_executed = mysqli_fetch_assoc ($result);
     $petID = $query_executed['id'];
     
-$query = "INSERT INTO appointment VALUES (DEFAULT , DEFAULT, '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$ID')";
+$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$ID')";
 if ($result=mysqli_query($database, $query))
 function_alert("Appointment requested successfully");
 
@@ -115,23 +114,17 @@ function function_alert($message) {
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title">Book Appointment</div>
        
-  <!-- <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
-             <option value="Millow" >Millo</option>
-             <option value="CoCo">CoCo</option>
-             <option value="Louis">Louis</option>
-           </select> -->
         <div class="field">
             <form method = "post" action = "Book Appointment.php">
   
   
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
+            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet2" id="pet">
             <option disabled selected>Choose your pet</option>
+           
             <?php
-
             $records = mysqli_query($database, "SELECT name From pet where idO = '$ID';");
-
             while ($data = mysqli_fetch_array($records)) {
             echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . "</option>";
              }
@@ -142,17 +135,21 @@ function function_alert($message) {
 
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="service" id="pet">
-           <option disabled selected>Choose service</option>
-        <?php
-        $records = mysqli_query($database, "SELECT name From service");
 
-        while ($data = mysqli_fetch_array($records)) {
-            echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . "</option>";
-        }
-        ?>
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="service" id="service">
+
+           <option disabled selected>Choose service</option>
+
+           <?php
+           $records = mysqli_query($database, "SELECT name From service");
+       
+           while ($data = mysqli_fetch_array($records)) {
+                echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . "</option>";
+            }
+            ?>
            </select>
-           </div></div> 
+           </div>
+        </div> 
            
            <div class="field">
             <input type="date" name ="date" >

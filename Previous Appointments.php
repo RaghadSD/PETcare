@@ -1,3 +1,40 @@
+<?php
+if (!($database = mysqli_connect("localhost", "root", "")))
+die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "petcare1"))
+die("<p>Could not open URL database</p>");
+
+session_start();
+$ID = $_SESSION['ID'];
+
+if (!isset($_SESSION['email']) ) { 
+    header("location: login.php");
+    exit();
+}
+
+$today = date("Y-m-d");
+$today_time = strtotime($today);
+                       
+$result = mysqli_query($database, "SELECT * From appointment");
+while($row = mysqli_fetch_array($result)) {
+$isPrev = $row['date'];
+$id = $row['id'];
+
+$expire_time = strtotime($isPrev);
+
+if ($expire_time < $today_time) { 
+
+    $query = "UPDATE appointment SET status = 'previous' WHERE id = '$id' ;";
+
+    mysqli_query($database, $query);
+}       
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html>
     <head>
@@ -31,10 +68,10 @@
                             <div class="dropdown">
                                 <button class="dropbtn"> My Appointments </button>
                                 <div class="dropdown-content">
-                                    <a href="Book Appointment.html"> Book Appointment </a>
-                                    <a href="Appointment requests.html"> Appointment Requests </a>
-                                    <a href="Upcoming appointments.html"> Upcoming Appointment </a>
-                                    <a href="Previous Appointments.html"> Previous Appointment </a>
+                                    <a href="Book Appointment.php"> Book Appointment </a>
+                                    <a href="Appointment requests.php"> Appointment Requests </a>
+                                    <a href="Upcoming appointments.php"> Upcoming Appointment </a>
+                                    <a href="Previous Appointments.php"> Previous Appointment </a>
     
                                 </div>
                             </div>
@@ -44,12 +81,12 @@
                             <div class="dropdown">
                                 <button class="dropbtn"> My Profile </button>
                                 <div class="dropdown-content">
-                                    <a href="MyProfile.html"> View My Profile </a>
-                                    <a href="Edit My Profile.html"> Edit My Profile </a>
+                                    <a href="MyProfile.php"> View My Profile </a>
+                                    <a href="Edit My Profile.php"> Edit My Profile </a>
                                 </div>
                             </div>
                         </li>
-                        <li> <a href="Home.html"> Logout </a> </li>
+                        <li> <a href="logout.php"> Logout </a> </li>
                     </ul>
     
     
@@ -61,8 +98,43 @@
     
         </section>
         
-            <h1>My Previous Appointments</h1>
-            
+            <h1 style = "text-alignment = center;" >My Previous Appointments</h1>
+            <?php
+echo "<div class='main'>";
+
+
+
+$result = mysqli_query($database,"SELECT * FROM appointment where status ='previous' && idO= '$ID'");
+
+echo "<table>
+<thead>
+<tr>
+<th> Pet Name </th>
+<th>Service</th>
+<th> Date </th>
+<th> Time </th>
+<th> Review </th>
+</tr>
+</thead> ";
+
+
+while($row = mysqli_fetch_array($result)) {
+    echo "<tr>";
+    echo "<td>" . $row['id'] . "</td>";
+    echo "<td>" . $row['serviceName'] . "</td>";
+    echo "<td>" . $row['date'] . "</td>";
+    echo "<td>" . $row['time'] . "</td>";    
+    echo "<td> <button onclick='location.href='WriteReview.php'' class='edit' type='button'>Review</button> </td>";
+
+    //echo "<td>" . $row['review'] . "</td>";
+
+    echo "</tr>";
+}
+echo "</table>";
+
+
+?>
+      <!--  
            
         <table>
            <thead>
@@ -97,9 +169,7 @@
 
         </table>
        
-    
+-->  
             
-            
-        </table>
-    </body>
+  </body>
 </html>
