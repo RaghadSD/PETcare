@@ -1,9 +1,16 @@
-<?php
-if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
+<?php 
+session_start();
 
-if (!mysqli_select_db($database, "petcare1"))
-    die("<p>Could not open URL database</p>");
+if (!isset($_SESSION['email']) ) { 
+    header("location: login.php");
+    exit();
+}
+
+if (!($database = mysqli_connect("localhost", "root", "")))
+                die("<p>Could not connect to database</p>");
+
+            if (!mysqli_select_db($database, "petcare1"))
+                die("<p>Could not open URL database</p>");
 
             if (isset($_POST['Add'])) {
 
@@ -17,17 +24,19 @@ if (!mysqli_select_db($database, "petcare1"))
                 $Petphoto =$_POST['Petphoto'];
 
                 $id =000; 
+                $emaill = $_SESSION['email'];
 
-                $query = "INSERT INTO pet VALUES('$id','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','Dalal.ghesh@gmail.com')";
-                $result = mysqli_query($database, $query);
-                if ($result) {
-                    
-                    $id++;
+                $query = "INSERT INTO pet VALUES('$id','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','$emaill')";
+                $r_update = mysqli_query($database, $query);
+                if ($r_update) {
+                    echo "<script>alert('Pet has been Add successfully')</script>";
+                    header("location: PetsProfiles.php");
                 } else {
-                    echo "Error: can not Add new Pet!";
+                    echo "<script>alert('Error: can not Add new Pet!')</script>";
                     echo  $database->error;
                     exit();
                 }
+            
             }
             ?>
 
@@ -100,7 +109,7 @@ if (!mysqli_select_db($database, "petcare1"))
     </section>
 
 
-    <div class="wrapper" style="margin-top:-48% ;">
+    <div class="wrapper" style="margin-top:-45% ;">
         <div class="title">Add Pet</div>
         
         <div class="field">

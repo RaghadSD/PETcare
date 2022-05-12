@@ -1,47 +1,58 @@
-<?php
-            if (!($database = mysqli_connect("localhost", "root", "")))
+
+<?php 
+session_start();
+
+if (!isset($_SESSION['email']) ) { 
+    header("location: login.php");
+    exit();
+}
+
+if (!($database = mysqli_connect("localhost", "root", "")))
                 die("<p>Could not connect to database</p>");
 
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
 
-                if(isset($_POST['Update']))
-                {
-                    $id = $_POST['id'];
+            if (isset($_POST['Update'])) {
 
-                    $query ="UPDATE 'pet' SET 
-                    PName = '$_POST[PName]',
-                    date = '$_POST[date]',
-                PBreed = '$_POST[PBreed]',
-                gender = '$_POST[gender]',
-                NStatus = '$_POST[NStatus]',
-                vaccinations ='$_POST[vaccinations]',
-                MHistory ='$_POST[MHistory]',
-                Petphoto ='$_POST[Petphoto]',
-                where id ='$_POST[id]'";
-                $query_run = mysqli_query($database,$query);
-                
-                if($query_run){
-                    echo '<script type ="text/javascript"> alert ("data updated")</script>';
-                    header('Location:  Pet profiles .html');
-                }
-                else{
-                    echo '<script type ="text/javascript"> alert ("data not updated")</script>';
+                $PName = $_POST['PName'];
+                $date = $_POST['date'];
+                $PBreed = $_POST['PBreed'];
+                $gender = $_POST['gender'];
+                $NStatus = $_POST['NStatus'];
+                $vaccinations =$_POST['vaccinations'];
+                $MHistory =$_POST['MHistory'];
+                $Petphoto =$_POST['Petphoto'];
+
+                $emaill = $_SESSION['email'];
+
+               
+                    $id=$_GET['Updateid'];
+
+
+                $query ="UPDATE `pet` SET `name`='$PName',`medHistory`='$MHistory',`vaccinations`='$vaccinations',`profilePic`='$Petphoto',`gender`='$gender',`breed`='$PBreed',`DOB`='$date',`neuterStatus`='$NStatus' WHERE Id='$id'";
+
+                $r_update = mysqli_query($database, $query);
+                if ($r_update) {
+                    echo "<script>alert('Pet has been Updated successfully')</script>";
+                   header("location: petsprofiles.php");
+                } else {
+                    echo "<script>alert('Error: can not Update Pet!')</script>";
                     echo  $database->error;
                     exit();
-                   }
-
-                
-?>
+                }
+            
+            }
+            ?>
 
 <!DOCTYPE html> 
 
 <html>
     <head>
-<meta charset="utf-8">
-<link rel="stylesheet" href="Style1.css">
-<link rel="stylesheet" href="home page style.css">
-  <title> Edit Pet Profile</title>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="Style1.css">
+ <link rel="stylesheet" href="home page style.css">
+  <title> Update Pet Profile </title>
   </head> 
 
   <body>
@@ -103,13 +114,13 @@
     </section>
 
 
-    <div class="wrapper" style="margin-top:-48% ;">
-        <div class="title">Edit Pet Profile</div>
-
+    <div class="wrapper" style="margin-top:-45% ;">
+        <div class="title">Update Pet Profile</div>
+        
+        <div class="field">
+        <form action="" method="POST">
+        
       
-           
-            <div class="field">
-        <form method = "editpet.php" action = "POST">
         <div class="field">
             <input type="text" name ="PName"required>
             <label>Pet Name</label>
