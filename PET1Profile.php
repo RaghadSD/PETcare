@@ -17,14 +17,15 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 ?> 
 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Pets Profiles</title>
-    <link rel = "stylesheet" href = "table-style.css">
-</head>
-<body>
+<html>
+    <head>
+ <meta charset="utf-8">
+ <link rel="stylesheet" href="Style1.css">
+ <link rel="stylesheet" href="home page style.css">
+  <title>Pet Profile</title>
+  </head> 
+
+  <body>
     <section class="header">
         <nav> 
             <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
@@ -82,52 +83,70 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
     </section>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th> Pet Name </th>
-                <th>Gender </th>
-                <th> Manage </th>
-            </tr>
-        </thead>
 
-        <tbody>
-     <?php
+    <div class="wrapper" style="margin-top:-48% ;">
+        <div class="title"> Pet Profile</div>
+       
+        <div class="field">
+  
+     <form>  
 
-     $emaill = $_SESSION['email'];
+     <img style="padding-left: 12%;border-radius: 90%; ;" src="images/images.jpeg" alt="Pet photo">
 
-   $query="SELECT * FROM `pet` WHERE emailO='$emaill'";
-   $result = mysqli_query($database, $query);
+     <?php  
 
-   if ($result) {
-       while(  $row= mysqli_fetch_assoc($result)){
-        $id=$row['Id'];
-        $name=$row['name'];
-        $gender=$row['gender'];
+        if(isset($_GET['Viewid'])){
+          $id=$_GET['Viewid'];
 
+    $query="SELECT * FROM `pet` WHERE Id='$id'";
 
-          echo  ' <tr>
-          <td> '.$id.'</td>
-          <td> <a href ="coco-manager.html"> <button>'.$name.'</button></a> </td>
-          <td> '.$gender.'</td>
-          <td> <button><a href="PET1Profile.php?Viewid='.$id.'"> View </a></button>
-           <button><a href="UpdatePetProfile.php?Updateid='.$id.'"> Edit </a></button>
-            <button><a href="Delete.php?deleteid='.$id.'"> Delete </a></button></td> 
-          
+    $result = mysqli_query($database, $query);
+    if ($result) {                   
+     $row= mysqli_fetch_assoc($result);
+     $name=$row['name'];
+     $gender=$row['gender'];
+     $vaccinations=$row['vaccinations'];
+     $profilePic=$row['profilePic'];
+     $breed=$row['breed'];
+     $DOB=$row['DOB'];
+     $neuterStatus=$row['neuterStatus'];
+     //echo "<script>alert('Error: Can get profile info!')</script>";
+     echo  ' <div class="content">
+     <p> <lable style="color: #617470;font-size: x-large;padding-top: 20%;">'.$name.' </p>
+  </div>
 
-      </tr>';
-}
+  <div class="content">
+     <p> <lable style="color: #000000;font-size: large;"> '.$breed.' </p>
+  </div>
+  
+  <div class="content">
+     <p> <lable style="color: #617470;font-size: large;"> '.$gender.' </p>
+  </div>
+   <div class="content" >
+     <p>  Date Of Birth: '.$DOB.'</p>
+    
+  </div>
 
-   } else {
-       echo "<script>alert('Error: Cannot get profiles!')</script>";
-       echo  $database->error;
+   <div class="content">
+     <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
+  </div>
+
+   
+  <div class="signup-link">View Owner? <a href="OwnerProfile.php">Owner</a></div>'
+  ;
+    
+        } else {
+      echo "<script>alert('Error: Cannot Delete Pet!')</script>";
+      echo  $database->error;
        exit();
-   }   
-     ?>       
-        </tbody> 
-    </table>
-    <br>
+      }
 
-</body>
-</html>
+}
+       ?>       
+        
+        </form>
+
+
+
+  </body>
+  </html> 
