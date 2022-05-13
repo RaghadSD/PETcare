@@ -108,7 +108,7 @@ if (isset($_POST['update'])) {
         <div class="wrapper" style="margin-top:-48% ;">
         <div class="title"> Edit My Profile</div>
 
-                <form id="addform" action="dalalabout.php" method="POST" enctype="multipart/form-data">
+                <form id="addform" action="UpdateOwnerProfile.php" method="POST" enctype="multipart/form-data">
 
                 <?php
 
