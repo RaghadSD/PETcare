@@ -27,6 +27,7 @@ if (isset($_POST['update'])) {
         $r_update = mysqli_query($database, $query);
         if ($r_update) {
             echo "<script>alert('profile has been updated successfully')</script>";
+            header("location: OwnerProfile.php");
         } else {
             echo "<script>alert('Error: Cannot update profile!')</script>";
             echo  $database->error;
