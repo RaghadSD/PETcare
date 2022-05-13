@@ -23,7 +23,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                       header("location: logout.php");
                   } else {
                       echo "<script>alert('Error: Cannot Delete!, you have to delete your pets first')</script>";
-                      echo  $database->error;
+                      echo  "location: petsProfiles.php");
                       exit();
                   }
 
