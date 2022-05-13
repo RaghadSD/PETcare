@@ -22,7 +22,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 <meta charset="utf-8">
 <link rel="stylesheet" href="Style1.css">
 <link rel="stylesheet" href="home page style.css">
-  <title> Add Pet </title>
+  <title>My Profile</title>
   </head> 
 
   <body>
@@ -109,7 +109,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $gender=$row['gender'];
         
         
-        echo "<script>alert('Error: Can get profile info!')</script>";
+        // echo "<script>alert('Error: Can get profile info!')</script>";
        
 
           echo  '<div class="content">
