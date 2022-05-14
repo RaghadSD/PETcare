@@ -9,14 +9,13 @@ session_start();
 $ID = $_SESSION['ID'];
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: manager.php");
     exit();
 }
 
-
-
-
-
+$today = date("Y-m-d");
+$today_time = strtotime($today);
+   
 ?>
 <!DOCTYPE html>
 <html>
@@ -87,7 +86,7 @@ echo "<div class='main'>";
 
 
 
-$result = mysqli_query($database,"SELECT * FROM appointment where status ='previous' && idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
 
 echo "<table>
 <thead>
@@ -102,11 +101,6 @@ echo "<table>
 
 
 while($row = mysqli_fetch_array($result)) {
-    $today = date("Y-m-d");
-$today_time = strtotime($today);
-                       
-$result = mysqli_query($database, "SELECT * From appointment");
-while($row = mysqli_fetch_array($result)) {
 $isPrev = $row['date'];
 $id = $row['id'];
 
@@ -119,13 +113,12 @@ if ($expire_time < $today_time) {
     echo "<td>" . $row['serviceName'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['time'] . "</td>";    
-    echo "<td> <button onclick='location.href='WriteReview.php'' class='edit' type='button'>Review</button> </td>";
+    echo "<td> <a href='WriteReview.php?Updateid='.$id.''> <button>  Review</button> </a> </td>";
+
 
     //echo "<td>" . $row['review'] . "</td>";
 
     echo "</tr>";
-}       
-
 }
 }
 echo "</table>";
