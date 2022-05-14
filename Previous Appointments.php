@@ -33,43 +33,46 @@ $today_time = strtotime($today);
     
                 <div class="header-links">
     
-                    <ul>
-                       
-    
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"> My pets </button>
-                                <div class="dropdown-content">
-                                    <a href="add Pet.html"> Add Pet </a>
-                                    <a href="Pet Profiles .html"> View My Pets </a>
-                                </div>
+                <ul>
+                    <li > <a href="#ABOUTUS"> About </a> </li>
+                    <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
+                    <li> <a href="#services"> Services </a> </li>
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn"> My pets </button>
+                            <div class="dropdown-content">
+                                <a href="AddPet.php"> Add Pet </a>
+                                <a href="PetsProfiles.php"> View My Pets </a>
                             </div>
-                        </li>
-    
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"> My Appointments </button>
-                                <div class="dropdown-content">
-                                    <a href="Book Appointment.php"> Book Appointment </a>
-                                    <a href="Appointment requests.php"> Appointment Requests </a>
-                                    <a href="Upcoming appointments.php"> Upcoming Appointment </a>
-                                    <a href="Previous Appointments.php"> Previous Appointment </a>
-    
-                                </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn"> My Appointments </button>
+                            <div class="dropdown-content">
+                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Appointment requests.php"> Appointment Requests </a>
+                                <a href="Upcoming appointments.php"> Upcoming Appointment </a>
+                                <a href="Previous Appointments.php"> Previous Appointment </a>
+
                             </div>
-                        </li>
-    
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"> My Profile </button>
-                                <div class="dropdown-content">
-                                    <a href="MyProfile.php"> View My Profile </a>
-                                    <a href="Edit My Profile.php"> Edit My Profile </a>
-                                </div>
+                        </div>
+                    </li>
+
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn"> My Profile </button>
+                            <div class="dropdown-content">
+                                <a href="OwnerProfile.php"> View My Profile </a>
+                                <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
                             </div>
-                        </li>
-                        <li> <a href="logout.php"> Logout </a> </li>
-                    </ul>
+                        </div>
+                    </li>
+                    <li> <a href="logout.php"> Logout </a> </li>
+                    <li> <a href="#contact"> Contact </a> </li>
+                </ul>
     
     
                 </div>
@@ -102,18 +105,23 @@ echo "<table>
 
 while($row = mysqli_fetch_array($result)) {
 $isPrev = $row['date'];
-$id = $row['id'];
-
 $expire_time = strtotime($isPrev);
 
 if ($expire_time < $today_time) { 
 
     echo "<tr>";
-    echo "<td>" . $row['id'] . "</td>";
+    $petid = $row['petId'];
+    $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
+    $query_executed = mysqli_fetch_assoc ($records);
+    $petName = $query_executed['name'];
+    $id = $row['id'];
+
+    echo "<td>" . $petName . "</td>";
     echo "<td>" . $row['serviceName'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['time'] . "</td>";    
-    echo "<td> <a href='WriteReview.php?Updateid='.$id.''> <button>  Review</button> </a> </td>";
+
+    echo '<td> <a href="WriteReview.php?reviewId= $id "> <button>  Review</button> </a> </td>';
 
 
     //echo "<td>" . $row['review'] . "</td>";
@@ -125,42 +133,6 @@ echo "</table>";
 
 
 ?>
-      <!--  
-           
-        <table>
-           <thead>
-               <tr>
-                <th> Pet Name </th>
-                <th>Service</th>
-                <th> Date </th>
-                <th> Time </th>
-                <th> Review </th>
-               </tr>
-           </thead> 
-           
-           <tbody>
-               <tr>
-               <td>Leo</td>
-               <td>Spaying Surgery</td>
-               <td>09/12/2021</td>
-               <td><time>16:30</time></td>
-               <td><button onclick="location.href='Write review.html'">Review</button> 
-               </tr>
-               
-               <tr>
-                <td>Leo</td>
-                <td>Shaving & Haircut</td>
-                <td>08/12/2021</td>
-                <td><time>12:30</time></td>
-                <td><button onclick="location.href='Write review.html'">Review</button> 
-                    
-
-               </tr>
-           </tbody>
-
-        </table>
-       
--->  
             
   </body>
 </html>

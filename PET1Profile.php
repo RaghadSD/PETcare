@@ -7,13 +7,10 @@ if (!isset($_SESSION['email']) ) {
 }
 
 if (!($database = mysqli_connect("localhost", "root", "")))
-                die("<p>Could not connect to database</p>");
+    die("<p>Could not connect to database</p>");
 
-            if (!mysqli_select_db($database, "petcare1"))
-                die("<p>Could not open URL database</p>");
-                
-
-  // $emaill = $_SESSION['email'];
+if (!mysqli_select_db($database, "petcare1"))
+die("<p>Could not open URL database</p>");
 ?> 
 
 
@@ -42,8 +39,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
-                                <a href="add Pet.html"> Add Pet </a>
-                                <a href="Pet Profiles .html"> View My Pets </a>
+                                <a href="add Pet.php"> Add Pet </a>
+                                <a href="Pet Profiles .php"> View My Pets </a>
                             </div>
                         </div>
                     </li>
@@ -52,10 +49,10 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.html"> Book Appointment </a>
-                                <a href="Appointment requests.html"> Appointment Requests </a>
-                                <a href="Upcoming appointments.html"> Upcoming Appointment </a>
-                                <a href="Previous Appointments.html"> Previous Appointment </a>
+                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Appointment requests.php"> Appointment Requests </a>
+                                <a href="Upcoming appointments.php"> Upcoming Appointment </a>
+                                <a href="Previous Appointments.php"> Previous Appointment </a>
 
                             </div>
                         </div>
@@ -65,8 +62,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="MyProfile.html"> View My Profile </a>
-                                <a href="Edit My Profile.html"> Edit My Profile </a>
+                                <a href="MyProfile.php"> View My Profile </a>
+                                <a href="Edit My Profile.php"> Edit My Profile </a>
                             </div>
                         </div>
                     </li>

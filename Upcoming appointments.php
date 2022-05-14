@@ -45,7 +45,7 @@ if ($expire_time < $today_time) {
 <body>
     <section class="header">
         <nav> 
-            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -57,8 +57,8 @@ if ($expire_time < $today_time) {
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
-                                <a href="add Pet.html"> Add Pet </a>
-                                <a href="Pet Profiles .html"> View My Pets </a>
+                                <a href="add Pet.php"> Add Pet </a>
+                                <a href="Pet Profiles .php"> View My Pets </a>
                             </div>
                         </div>
                     </li>
@@ -80,7 +80,7 @@ if ($expire_time < $today_time) {
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="MyProfile.html"> View My Profile </a>
+                                <a href="MyProfile.php"> View My Profile </a>
                                 <a href="Edit My Profile.php"> Edit My Profile </a>
                             </div>
                         </div>
@@ -105,7 +105,7 @@ echo "<div class='main'>";
 
 
 
-$result = mysqli_query($database,"SELECT * FROM appointment where status ='upcoming' && idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
 
 echo " 
 <table>
@@ -115,12 +115,18 @@ echo "
         <th> Service </th>
         <th> Date </th>
         <th> Time </th>
-    
+        <th> Cancel </th>
+
     </tr>
 </thead> ";
 
-
 while($row = mysqli_fetch_array($result)) {
+    $isPrev = $row['date'];
+    $id = $row['id'];
+
+    $expire_time = strtotime($isPrev);
+    
+    if ($expire_time > $today_time) { 
     echo "<tr>";
 
     $petid = $row['petId'];
@@ -132,7 +138,10 @@ while($row = mysqli_fetch_array($result)) {
     echo "<td>" . $row['serviceName'] . "</td>";
     echo "<td>" . $row['date'] . "</td>";
     echo "<td>" . $row['time'] . "</td>";
+    echo "<td> <a href='Cancel.php?reviewId='.$id.''> <button> Cancel </button> </a> </td>";
+
     echo "</tr>";
+}
 }
 echo "</table>";
 

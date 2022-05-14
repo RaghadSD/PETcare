@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login-managers.php");
     exit();
 }
 
