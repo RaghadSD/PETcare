@@ -112,9 +112,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
           <td> <a href ="coco-manager.html"> <button>'.$name.'</button></a> </td>
           <td> '.$gender.'</td>
 
-          <td> <button><a href="PET1Profile.php?Viewid='.$id.'">  </a>View</button>
-          <button><a href="UpdatePetProfile.php?Updateid='.$id.'">  </a>Edit</button>
-           <button><a href="Delete.php?deleteid='.$id.'">  </a>Delete</button></td> 
+          <td> <button><a href="PET1Profile.php?Viewid='.$id.'"> View </a></button>
+          <button><a href="UpdatePetProfile.php?Updateid='.$id.'"> Edit </a></button>
+           <button><a href="Delete.php?deleteid='.$id.'"> Delete </a></button></td> 
           
 
       </tr>';
