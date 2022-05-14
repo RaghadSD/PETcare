@@ -9,28 +9,11 @@ session_start();
 $ID = $_SESSION['ID'];
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login.php");
+    header("location: login-manager.php");
     exit();
 }
 
-$today = date("Y-m-d");
-$today_time = strtotime($today);
-                       
-$result = mysqli_query($database, "SELECT * From appointment");
-while($row = mysqli_fetch_array($result)) {
-$isPrev = $row['date'];
-$id = $row['id'];
 
-$expire_time = strtotime($isPrev);
-
-if ($expire_time < $today_time) { 
-
-    $query = "UPDATE appointment SET status = 'previous' WHERE id = '$id' ;";
-
-    mysqli_query($database, $query);
-}       
-
-}
 
 
 
@@ -119,6 +102,18 @@ echo "<table>
 
 
 while($row = mysqli_fetch_array($result)) {
+    $today = date("Y-m-d");
+$today_time = strtotime($today);
+                       
+$result = mysqli_query($database, "SELECT * From appointment");
+while($row = mysqli_fetch_array($result)) {
+$isPrev = $row['date'];
+$id = $row['id'];
+
+$expire_time = strtotime($isPrev);
+
+if ($expire_time < $today_time) { 
+
     echo "<tr>";
     echo "<td>" . $row['id'] . "</td>";
     echo "<td>" . $row['serviceName'] . "</td>";
@@ -129,6 +124,9 @@ while($row = mysqli_fetch_array($result)) {
     //echo "<td>" . $row['review'] . "</td>";
 
     echo "</tr>";
+}       
+
+}
 }
 echo "</table>";
 

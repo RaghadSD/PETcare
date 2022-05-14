@@ -9,7 +9,7 @@ session_start();
 $ID = $_SESSION['ID'];
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login.php");
+    header("location: login-manager.php");
     exit();
 }
 
