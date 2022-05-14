@@ -38,7 +38,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                    header("location: petsprofiles.php");
                 } else {
                     echo "<script>alert('Error: can not Update Pet!')</script>";
-                    echo  $database->error;
+                    header("location: petsprofiles.php");
                     exit();
                 }
             
