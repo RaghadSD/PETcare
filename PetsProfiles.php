@@ -105,19 +105,17 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $id=$row['Id'];
         $name=$row['name'];
         $gender=$row['gender'];
+
+        echo  ' <tr>
+        <td> '.$id.'</td>
+        <td> '.$name.'</button></a> </td>
+        <td> '.$gender.'</td>
+        <td> <a href="PET1Profile.php?Viewid='.$id.'">  <button>View</button></a> 
+        <a href="UpdatePetProfile.php?Updateid='.$id.'">  <button> Edit</button> </a>
+         <a href="Delete.php?deleteid='.$id.'">   <button> Delete</button></a></td> 
         
 
-          echo  ' <tr>
-          <td> '.$id.'</td>
-          <td> <a href ="coco-manager.html"> <button>'.$name.'</button></a> </td>
-          <td> '.$gender.'</td>
-
-          <td> <a href="PET1Profile.php?Viewid='.$id.'">  <button>View</button></a> 
-          <a href="UpdatePetProfile.php?Updateid='.$id.'">  <button> Edit</button> </a>
-           <a href="Delete.php?deleteid='.$id.'"><button> Delete</button></a></td> 
-          
-
-      </tr>';
+    </tr>';
 }
 
    } else {
