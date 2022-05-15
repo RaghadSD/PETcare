@@ -7,24 +7,35 @@ if (!isset($_SESSION['email']) ) {
     exit();
 }
 
+
 if (!($database = mysqli_connect("localhost", "root", "")))
 die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
-                
-if(isset($_GET['reviewId'])){
-    $id = $_GET['reviewId'];
+$id=$_GET['review'];
 
-    echo $id;
-$id = $_GET['reviewId'];
 if (isset($_POST['submitRev'])) {
+$rev = $_POST['Textt'];
 
-$reviwAppointment = $_POST['Textt'];
-    $query = "UPDATE appointment SET review = '$reviwAppointment' WHERE id = '$id' ";
-    $result = mysqli_query($database, $query);    
-         
+$query= "UPDATE appointment SET review = '$rev' WHERE id='$id' ";
+$u = mysqli_query($database, $query);
+ if ($u) {
+    function_alert("Review submitted successfully");
+    header("location: Previous Appointments.php");
+ }
+ else {
+ function_alert("Review cannot submitted");
+ header("location: Previous Appointments.php");
 }
+  
+}
+
+
+function function_alert($message) {
+      
+    // Display the alert box
+    echo "<script>alert('$message');</script>";
 }
 ?> 
 <!DOCTYPE html>
@@ -38,8 +49,8 @@ $reviwAppointment = $_POST['Textt'];
 
 <body>
     <section class="edit-about-section" id="ABOUTUS">
-    <div>
-        <form method="POST" action="WriteReview.php">
+    <div>     
+         <form method = "post" action = "WriteReview.php">
             <h1> Write Review</h1>
             <div class="form-group">
             <textarea class="feilds" id="message" rows="4" name="Textt" required></textarea>

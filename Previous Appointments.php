@@ -109,24 +109,25 @@ $expire_time = strtotime($isPrev);
 
 if ($expire_time < $today_time) { 
 
-    echo "<tr>";
     $petid = $row['petId'];
     $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
     $query_executed = mysqli_fetch_assoc ($records);
     $petName = $query_executed['name'];
     $id = $row['id'];
+    $serviceName = $row['serviceName'];
+    $date = $row['date'];
+    $time = $row['time'];
 
-    echo "<td>" . $petName . "</td>";
-    echo "<td>" . $row['serviceName'] . "</td>";
-    echo "<td>" . $row['date'] . "</td>";
-    echo "<td>" . $row['time'] . "</td>";    
-
-    echo '<td> <a href="WriteReview.php?reviewId= $id "> <button>  Review</button> </a> </td>';
-
-
-    //echo "<td>" . $row['review'] . "</td>";
 
     echo "</tr>";
+    echo '<tr>
+    <td> '.$petName.' </td>
+    <td> '.$serviceName.' </td>
+    <td> '.$date.' </td>
+    <td> '.$time.' </td>
+    <td> <a href="WriteReview.php?review='.$id.'"><button> Review </button></a></td> 
+ 
+    </tr>';
 }
 }
 echo "</table>";

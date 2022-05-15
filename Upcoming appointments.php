@@ -127,20 +127,24 @@ while($row = mysqli_fetch_array($result)) {
     $expire_time = strtotime($isPrev);
     
     if ($expire_time > $today_time) { 
-    echo "<tr>";
 
     $petid = $row['petId'];
     $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
     $query_executed = mysqli_fetch_assoc ($records);
     $petName = $query_executed['name'];
+$serviceName = $row['serviceName'];
+$date = $row['date'];
+$time = $row['time'];
 
-    echo "<td>" . $petName . "</td>";
-    echo "<td>" . $row['serviceName'] . "</td>";
-    echo "<td>" . $row['date'] . "</td>";
-    echo "<td>" . $row['time'] . "</td>";
-    echo "<td> <a href='Cancel.php?reviewId='.$id.''> <button> Cancel </button> </a> </td>";
+    echo '<tr>
+     <td> '.$petName.' </td>
+     <td> '.$serviceName.' </td>
+     <td> '.$date.' </td>
+     <td> '.$time.' </td>
+     <td> <a href="Cancel.php?cancelId='.$id.'"><button> Cancel</button></a></td> 
+     </tr>';
 
-    echo "</tr>";
+
 }
 }
 echo "</table>";
