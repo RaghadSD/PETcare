@@ -1,4 +1,3 @@
-
 <?php 
 session_start();
 
@@ -13,25 +12,25 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
 
+             
+              
+
             if (isset($_POST['Update'])) {
 
                 $PName = $_POST['PName'];
                 $date = $_POST['date'];
                 $PBreed = $_POST['PBreed'];
                 $gender = $_POST['gender'];
-                $NStatus = $_POST['NStatus'];
+                $neuterStatus = $_POST['neuterStatus'];
                 $vaccinations =$_POST['vaccinations'];
-                $MHistory =$_POST['MHistory'];
+                $medHistory =$_POST['medHistory'];
                 $Petphoto =$_POST['Petphoto'];
 
                 $emaill = $_SESSION['email'];
-
-               
-                    $id=$_GET['Updateid'];
+                $id=$_GET['Updateid'];
 
 
-                $query ="UPDATE `pet` SET `name`='$PName',`medHistory`='$MHistory',`vaccinations`='$vaccinations',`profilePic`='$Petphoto',`gender`='$gender',`breed`='$PBreed',`DOB`='$date',`neuterStatus`='$NStatus' WHERE Id='$id'";
-
+                $query ="UPDATE `pet` SET `name`='$PName',`medHistory`='$medHistory',`vaccinations`='$vaccinations',`profilePic`='$Petphoto',`gender`='$gender',`breed`='$PBreed',`DOB`='$date',`neuterStatus`='$neuterStatus' WHERE Id='$id'";
                 $r_update = mysqli_query($database, $query);
                 if ($r_update) {
                     echo "<script>alert('Pet has been Updated successfully')</script>";
@@ -56,9 +55,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
   </head> 
 
   <body>
-  <section class="header">
+    <section class="header">
         <nav> 
-            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -109,8 +108,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-       
+        
     </section>
+
 
     <div class="wrapper" style="margin-top:-45% ;">
         <div class="title">Update Pet Profile</div>
@@ -118,55 +118,80 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         <div class="field">
         <form action="" method="POST">
         
-      
+       
+       <?php
+         $query3 = "SELECT * FROM pet";
+         $result3 = mysqli_query($database,$query3);
+         $rows2 = mysqli_fetch_array($result3);
+         ?>
+
         <div class="field">
-            <input type="text" name ="PName"required>
+            <input type="text" name ="PName" value="<?php echo $rows2['name'];?>">
             <label>Pet Name</label>
           </div>
     
           <div class="field">
-            <input style="color: #617470;" type="date" name ="date"   >
+            <input style="color: #617470;" type="date" name ="date"    >
             <label>Date Of Birth</label>
           </div>
         
 
         <div class="field">
-            <input type="text" name ="PBreed"required>
+            <input type="text" name ="PBreed" value="<?php echo $rows2['breed'];?>">
             <label> Pet Breed </label>
           </div>
 
           <div class="content">
             <div class="radio" style="padding-top: 5%;">
-             <label style="color: #617470;padding-right: 5%;font-size: larger;" for="gender">Gender:</label>
-                <input type="radio" name="gender" value="Male"required >
+             <label style="color: #617470;padding-right: 5%;font-size: large;" for="gender">Gender:</label>
+                <input type="radio" name="gender" value="Male"required
+                <?php
+                if( $rows2['gender']== "Male")
+                echo "checked";
+                ?> >
                 <label for="male">male</label>
-                <input type="radio" name="gender" value="Female"required >
+                <input type="radio" name="gender" value="Female"required  
+                <?php
+                if( $rows2['gender']== "Male")
+                echo "checked";
+                ?> >
                 <label  for="female">female</label>
             </div></div>
 
             <div class="content">
                 <div class="radio">
-              <label style="color: #617470;padding-right: 5%;font-size: larger;" for="Neutered Status">Neutered:</label>
-                        <input type="radio" name="NStatus" value="Spayed" required>
+              <label style="color: #617470;padding-right: 5%;font-size: large;" for="Neutered Status">Neutered:</label>
+                        <input type="radio" name="neuterStatus" 
+                        <?php
+                         if( $rows2['neuterStatus']== "Spayed")
+                          echo "checked";
+                           ?> >
                         <label for="Spayed">Spayed</label>
-                        <input type="radio" name="NStatus" value="UnSpayed"required >
+                        <input type="radio" name="neuterStatus" 
+                         <?php
+                         if( $rows2['neuterStatus']== "UnSpayed")
+                          echo "checked";
+                           ?> >
                         <label for="UnSpayed">UnSpayed</label><br>
                     </div></div>
 
 
-            <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
-                <input  type="file" id="myFile" name="vaccinations">
-            </div>
-      
-      <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
-        <input type="file" id="myFile" name="MHistory">
-    </div>
-
-
-    <div style=" padding-bottom:6%;padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+                    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo <br>
         <input  type="file" id="myFile" name="Petphoto">
     </div>
 
+
+<p style="color: #617470;">Optional fields</p>          
+        <div class="field">
+            <input type="text" name ="vaccinations"  value="<?php echo $rows2['vaccinations'];?>">
+            <label>vaccinations </label>
+          </div>
+
+        
+          <div class="field">
+            <input type="text" name ="medHistory"  value="<?php echo $rows2['medHistory'];?>">
+            <label>Medical History  </label>
+          </div>
         <div class="field">
             <input type="submit" value="Update" name="Update"> 
           </div>
