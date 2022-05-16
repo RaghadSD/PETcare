@@ -39,13 +39,13 @@ if ($expire_time < $today_time) {
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>My Upcoming Appointme</title>
+    <title>My Upcoming Appointment</title>
     <link rel = "stylesheet" href = "table-style.css">
 </head>
 <body>
 <section class="header">
         <nav> 
-            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -147,7 +147,10 @@ $time = $row['time'];
      <td> <a href="Cancel.php?cancelId='.$id.'"><button> Cancel</button></a></td> 
      </tr>';
 
-
+/*<td> <a href="/.php?Viewid='.$id.'">  <button> View </button></a> 
+     <a href="/.php?Updateid='.$id.'">  <button> Edit </button> </a>
+      <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
+     </tr>';*/
 }
 }
 echo "</table>";
