@@ -120,7 +120,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         
        
        <?php
-         $query3 = "SELECT * FROM pet";
+         $query3 = "SELECT * FROM pet WHERE Id='$id'";
          $result3 = mysqli_query($database,$query3);
          $rows2 = mysqli_fetch_array($result3);
          ?>
