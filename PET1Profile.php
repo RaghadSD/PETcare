@@ -132,22 +132,23 @@ if (!($database = mysqli_connect("localhost", "root", "")))
      <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
   </div>'
   ;
-    if($vaccinations== 'null' ){
-   
-echo '<div class="content" >
-  <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
-</div>';}
-
-if($medHistory== 'null' ){
-   
+  if(!empty($vaccinations)){
+    // if($vaccinations== 'null' ){
+    
     echo '<div class="content" >
-      <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
-    </div>';}
-
-    }
+   <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
+ </div>';}
+ 
+ if(!empty($medHistory)){
+    
+     echo '<div class="content" >
+       <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
+     </div>';}
+ 
+     }
 
 else {
-      echo "<script>alert('Error: Cannot Delete Pet!')</script>";
+      //echo "<script>alert('Error: Cannot Delete Pet!')</script>";
       echo  $database->error;
        exit();
       }
