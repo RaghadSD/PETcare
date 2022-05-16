@@ -45,7 +45,7 @@ if ($expire_time < $today_time) {
 <body>
 <section class="header">
         <nav> 
-            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -96,9 +96,10 @@ if ($expire_time < $today_time) {
 
         </div>
         </nav>
-     
+       
 
     </section>
+
     
         <h1> My Upcoming Appointments</h1>
      
