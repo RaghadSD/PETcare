@@ -109,9 +109,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-        
+       
     </section>
-
 
     <div class="wrapper" style="margin-top:-45% ;">
         <div class="title">Update Pet Profile</div>

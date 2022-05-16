@@ -76,17 +76,7 @@ die("<p>Could not open URL database</p>");
 
         </div>
         </nav>
-        <div class="description">
-            <h1>
-                Your Pet Deserves the Best.
-            </h1>
-            <p>
-                ​We chase the absolute highest standards of safety in everything we do!
-                <br> Our goal is to make sure all pets in our care are happy, safe and comfortable.
-            </p>
-            <a id="mabs" href="#ABOUTUS" class="more"> More about us!</a>
-          
-        </div>
+        
 
     </section>
 
