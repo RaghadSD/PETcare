@@ -2,15 +2,18 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login.php");
     exit();
 }
 
 if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
+                die("<p>Could not connect to database</p>");
 
-if (!mysqli_select_db($database, "petcare1"))
-die("<p>Could not open URL database</p>");
+            if (!mysqli_select_db($database, "petcare1"))
+                die("<p>Could not open URL database</p>");
+                
+
+  // $emaill = $_SESSION['email'];
 ?> 
 
 
@@ -81,6 +84,7 @@ die("<p>Could not open URL database</p>");
     </section>
 
 
+
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title"> Pet Profile</div>
        
@@ -107,6 +111,7 @@ die("<p>Could not open URL database</p>");
      $breed=$row['breed'];
      $DOB=$row['DOB'];
      $neuterStatus=$row['neuterStatus'];
+     $medHistory=$row['medHistory'];
      //echo "<script>alert('Error: Can get profile info!')</script>";
      echo  ' <div class="content">
      <p> <lable style="color: #617470;font-size: x-large;padding-top: 20%;">'.$name.' </p>
@@ -121,18 +126,27 @@ die("<p>Could not open URL database</p>");
   </div>
    <div class="content" >
      <p>  Date Of Birth: '.$DOB.'</p>
-    
   </div>
 
    <div class="content">
      <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
-  </div>
-
-   
-  <div class="signup-link">View Owner? <a href="OwnerProfile.php">Owner</a></div>'
+  </div>'
   ;
-    
-        } else {
+    if($vaccinations== 'null' ){
+   
+echo '<div class="content" >
+  <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
+</div>';}
+
+if($medHistory== 'null' ){
+   
+    echo '<div class="content" >
+      <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
+    </div>';}
+
+    }
+
+else {
       echo "<script>alert('Error: Cannot Delete Pet!')</script>";
       echo  $database->error;
        exit();
