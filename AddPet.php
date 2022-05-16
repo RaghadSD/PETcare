@@ -51,9 +51,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
   </head> 
 
   <body>
-    <section class="header">
+  <section class="header">
         <nav> 
-            <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -67,8 +67,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
-                                <a href="add Pet.php"> Add Pet </a>
-                                <a href="Pet Profiles .php"> View My Pets </a>
+                                <a href="AddPet.php"> Add Pet </a>
+                                <a href="PetsProfiles.php"> View My Pets </a>
                             </div>
                         </div>
                     </li>
@@ -90,8 +90,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="MyProfile.php"> View My Profile </a>
-                                <a href="Edit My Profile.php"> Edit My Profile </a>
+                                <a href="ownerprofile.php"> View My Profile </a>
+                                <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
                             </div>
                         </div>
                     </li>
@@ -104,7 +104,17 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-       
+        <div class="description">
+            <h1>
+                Your Pet Deserves the Best.
+            </h1>
+            <p>
+                ​We chase the absolute highest standards of safety in everything we do!
+                <br> Our goal is to make sure all pets in our care are happy, safe and comfortable.
+            </p>
+            <a id="mabs" href="#ABOUTUS" class="more"> More about us!</a>
+          
+        </div>
 
     </section>
 
