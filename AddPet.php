@@ -151,19 +151,21 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <label for="UnSpayed">UnSpayed</label><br>
                     </div></div>
 
-
-            <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
-                <input  type="file" id="myFile" name="vaccinations">
-            </div>
-      
-      <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
-        <input type="file" id="myFile" name="MHistory">
-    </div>
-
-
-    <div style=" padding-bottom:6%;padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
         <input  type="file" id="myFile" name="Petphoto">
     </div>
+
+
+<p style="color: #617470;">Optional fields</p>          
+        <div class="field">
+            <input type="text" name ="vaccinations" >
+            <label>vaccinations </label>
+          </div>
+
+        <div class="field">
+            <input type="text" name ="MHistory">
+            <label> Medical History  </label>
+          </div>
 
         <div class="field">
             <input type="submit" value="Add" name="Add"> 
