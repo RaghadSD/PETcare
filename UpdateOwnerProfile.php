@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login.php");
+    header("location: login-manager.php");
     exit();
 }
 
@@ -11,22 +11,45 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
-                
 
-  // $emaill = $_SESSION['email'];
-?> 
+             
+              
+
+                if (isset($_POST['update'])) {
+    
+                    $phoneNumber = $_POST['phoneNumber'];
+                    $Fname = $_POST['Fname'];
+                    $Lname = $_POST['Lname'];
+                    $gender = $_POST['gender'];
+                    $emaill = $_SESSION['email'];
+                    $password = $_POST['password'];
+              
+                    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password',`gender`='$gender' WHERE email= '$emaill'";
+           $r_update = mysqli_query($database, $query);
+          if ($r_update) {
+            echo "<script>alert('profile has been updated successfully')</script>";
+            header("location: OwnerProfile.php");
+          } else {
+            echo "<script>alert('Error: Cannot update profile!')</script>";
+            echo  $database->error;
+            exit();
+          }
+            
+            }
+            ?>
 
 
+<!DOCTYPE html>
 <html>
     <head>
 <meta charset="utf-8">
 <link rel="stylesheet" href="Style1.css">
 <link rel="stylesheet" href="home page style.css">
-  <title>My Profile</title>
+  <title>Edit My Profile </title>
   </head> 
 
-  <body>
-  <section class="header">
+    <body >
+    <section class="header">
         <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
@@ -83,65 +106,75 @@ if (!($database = mysqli_connect("localhost", "root", "")))
     </section>
 
 
-    <div class="wrapper" style="margin-top:-48% ;">
-        <div class="title"> My Profile</div>
+        <div class="wrapper" style="margin-top:-48% ;">
+        <div class="title"> Edit My Profile</div>
+
+                <form id="addform" action="" method="POST" enctype="multipart/form-data">
+                <?php
+        $emaill = $_SESSION['email'];
        
-        <div class="field">
-  
-     <form>
-     <img style="padding-left: 18%;border-radius: 80%;" src="images/images-1.jpeg" alt="my profile photo">
-            
-     <?php
+         $query3 = "SELECT * FROM owner WHERE email= '$emaill'";
+         $result3 = mysqli_query($database,$query3);
+         $rows2 = mysqli_fetch_array($result3);
+         ?>
+                   
+                        <div class="field">
+                            <input type="text" name ="Fname" value="<?php echo $rows2['Fname'];?>">
+                            <label>First Name</label>
+                        </div>
 
-     $emaill = $_SESSION['email'];
+                        <div class="field">
+                            <input type="text" name ="Lname" value="<?php echo $rows2['Lname'];?> ">
+                            <label>Last Name </label>
+                        </div>
 
-   $query= "SELECT * FROM `owner` WHERE `email` ='$emaill'";
-  
-   $result = mysqli_query($database, $query);
-
-   if ($result) {
-        $row= mysqli_fetch_assoc($result);
-        $Fname=$row['Fname'];
-        $Lname=$row['Lname'];
-        $phoneNumber=$row['phoneNumber'];
-        $profilePic=$row['profilePic'];
-        $gender=$row['gender'];
-        
-        
-        // echo "<script>alert('Error: Can get profile info!')</script>";
-       
-
-          echo  '<div class="content">
-          <p> <lable style="color: #617470;font-size: x-large;padding-top: 15%;"> '.$Fname.' '.$Lname.' </p>
-       </div>
-        <div class="content" >
-       <p> <label> <a style=" color: #000;font-size: large;"href="mailto:'.$emaill.' ">'.$emaill.' </a></p>
-    </div>
-
-     <div class="content">
-       <p> <lable style="color: #617470;font-size: large;"> '.$phoneNumber.' </p>
-    </div>
-
-     <div class="content">
-       <p> <lable style="color: #000000;font-size: large;">'.$gender.' </p>
-    </div> 
-    <div class="content">
-        <a style="color: #617470;font-size: large;" href="UpdateOwnerProfile.php">Edit</a>
-        <a style="color: #617470;font-size: large;"href="DeleteOwner.php"">Delete</a>
-        
-     </div>';
-}
-
-    else {
-       echo "<script>alert('Error: Cannot get profile info!')</script>";
-       echo  $database->error;
-       exit();
-   }   
-     ?>       
-
-        
-        </form>
+                        
 
 
+                        <div class="field">
+                            <input type="test" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
+                            <label> Phone Number </label>
+                        </div>					
 
-  </body>
+                       
+                        <div class="field">
+                            <input type="test" name ="password" value="<?php echo $rows2['password'];?> ">
+                            <label> Password </label>
+                        </div>
+                         
+                        <div class="content">
+            <div class="radio" style="padding-top: 5%;">
+             <label style="color: #617470;padding-right: 5%;font-size: large;" for="gender">Gender:</label>
+                <input type="radio" name="gender" value="Male"required <?php
+                if( $rows2['gender']== "Male")
+                echo "checked";
+                ?> >
+                <label for="male">male</label>
+                <input type="radio" name="gender" value="Female"required  
+                <?php
+                if( $rows2['gender']== "Female")
+                echo "checked";
+                ?> 
+              >
+                <label  for="Female">Female</label>
+            </div></div>
+
+                    
+
+                        <div style=" padding-left: 25% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo <br>
+                            <input  type="file" id="myFile" name="photo">
+                          </div>
+                          <br>
+
+                        <div class="field">
+                        <input type="submit" value="update" name="update" />
+                        </div>
+                   
+
+                </form>
+            </div>
+
+        </main>
+
+    </body>
+</html>
