@@ -153,11 +153,11 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 <label for="male">male</label>
                 <input type="radio" name="gender" value="Female"required  
                 <?php
-                if( $rows2['gender']== "Male")
+                if( $rows2['gender']== "Female")
                 echo "checked";
                 ?> 
               >
-                <label  for="female">female</label>
+                <label  for="Female">Female</label>
             </div></div>
 
             <div class="content">
