@@ -22,7 +22,7 @@ if (isset($_POST['update'])) {
 
     $emaill = $_SESSION['email'];
 
-    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password' WHERE email= 'Dalal@gmail.com'";
+    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password' WHERE email= '$emaill";
       // $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname' ,password='$password' WHERE email= '$emaill'";
 
         $r_update = mysqli_query($database, $query);
@@ -115,7 +115,7 @@ if (isset($_POST['update'])) {
                 <?php
 
 
-                   $query3 = "SELECT * FROM owner";
+                   $query3 = "SELECT * FROM owner WHERE email= '$emaill";
                    $result3 = mysqli_query($database,$query3);
 
 
