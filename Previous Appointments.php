@@ -106,8 +106,7 @@ echo "<table>
 while($row = mysqli_fetch_array($result)) {
 $isPrev = $row['date'];
 $expire_time = strtotime($isPrev);
-
-if ($expire_time < $today_time) { 
+if ( ($expire_time < $today_time) || ($expire_time == $today_time) ){ 
 
     $petid = $row['petId'];
     $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");

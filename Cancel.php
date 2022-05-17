@@ -7,15 +7,14 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                 if(isset($_GET['cancelId'])){
                     $id=$_GET['cancelId'];
-                    echo  $id;
-                  $query= "DELETE FROM appointment WHERE id=$id";
-                
+                  $query= "DELETE FROM appointment WHERE id = $id";
+
                   $cancelA = mysqli_query($database, $query);
                   if ($cancelA) {                   
                       echo "<script>alert('Appointment has been canceled successfully')</script>";
                   }
                   } else {
-                      echo "<script>alert('Error: Cannot cancel Pet!')</script>";
+                      echo "<script>alert('Error: Cannot cancel appointment!')</script>";
                       echo  $database->error;
                       exit();
                   }

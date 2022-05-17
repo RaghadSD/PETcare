@@ -21,7 +21,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                   $r_update = mysqli_query($database, $query);
                   if ($r_update) {                   
                       echo "<script>alert('Appointment has been canceled successfully')</script>";
-                      header("location: Owner homepage.php");
+                      header("location: Appointment requests.php");
                   } else {
                       echo "<script>alert('Error: Cannot cancel appointment!')</script>";
                       echo  $database->error;

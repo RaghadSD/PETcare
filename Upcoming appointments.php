@@ -16,21 +16,7 @@ if (!isset($_SESSION['email']) ) {
 $today = date("Y-m-d");
 $today_time = strtotime($today);
                        
-$result = mysqli_query($database, "SELECT * From appointment");
-while($row = mysqli_fetch_array($result)) {
-$isPrev = $row['date'];
-$id = $row['id'];
 
-$expire_time = strtotime($isPrev);
-
-if ($expire_time < $today_time) { 
-
-    $query = "UPDATE appointment SET status = 'previous' WHERE id = '$id' ;";
-
-    mysqli_query($database, $query);
-}       
-
-}
 
 
 
@@ -119,7 +105,7 @@ echo "
         <th> Service </th>
         <th> Date </th>
         <th> Time </th>
-        <th> Cancel </th>
+        <th> Manage </th>
 
     </tr>
 </thead> ";
@@ -127,13 +113,16 @@ echo "
 while($row = mysqli_fetch_array($result)) {
     $isPrev = $row['date'];
     $id = $row['id'];
+    $ThatTime = $row['time'];
 
     $expire_time = strtotime($isPrev);
     
-    if ($expire_time > $today_time) { 
+    if ( ($expire_time > $today_time) || ($expire_time == $today_time) ){ 
+     //if (time() >= strtotime($ThatTime)) {
 
     $petid = $row['petId'];
     $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
+    
     $query_executed = mysqli_fetch_assoc ($records);
     $petName = $query_executed['name'];
 $serviceName = $row['serviceName'];
@@ -153,6 +142,7 @@ $time = $row['time'];
       <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
      </tr>';*/
 }
+   // }
 }
 echo "</table>";
 

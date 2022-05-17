@@ -1,3 +1,28 @@
+<?php
+if (!($database = mysqli_connect("localhost", "root", "")))
+die("<p>Could not connect to database</p>");
+
+if (!mysqli_select_db($database, "petcare1"))
+die("<p>Could not open URL database</p>");
+
+session_start();
+$ID = $_SESSION['ID'];
+
+if (!isset($_SESSION['email']) ) { 
+    header("location: login-manager.php");
+    exit();
+}
+
+$today = date("Y-m-d");
+$today_time = strtotime($today);
+                       
+
+
+
+
+?>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -66,35 +91,63 @@
     
     
         <h1>My Appointment Request</h1>
+  
+        <?php
+
+
+echo "<div class='main'>";
+
+
+
+$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
+
+echo " 
+<table>
+<thead>
+    <tr>
+        <th> Pet Name </th>
+        <th> Service</th>
+        <th> Date</th>
+        <th> Time </th>
+        <th> Manage </th>
+    </tr>
+</thead> ";
+
+while($row = mysqli_fetch_array($result)) {
+    $status = $row['status'];
+    if ($status == "requested"){
+        $id = $row['id'];
+        $id = $row['date'];
+        $ThatTime = $row['time'];
+
+    $petid = $row['petId'];
+    $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
     
+    $query_executed = mysqli_fetch_assoc ($records);
+    $petName = $query_executed['name'];
+$serviceName = $row['serviceName'];
+$date = $row['date'];
+$time = $row['time'];
+
+    echo '<tr>
+     <td> '.$petName.' </td>
+     <td> '.$serviceName.' </td>
+     <td> '.$date.' </td>
+     <td> '.$time.' </td>
+     <td> <a href="/.php?Viewid='.$id.'">  <button> View </button></a> 
+     <a href="/.php?Updateid='.$id.'">  <button> Edit </button> </a>
+      <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
+     </tr>';
+     
+}
+}
+
+echo "</table>";
+
+
+?>   
+   
     
-    <table>
-        <thead>
-            <tr>
-                <th> Service</th>
-                <th> Date</th>
-                <th> Time </th>
-                <th> Manage </th>
-                
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td> Spaying Surgery </td>
-                <td> 1/2/2020</td>
-                <td> 21:00 </td>
-                <td><button onclick="location.href='edit-request.html'" class="edit" type="button">Edit</button> <button >Cancel</button></td>
-            </tr>
-            <tr>
-                <td> Shaving & Haircut </td>
-                <td> 11/2/2020</td>
-                <td> 20:00 </td>
-                <td><button onclick="location.href='edit-haircut.html'" class="edit" type="button">Edit</button> <button>Cancel</button></td>
-            </tr>
-        </tbody>
-        
-       
-    </table>
     
 
 </body>
