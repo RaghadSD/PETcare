@@ -18,11 +18,12 @@ if (isset($_POST['update'])) {
     $phoneNumber = $_POST['phoneNumber'];
     $Fname = $_POST['Fname'];
     $Lname = $_POST['Lname'];
+    $password = $_POST['password'];
 
     $emaill = $_SESSION['email'];
 
- 
-       $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname' WHERE email= '$emaill'";
+    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password' WHERE email= 'Dalal@gmail.com'";
+      // $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname' ,password='$password' WHERE email= '$emaill'";
 
         $r_update = mysqli_query($database, $query);
         if ($r_update) {
@@ -135,13 +136,19 @@ if (isset($_POST['update'])) {
                         <div class="field">
                             <input type="tel" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
                             <label> Phone Number </label>
-                        </div>					
-
+                        </div>	
                         
-                        <lable style="color: #617470;" for="myfile">Change Profile photo?</label>
-                        <input type="file" id="fileToUpload1" name="fileToUpload1"  > 
+                        <div class="field">
+                            <input type="test" name ="password" value="<?php echo $rows2['password'];?> ">
+                            <label> Password </label>
+                        </div>
 
-                        <br><br>
+                        <br>
+                        <div style=" padding-left: 25% ;font-size: large;" >
+                        <lable style="color: #617470;" for="myfile">Change Profile photo?</label>
+                        <input type="file" id="fileToUpload1" name="fileToUpload1"  > </div>
+
+                        <br>
                         <div class="field">
                         <input type="submit" value="update" name="update" />
                         </div>
