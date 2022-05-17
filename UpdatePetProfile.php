@@ -119,7 +119,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         <form action="" method="POST">
         
        
-       <?php
+        <?php
+        $emaill = $_SESSION['email'];
+        $id=$_GET['Updateid'];
          $query3 = "SELECT * FROM pet WHERE Id='$id'";
          $result3 = mysqli_query($database,$query3);
          $rows2 = mysqli_fetch_array($result3);
@@ -131,21 +133,20 @@ if (!($database = mysqli_connect("localhost", "root", "")))
           </div>
     
           <div class="field">
-            <input style="color: #617470;" type="date" name ="date"    >
+            <input style="color: #617470;" type="date" name ="date"   value="<?php echo $rows2['DOB'];?>">
             <label>Date Of Birth</label>
           </div>
         
 
         <div class="field">
-            <input type="text" name ="PBreed" value="<?php echo $rows2['breed'];?>">
+            <input type="text" name ="PBreed"value="<?php echo $rows2['breed'];?>">
             <label> Pet Breed </label>
           </div>
 
           <div class="content">
             <div class="radio" style="padding-top: 5%;">
              <label style="color: #617470;padding-right: 5%;font-size: large;" for="gender">Gender:</label>
-                <input type="radio" name="gender" value="Male"required
-                <?php
+                <input type="radio" name="gender" value="Male"required <?php
                 if( $rows2['gender']== "Male")
                 echo "checked";
                 ?> >
@@ -154,7 +155,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 <?php
                 if( $rows2['gender']== "Male")
                 echo "checked";
-                ?> >
+                ?> 
+              >
                 <label  for="female">female</label>
             </div></div>
 
@@ -171,7 +173,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                          <?php
                          if( $rows2['neuterStatus']== "UnSpayed")
                           echo "checked";
-                           ?> >
+                           ?>   >
                         <label for="UnSpayed">UnSpayed</label><br>
                     </div></div>
 
@@ -183,13 +185,13 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
 <p style="color: #617470;">Optional fields</p>          
         <div class="field">
-            <input type="text" name ="vaccinations"  value="<?php echo $rows2['vaccinations'];?>">
+            <input type="text"   name ="vaccinations"  value="<?php echo $rows2['vaccinations'];?>">
             <label>vaccinations </label>
           </div>
 
         
           <div class="field">
-            <input type="text" name ="medHistory"  value="<?php echo $rows2['medHistory'];?>">
+            <input type="text" name ="medHistory" value="<?php echo $rows2['medHistory'];?>">
             <label>Medical History  </label>
           </div>
         <div class="field">
