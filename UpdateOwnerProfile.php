@@ -11,33 +11,33 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
-                
 
-if (isset($_POST['update'])) {
+             
+              
+
+                if (isset($_POST['update'])) {
     
-    $phoneNumber = $_POST['phoneNumber'];
-    $Fname = $_POST['Fname'];
-    $Lname = $_POST['Lname'];
-    $password = $_POST['password'];
-
-    $emaill = $_SESSION['email'];
-
-    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password' WHERE email= '$emaill";
-      // $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname' ,password='$password' WHERE email= '$emaill'";
-
-        $r_update = mysqli_query($database, $query);
-        if ($r_update) {
+                    $phoneNumber = $_POST['phoneNumber'];
+                    $Fname = $_POST['Fname'];
+                    $Lname = $_POST['Lname'];
+                    $gender = $_POST['gender'];
+                    $emaill = $_SESSION['email'];
+                    $password = $_POST['password'];
+              
+                    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password' WHERE email= '$emaill'";
+           $r_update = mysqli_query($database, $query);
+          if ($r_update) {
             echo "<script>alert('profile has been updated successfully')</script>";
             header("location: OwnerProfile.php");
-        } else {
+          } else {
             echo "<script>alert('Error: Cannot update profile!')</script>";
             echo  $database->error;
             exit();
-        }
-    
-}
+          }
+            
+            }
+            ?>
 
-?> 
 
 <!DOCTYPE html>
 <html>
@@ -103,24 +103,20 @@ if (isset($_POST['update'])) {
         </div>
         </nav>
         
-
     </section>
 
 
         <div class="wrapper" style="margin-top:-48% ;">
         <div class="title"> Edit My Profile</div>
 
-                <form id="addform" action="UpdateOwnerProfile.php" method="POST" enctype="multipart/form-data">
-
+                <form id="addform" action="" method="POST" enctype="multipart/form-data">
                 <?php
-
-
-                   $query3 = "SELECT * FROM owner WHERE email= '$emaill";
-                   $result3 = mysqli_query($database,$query3);
-
-
-                   $rows2 = mysqli_fetch_array($result3);?>
-
+        $emaill = $_SESSION['email'];
+       
+         $query3 = "SELECT * FROM owner WHERE email= '$emaill'";
+         $result3 = mysqli_query($database,$query3);
+         $rows2 = mysqli_fetch_array($result3);
+         ?>
                    
                         <div class="field">
                             <input type="text" name ="Fname" value="<?php echo $rows2['Fname'];?>">
@@ -132,23 +128,27 @@ if (isset($_POST['update'])) {
                             <label>Last Name </label>
                         </div>
 
+                        
+
 
                         <div class="field">
-                            <input type="tel" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
+                            <input type="test" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
                             <label> Phone Number </label>
-                        </div>	
-                        
+                        </div>					
+
+                       
                         <div class="field">
                             <input type="test" name ="password" value="<?php echo $rows2['password'];?> ">
                             <label> Password </label>
                         </div>
+                         
+                      <br>
 
-                        <br>
-                        <div style=" padding-left: 25% ;font-size: large;" >
-                        <lable style="color: #617470;" for="myfile">Change Profile photo?</label>
-                        <input type="file" id="fileToUpload1" name="fileToUpload1"  > </div>
+                        <div style=" padding-left: 25% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo <br>
+                            <input  type="file" id="myFile" name="photo">
+                          </div>
+                          <br>
 
-                        <br>
                         <div class="field">
                         <input type="submit" value="update" name="update" />
                         </div>
