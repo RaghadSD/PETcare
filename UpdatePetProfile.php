@@ -163,13 +163,13 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             <div class="content">
                 <div class="radio">
               <label style="color: #617470;padding-right: 5%;font-size: large;" for="Neutered Status">Neutered:</label>
-                        <input type="radio" name="neuterStatus" 
+                        <input type="radio" name="neuterStatus" value ="Spayed"
                         <?php
                          if( $rows2['neuterStatus']== "Spayed")
                           echo "checked";
                            ?> >
                         <label for="Spayed">Spayed</label>
-                        <input type="radio" name="neuterStatus" 
+                        <input type="radio" name="neuterStatus" value ="UnSpayed"
                          <?php
                          if( $rows2['neuterStatus']== "UnSpayed")
                           echo "checked";
