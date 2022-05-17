@@ -51,9 +51,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
   </head> 
 
   <body>
-    <section class="header">
+  <section class="header">
         <nav> 
-            <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -67,8 +67,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
-                                <a href="add Pet.php"> Add Pet </a>
-                                <a href="Pet Profiles .php"> View My Pets </a>
+                                <a href="AddPet.php"> Add Pet </a>
+                                <a href="PetsProfiles.php"> View My Pets </a>
                             </div>
                         </div>
                     </li>
@@ -90,8 +90,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="MyProfile.php"> View My Profile </a>
-                                <a href="Edit My Profile.php"> Edit My Profile </a>
+                                <a href="ownerprofile.php"> View My Profile </a>
+                                <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
                             </div>
                         </div>
                     </li>
@@ -104,7 +104,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-       
+     
 
     </section>
 
@@ -151,19 +151,21 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <label for="UnSpayed">UnSpayed</label><br>
                     </div></div>
 
-
-            <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> vaccinations <br>
-                <input  type="file" id="myFile" name="vaccinations">
-            </div>
-      
-      <div style="padding-left:20% ;font-size: larger;" > <lable style="color: #617470;"> Medical History <br>
-        <input type="file" id="myFile" name="MHistory">
-    </div>
-
-
-    <div style=" padding-bottom:6%;padding-left: 20% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
+    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
         <input  type="file" id="myFile" name="Petphoto">
     </div>
+
+
+<p style="color: #617470;">Optional fields</p>          
+        <div class="field">
+            <input type="text" name ="vaccinations" >
+            <label>vaccinations </label>
+          </div>
+
+        <div class="field">
+            <input type="text" name ="MHistory">
+            <label> Medical History  </label>
+          </div>
 
         <div class="field">
             <input type="submit" value="Add" name="Add"> 

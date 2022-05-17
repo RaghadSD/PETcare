@@ -40,7 +40,7 @@
   <body>
     <section class="header">
         <nav> 
-            <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
             <div>
 
                 <div class="header-links">

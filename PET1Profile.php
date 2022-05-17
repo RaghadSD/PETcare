@@ -2,15 +2,18 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login.php");
     exit();
 }
 
 if (!($database = mysqli_connect("localhost", "root", "")))
-    die("<p>Could not connect to database</p>");
+                die("<p>Could not connect to database</p>");
 
-if (!mysqli_select_db($database, "petcare1"))
-die("<p>Could not open URL database</p>");
+            if (!mysqli_select_db($database, "petcare1"))
+                die("<p>Could not open URL database</p>");
+                
+
+  // $emaill = $_SESSION['email'];
 ?> 
 
 
@@ -23,9 +26,9 @@ die("<p>Could not open URL database</p>");
   </head> 
 
   <body>
-    <section class="header">
+  <section class="header">
         <nav> 
-            <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -39,8 +42,8 @@ die("<p>Could not open URL database</p>");
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
-                                <a href="add Pet.php"> Add Pet </a>
-                                <a href="Pet Profiles .php"> View My Pets </a>
+                                <a href="AddPet.php"> Add Pet </a>
+                                <a href="PetsProfiles.php"> View My Pets </a>
                             </div>
                         </div>
                     </li>
@@ -62,8 +65,8 @@ die("<p>Could not open URL database</p>");
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="MyProfile.php"> View My Profile </a>
-                                <a href="Edit My Profile.php"> Edit My Profile </a>
+                                <a href="ownerprofile.php"> View My Profile </a>
+                                <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
                             </div>
                         </div>
                     </li>
@@ -76,9 +79,10 @@ die("<p>Could not open URL database</p>");
 
         </div>
         </nav>
-       
+        
 
     </section>
+
 
 
     <div class="wrapper" style="margin-top:-48% ;">
@@ -107,6 +111,7 @@ die("<p>Could not open URL database</p>");
      $breed=$row['breed'];
      $DOB=$row['DOB'];
      $neuterStatus=$row['neuterStatus'];
+     $medHistory=$row['medHistory'];
      //echo "<script>alert('Error: Can get profile info!')</script>";
      echo  ' <div class="content">
      <p> <lable style="color: #617470;font-size: x-large;padding-top: 20%;">'.$name.' </p>
@@ -121,19 +126,29 @@ die("<p>Could not open URL database</p>");
   </div>
    <div class="content" >
      <p>  Date Of Birth: '.$DOB.'</p>
-    
   </div>
 
    <div class="content">
      <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
-  </div>
-
-   
-  <div class="signup-link">View Owner? <a href="OwnerProfile.php">Owner</a></div>'
+  </div>'
   ;
+  if(!empty($vaccinations)){
+    // if($vaccinations== 'null' ){
     
-        } else {
-      echo "<script>alert('Error: Cannot Delete Pet!')</script>";
+    echo '<div class="content" >
+   <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
+ </div>';}
+ 
+ if(!empty($medHistory)){
+    
+     echo '<div class="content" >
+       <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
+     </div>';}
+ 
+     }
+
+else {
+      //echo "<script>alert('Error: Cannot Delete Pet!')</script>";
       echo  $database->error;
        exit();
       }

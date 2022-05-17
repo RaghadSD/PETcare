@@ -32,7 +32,7 @@
 
     <section class="header">
         <nav> 
-            <a href="Manger homepage.html"> <img id=logo src="Image (2).jpeg"></a>
+            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
@@ -69,7 +69,7 @@
                         <div class="dropdown">
                             <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
-                                <a href="OwnerProfile.php"> View My Profile </a>
+                                <a href="ownerprofile.php"> View My Profile </a>
                                 <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
                             </div>
                         </div>
