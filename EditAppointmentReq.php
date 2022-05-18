@@ -31,10 +31,12 @@ if(isset($_POST['Update'])){
     $petID = $query_executed['id'];
 
     $emaill = $_SESSION['email'];
+    $Updateid=$_GET['Updateid'];
     
-$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$emaill')";
+//$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$emaill')";
+$query = "UPDATE `appointment` SET ,`note`='$note',`date`='$date',`time`='$time,`serviceName`='$service',`petId`='$petID',`emailOwner`='$emaill' WHERE id='$Updateid'";
 if ($result=mysqli_query($database, $query))
-function_alert("Appointment requested successfully");
+function_alert("Appointment request updated successfully");
 
 
 
@@ -199,3 +201,4 @@ function function_alert($message) {
   </body>
 
 </html>
+
