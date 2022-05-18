@@ -105,6 +105,7 @@ echo "
 <table>
 <thead>
     <tr>
+    <th> Appointment Id </th>
         <th> Pet Name </th>
         <th> Service</th>
         <th> Date</th>
@@ -119,6 +120,7 @@ while($row = mysqli_fetch_array($result)) {
         $id = $row['id'];
         $id = $row['date'];
         $ThatTime = $row['time'];
+        
 
     $petid = $row['petId'];
     $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
@@ -128,8 +130,10 @@ while($row = mysqli_fetch_array($result)) {
 $serviceName = $row['serviceName'];
 $date = $row['date'];
 $time = $row['time'];
+$AppointmentId = $row['id'];
 
     echo '<tr>
+    <td> '.$AppointmentId.' </td>
      <td> '.$petName.' </td>
      <td> '.$serviceName.' </td>
      <td> '.$date.' </td>
