@@ -95,7 +95,7 @@ function function_alert($message) {
           <button  id="loginbtn" name="login" >  Login</a> </button>
          </div>
          <div class="content" id ="content1">
-          <a style="color: #617470;font-size: large;" href="Home.html">Back</a>
+          <a style="color: #617470;font-size: large;" href="Home.PHP">Back</a>
        </div>
       </form>
     </div>

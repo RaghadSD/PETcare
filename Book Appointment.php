@@ -28,7 +28,7 @@ if(isset($_POST['book'])){
     $query_executed = mysqli_fetch_assoc ($result);
     $petID = $query_executed['id'];
     
-$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$ID')";
+$query = "INSERT INTO appointment VALUES (DEFAULT , 'pending', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$ID')";
 if ($result=mysqli_query($database, $query))
 function_alert("Appointment requested successfully");
 

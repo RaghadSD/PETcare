@@ -17,6 +17,7 @@ include_once 'header.php';
     }
 
 ?>
+
 <div class = "description"> 
 <h1>
     Your Pet Deserves the Best.

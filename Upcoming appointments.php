@@ -95,7 +95,7 @@ echo "<div class='main'>";
 
 
 
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID' AND status = 'request' ");
 
 echo " 
 <table>
@@ -116,8 +116,13 @@ while($row = mysqli_fetch_array($result)) {
     $ThatTime = $row['time'];
 
     $expire_time = strtotime($isPrev);
+
+    $petid = $row['petId'];
+    $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
     
-    if ( ($expire_time > $today_time) || ($expire_time == $today_time) ){ 
+    $query_executed = mysqli_fetch_assoc ($records);
+    
+    if ( ($expire_time > $today_time) || ( ($expire_time == $today_time)  )){ 
      //if (time() >= strtotime($ThatTime)) {
 
     $petid = $row['petId'];
