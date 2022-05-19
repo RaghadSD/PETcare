@@ -19,7 +19,7 @@ die("<p>Could not open URL database</p>");
 
 if(isset($_POST['Update'])){
 
-    $petName = $_POST['pet'];
+    $petName = $_POST['pet2'];
     $service = $_POST['service'];
     $date = $_POST['date'];
     $time = $_POST['time'];
@@ -121,7 +121,7 @@ function function_alert($message) {
         <div class="title">Edit Request</div>
        
         <div class="field">
-            <form method = "post" action = "">
+            <form method = "post" action = "EditAppointmentReq.php">
 
             <?php
          $emaill = $_SESSION['email'];

@@ -15,46 +15,46 @@
       
       <div class="field"  >
         <input type="email" name ="email" required>
-        <label>Email Address</label>
+        <label id = "qq">Email Address</label>
       </div>
 
       <div class="field">
         <input type="text" name ="FName" required>
-        <label>First Name</label>
+        <label id = "qq">First Name</label>
       </div>
 
       <div class="field">
         <input type="text" name ="LName"required>
-        <label>Last Name </label>
+        <label id = "qq">Last Name </label>
       </div>
  
       <div class="field">
         <input type="password" name ="password"required>
-        <label> Password </label>
+        <label id = "qq"> Password </label>
       </div>
 
       <div class="field">
         <input type="password" name ="re_password" required>
-        <label> Repeat your Password </label>
+        <label id = "qq"> Repeat your Password </label>
       </div>
 
 
       <div class="field">
         <input type="tel" name ="phone" required>
-        <label> Phone Number </label>
+        <label id = "qq"> Phone Number </label>
       </div>
-
-      <div class="content">
+<br>
+      <div class="test">
       <div class="radio">
-       <label style="color: #617470;" for="gender">Gender</label>
+       <label id = "test"  style="font-size: 17px;" for="gender">Gender</label>
           <input type="radio" name="gender" value="Male" required>
-          <label for="male">male</label>
+          <label id = "test" style="font-size: 17px;"  for="male">male</label>
           <input type="radio" name="gender" value="Female" required>
-          <label for="female">female</label>
+          <label id = "test" style="font-size: 17px;" for="female">female</label>
       </div></div>
-      
-      <p> <lable style="color: #617470;"> Profile photo <br<>
-          <input type="file" id="myFile" name="profile">
+      <br>
+      <p> <lable id = "test"  style="color: #617470; padding-left: 5% ;"> Profile photo <br<>
+          <input type="file" style = "padding-left: 5%;" id="myFile" name="profile">
       <p>
         <div class="field">
           <input type="submit" value="Sign Up" name="create">

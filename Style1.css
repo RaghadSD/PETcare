@@ -36,7 +36,8 @@ html,body{
   color: #fff;
   user-select: none;
   border-radius: 15px 15px 0 0;
-  background: linear-gradient(-135deg, #617470, #f2f2f2);
+  background-color: #617470;
+
 }
 .wrapper form{
   padding: 10px 30px 50px 30px;
@@ -54,21 +55,20 @@ html,body{
     
   }
 
-
-
 .wrapper form .field{
   height: 50px;
   width: 100%;
   margin-top: 20px;
   position: relative;
 }
+
 .wrapper form .field input{
   height: 100%;
   width: 100%;
   outline: none;
   font-size: 17px;
   padding-left: 20px;
-  border: 1px solid lightgrey;
+  border: 1px solid #617470;
   border-radius: 25px;
   transition: all 0.3s ease;
 }
@@ -84,23 +84,29 @@ html,body{
   transition: all 0.3s ease;
 }
 
-
-.wrapper form .field input:focus,.wrapper form .field textarea,
-form .field input:valid{
-  border-color: #617470;
-}
 .wrapper form .field label{
   position: absolute;
-  top: 50%;
+  top: -40%;
   left: 20px;
-  color: #f2f2f2;
+  color: #617470;
   font-weight: 400;
   font-size: 17px;
   pointer-events: none;
-  transform: translateY(-50%);
-  transition: all 0.3s ease;
 }
-form .field input:focus ~ label,
+.radioLeft input{
+  text-align: left;
+  display:inline;
+  font-size: 19px;
+}
+.test {
+  margin-left: 11px;
+  color: #617470;
+  padding-left: 1px;
+  align-items: center;
+  justify-content: center;
+  padding-right: 11px;
+}
+/*form .field input:focus ~ label,
 form .field input:valid ~ label{
   top: 0%;
   font-size: 16px;
@@ -108,6 +114,8 @@ form .field input:valid ~ label{
   background: #f2f2f2;
   transform: translateY(-50%);
 }
+
+*/
 form .content{
   display: flex;
   width: 100%;
@@ -166,15 +174,19 @@ form .content .pass-link{
   text-decoration: none;
 }
 form .field input[type="submit"]{
-  color: #f2f2f2;
-  border: none;
+  font-family: 'Calibri', 'Times New Roman', serif ;
+  border-radius: 6px;
+  border: white;
+
+
+margin-left: -2px;
+  color: white;
   padding-left: 0;
   margin-top: -10px;
   font-size: 20px;
   font-weight: 500;
-  cursor: pointer;
-  background: linear-gradient(-135deg, #617470, #f2f2f2);
-  transition: all 0.3s ease;
+  background-color: #617470;
+
 }
 
 /*form .field button{
@@ -189,47 +201,67 @@ form .field input[type="submit"]{
   transition: all 0.3s ease;
 }*/
 
-#loginbtn{
+#loginbtn{/*
   color: #f2f2f2;
+  background: linear-gradient(-135deg, #617470, #f2f2f2);
+  font-size: 12pt;
+  border-radius:15% ;*/
+
   border: none;
   padding-left: 0;
   margin-top: -10px;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
-  background: linear-gradient(-135deg, #617470, #f2f2f2);
+  background: linear-gradient(-135deg, #617470);
   transition: all 0.3s ease;
   width: 100%;
   height: 90%;
-  border-radius:15% ;
+
+  color: white ;
+  font-family: 'Calibri', 'Times New Roman', serif ;
+  border-radius: 6px;
+  border: white;
   
 }
 
 .send-button {
-  display: inline-block;    
-  border: 1.5px solid #b4c9d3;
-  border-radius: 25px;
+  /*
+  display: inline-block;   
   position: relative;
   text-align: center;
-  font-size: 18px;
   margin-top: -12%;
   margin-right: 50px;
   margin-left: 120px;
   margin-bottom: -2%;
   padding: 12px 13px;
-  background-color: transparent;
+  
   margin-top: 10px;
   height: 45px;
   width: 150px;
   color: #617470;
+  background-color: transparent;
+  font-size: 18px;
+  border: 1.5px solid #b4c9d3;
+  border-radius: 25px;
+  */
+
+  color: white ;
+  background-color: #617470;
+  font-family: 'Calibri', 'Times New Roman', serif ;
+  font-size: 12pt;
+  border-radius: 6px;
+  border: white;
   
 }
 
 
 .send-button:hover {
-  border: 1px solid #617470;
+ /* border: 1px solid #617470;
   background: #61747057;
-  transition: 0.5s;
+  transition: 0.5s;*/
+  background-color: #b4c9d3;
+
 }
 
 
@@ -242,15 +274,6 @@ form .signup-link{
   margin-top: 20px;
   text-align: center;
 }
-form .pass-link a,
-form .signup-link a{
-  color: #617470;
-  text-decoration: none;
-}
-form .pass-link a:hover,
-form .signup-link a:hover{
-  text-decoration: underline;
-}
 
 .logohome{
   float:left;
@@ -262,3 +285,21 @@ form .signup-link a:hover{
 
 }
 
+button
+{
+    color: white ;
+    background-color: #617470;
+    font-family: 'Calibri', 'Times New Roman', serif ;
+    font-size: 12pt;
+    border-radius: 6px;
+    border: white;
+}
+button:hover
+{
+    background-color: #b4c9d3;
+}
+#loginbtn:hover{
+
+  background-color: #b4c9d3;
+
+}

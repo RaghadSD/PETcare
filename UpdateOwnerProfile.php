@@ -45,6 +45,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 <meta charset="utf-8">
 <link rel="stylesheet" href="Style1.css">
 <link rel="stylesheet" href="home page style.css">
+
   <title>Edit My Profile </title>
   </head> 
 
@@ -120,12 +121,12 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                    
                         <div class="field">
                             <input type="text" name ="Fname" value="<?php echo $rows2['Fname'];?>">
-                            <label>First Name</label>
+                            <label  id = "test">First Name</label>
                         </div>
 
                         <div class="field">
                             <input type="text" name ="Lname" value="<?php echo $rows2['Lname'];?> ">
-                            <label>Last Name </label>
+                            <label  id = "test">Last Name </label>
                         </div>
 
                         
@@ -133,23 +134,24 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                         <div class="field">
                             <input type="test" name ="phoneNumber" value="<?php echo $rows2['phoneNumber']; ?>">
-                            <label> Phone Number </label>
+                            <label  id = "test"> Phone Number </label>
                         </div>					
 
                        
                         <div class="field">
                             <input type="test" name ="password" value="<?php echo $rows2['password'];?> ">
-                            <label> Password </label>
+                            <label  id = "test"> Password </label>
                         </div>
-                         
-                        <div class="content">
-            <div class="radio" style="padding-top: 5%;">
-             <label style="color: #617470;padding-right: 5%;font-size: large;" for="gender">Gender:</label>
+                         <br>
+                        <div class="radioLeft">
+            <div  id = "test" class="radio" style="font-size: 19px;">
+             <label id = "test" style="color: black; padding-left: 5% ; font-size: 19px;" for="gender">Gender:</label>
                 <input type="radio" name="gender" value="Male"required <?php
                 if( $rows2['gender']== "Male")
                 echo "checked";
                 ?> >
-                <label for="male">male</label>
+                <label id = "test" for="male">male</label>
+
                 <input type="radio" name="gender" value="Female"required  
                 <?php
                 if( $rows2['gender']== "Female")
@@ -159,9 +161,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 <label  for="Female">Female</label>
             </div></div>
 
-                    
+                  <br>  
 
-                        <div style=" padding-left: 25% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo <br>
+                        <div style=" padding-left: 5% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo 
                             <input  type="file" id="myFile" name="photo">
                           </div>
                           <br>

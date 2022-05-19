@@ -135,3 +135,17 @@ img {
     margin-top: -20px;
 }
 
+
+button
+{
+    color: white ;
+    background-color: #617470;
+    font-family: 'Calibri', 'Times New Roman', serif ;
+    font-size: 12pt;
+    border-radius: 6px;
+    border: white;
+}
+button:hover
+{
+    background-color: #b4c9d3;
+}

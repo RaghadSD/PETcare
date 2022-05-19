@@ -107,10 +107,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $phoneNumber=$row['phoneNumber'];
         $profilePic=$row['profilePic'];
         $gender=$row['gender'];
-        
-        
-        // echo "<script>alert('Error: Can get profile info!')</script>";
-       
+               
 
           echo  '<div class="content">
           <p> <lable style="color: #617470;font-size: x-large;padding-top: 15%;"> '.$Fname.' '.$Lname.' </p>
@@ -127,6 +124,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
        <p> <lable style="color: #000000;font-size: large;">'.$gender.' </p>
     </div> 
     <div class="content">
+    
         <a style="color: #617470;font-size: large;" href="UpdateOwnerProfile.php">Edit</a>
         <a style="color: #617470;font-size: large;"href="DeleteOwner.php"">Delete</a>
         

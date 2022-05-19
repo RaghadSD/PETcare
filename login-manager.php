@@ -62,30 +62,34 @@ function function_alert($message) {
       <form action="login-manager.php" method="POST">
 
 
-        <div id=cont>
-        <label id = "qq">Are you?</label> <br>
+      
+<div class ="test"> 
+        <label id = "test" style = "color: black;">Are you?</label> 
         
         <input type="radio" id="Owner" name="OnOrMa" value="owner" required>
-        <label id="OnOrMa">Owner</label>
+        <label id="test">Owner</label>
 
         <input type="radio" id="Manager" name="OnOrMa" value="manager">
-        <label id="OnOrMa">Manager</label><br>
+        <label id="test">Manager</label><br>
         </div>
 
+<br>
         <div class="field">
           <input type="email" name ="email" required>
-          <label>Email Address</label>
+          <label id = "qq">Email Address</label>
+
         </div>
+        <br>
         <div class="field">
           <input type="password" name ="password" required>
-          <label>Password</label>
+          <label id = "qq">Password</label>
         </div>
         <div class="content">
           <div class="checkbox">
             <input type="checkbox" id="remember-me">
-            <label for="remember-me">Remember me</label>
+            <label for="remember-me" style = "display: flex; align-items: center; justify-content: center; ">Remember me</label>
           </div>
-          <div class="pass-link"><a href="UpdatePassword.php">Forgot password?</a></div>
+          <div class="pass-link"><a style = "display: flex; align-items: center; justify-content: center; color : #617470; " href="UpdatePassword.php">Forgot password?</a></div>
         </div>
         <!-- <div class="field">
           <input type="submit" value="Login" >

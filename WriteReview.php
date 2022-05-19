@@ -13,21 +13,28 @@ die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
-$id=$_GET['review'];
+if(isset($_GET['review'])){
+$idREV=$_GET['review'];
+echo $idREV;
+}
+
+else 
+echo "doesnt set";
 
 if (isset($_POST['submitRev'])) {
 $rev = $_POST['Textt'];
 
-$query= "UPDATE appointment SET review = '$rev' WHERE id='$id' ";
+$query= "UPDATE appointment SET review = '$rev' WHERE id= '$idREV' ";
 $u = mysqli_query($database, $query);
  if ($u) {
     function_alert("Review submitted successfully");
-    header("location: Previous Appointments.php");
  }
  else {
  function_alert("Review cannot submitted");
- header("location: Previous Appointments.php");
 }
+
+header("location: Previous Appointments.php");
+
   
 }
 
@@ -58,8 +65,8 @@ function function_alert($message) {
             <br>
             
 
-            <button style ="height: 45px;  width: 120px; margin-left: 62px;" class="editAbout" name="submitRev"> Submit </button>
-            <button style ="height: 45px;  width: 120px; margin-left: auto;" onClick="document.location.href='Previous Appointments.php';" type="button" class="editAbout"> Cancel </button>
+            <button style ="height: 45px;  width: 120px; margin-left: 62px;" class="send-button" name="submitRev"> Submit </button>
+            <button style ="height: 45px;  width: 120px; margin-left: auto;" onClick="document.location.href='Previous Appointments.php';" type="button" class="send-button"> Cancel </button>
           
             </section>
         </form>

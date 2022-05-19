@@ -495,7 +495,7 @@ text-decoration: none;
 
 .send-button {
   display: inline-block;    
-  border: 1.5px solid #b4c9d3;
+  border: 1.5px solid white;
   border-radius: 25px;
   position: relative;
   text-align: center;
@@ -505,11 +505,14 @@ text-decoration: none;
   margin-left: 120px;
   margin-bottom: -2%;
   padding: 12px 13px;
-  background-color: transparent;
+  background-color: #617470;
   margin-top: 10px;
   height: 45px;
   width: 150px;
-  color: #617470;
+  color: white;
+
+
+  font-family: 'Calibri', 'Times New Roman', serif ;
 }
 
 
@@ -634,3 +637,16 @@ hr {
     width: 280px;
   } 
   
+  button
+  {
+      color: white ;
+      background-color: #617470;
+      font-family: 'Calibri', 'Times New Roman', serif ;
+      font-size: 12pt;
+      border-radius: 6px;
+      border: white;
+  }
+  button:hover
+  {
+      background-color: #b4c9d3;
+  }

@@ -85,6 +85,10 @@ tbody tr{
       border-radius: 6px;
       border: white;
   }
+  button:hover
+  {
+      background-color: #b4c9d3;
+  }
   .del
   {
       margin: 5px;
@@ -95,10 +99,7 @@ tbody tr{
       padding: 7px;
   }
 
-  button:hover
-  {
-      background-color: #b4c9d3;
-  }
+ 
 
   a{
       text-decoration: none;

@@ -119,52 +119,52 @@ if (!($database = mysqli_connect("localhost", "root", "")))
       
         <div class="field">
             <input type="text" name ="PName"required>
-            <label>Pet Name</label>
+            <label id = "qq">Pet Name</label>
           </div>
     
           <div class="field">
             <input style="color: #617470;" type="date" name ="date"   >
-            <label>Date Of Birth</label>
+            <label id = "qq">Date Of Birth</label>
           </div>
         
 
         <div class="field">
             <input type="text" name ="PBreed"required>
-            <label> Pet Breed </label>
+            <label id = "qq"> Pet Breed </label>
           </div>
 
-          <div class="content">
-            <div class="radio" style="padding-top: 5%;">
-             <label style="color: #617470;padding-right: 5%;font-size: larger;" for="gender">Gender:</label>
+            <div class="radioLeft" style="padding-top: 5%;">
+             <label   id = "test" style="color: #617470; padding-left: 5% ; font-size: larger;" for="gender">Gender:</label>
                 <input type="radio" name="gender" value="Male"required >
-                <label for="male">male</label>
+                <label  id = "test" style="font-size: 19px;" for="male">male</label>
                 <input type="radio" name="gender" value="Female"required >
-                <label  for="female">female</label>
-            </div></div>
-
-            <div class="content">
-                <div class="radio">
-              <label style="color: #617470;padding-right: 5%;font-size: larger;" for="Neutered Status">Neutered:</label>
-                        <input type="radio" name="NStatus" value="Spayed" required>
-                        <label for="Spayed">Spayed</label>
+                <label  id = "test" style="font-size: 19px;" for="female">female</label>
+            </div>
+<br>
+                <div class="radioLeft">
+              <label style="color: #617470; padding-left: 5% ; font-size: larger;" for="Neutered Status">Neutered:</label>
+                        <input type="radio"  name="NStatus" value="Spayed" required>
+                        <label id = "test" style="font-size: 19px;" for="Spayed">Spayed</label>
                         <input type="radio" name="NStatus" value="UnSpayed"required >
-                        <label for="UnSpayed">UnSpayed</label><br>
-                    </div></div>
+                        <label  id = "test" style="font-size: 19px;" for="UnSpayed">UnSpayed</label><br>
+                    </div>
+                    <br>
 
-    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
-        <input  type="file" id="myFile" name="Petphoto">
+
+
+    <div id = "qq"> <lable id = "qq" style="color: #617470; padding-left: 5% ; font-size: 19px;"> Change Profile Photo  <input style = "padding-left: 5% ;" type="file" id="myFile" name="Petphoto">
     </div>
 
 
-<p style="color: #617470;">Optional fields</p>          
+<p id = "qq" style=" font-size: 19px; padding-left: 5% ; color: #617470;">Optional fields</p>          
         <div class="field">
             <input type="text" name ="vaccinations" >
-            <label>vaccinations </label>
+            <label style = " font-size: 19px;" id = "qq">vaccinations </label>
           </div>
 
         <div class="field">
             <input type="text" name ="MHistory">
-            <label> Medical History  </label>
+            <label id = "qq"> Medical History  </label>
           </div>
 
         <div class="field">

@@ -83,6 +83,9 @@
 
         </div>
         </nav>
+
+
+</div>
         <div class="description">
             <h1>
                 Your Pet Deserves the Best.
@@ -98,7 +101,7 @@
     </section>
     <section class="Services" id="services">
         <br>
-        <h1> Our services </h1>
+        <h1> Some of our services </h1>
         <br>
         <div class = "row"> 
             <div class = "Services-column"> 
