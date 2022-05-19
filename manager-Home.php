@@ -44,6 +44,7 @@ $rows2 = mysqli_fetch_array($result3);
     <div>
       <div class="header-links">
         <ul>
+          <li> <a href="#ABOUTUS"> About </a> </li>
           <li> <a href="addService.php"> Add Service </a> </li>
           <li>
             <div class="dropdown">
