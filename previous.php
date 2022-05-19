@@ -1,6 +1,5 @@
 <?php
 
- 
 if (!($database = mysqli_connect("localhost", "root", "")))
     die("<p>Could not connect to database</p>");
 	
@@ -9,20 +8,14 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 if (!mysqli_select_db($database, "petcare1"))
     die("<p>Could not open URL database</p>");
     session_start();
-
-    if(isset($_GET['id']) && $_GET['action']=='delete'){
-      $sql_query="DELETE FROM appointment WHERE id=".$_GET['id'];
-      if($result22 = mysqli_query($database, $sql_query))
-      {header("location: page7viewappoitment.php");}
-    }
     	
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Available Appointments</title>
-<link rel = "stylesheet" href = "table-style.css">
+<meta charset="utf-8">
+<title>Previous Appointments</title>
+<link rel="stylesheet" href="table-style.css" type="text/css">
 </head>
 <body>
 <section class="header">
@@ -50,33 +43,34 @@ if (!mysqli_select_db($database, "petcare1"))
     </div>
   </nav>
 </section>
-
-<h1>View Available Appointments</h1>
+<h1>Previous Appointments</h1>
 <table>
   <thead>
     <tr>
       <th>Id</th>
-      <th> Service</th>
-      <th> Date</th>
-      <th> Time </th>
-      <th> Manage </th>
+      <th>Pet Name</th>
+      <th>Service</th>
+      <th>Date</th>
+      <th>Time</th>
     </tr>
   </thead>
   <tbody>
     <?php 
-  $query="select * from appointment where status='Accept' ";
+  $query="select * from appointment where status='Accept' and  date<'".date("Y-m-d")."'";
   $result=mysqli_query($database, $query);
   if(mysqli_num_rows($result)>0){ 
   while($iAppointRow = mysqli_fetch_assoc($result)) {
+   $petresult=mysqli_query($database, "select * from pet where id='".$iAppointRow['petId']."'");
+   $iPetDet = mysqli_fetch_assoc($petresult);  
 	?>
     <tr>
-      <td> <?php echo $iAppointRow['id']; ?></td>
+      <td><?php echo $iAppointRow['id']; ?></td>
+      <td><a href ="pet-detail.php?id=<?php echo $iAppointRow['petId']; ?>">
+        <button><?php echo $iPetDet['name']; ?></button>
+        </a></td>
       <td><?php echo $iAppointRow['serviceName']; ?></td>
       <td><?php echo $iAppointRow['date']; ?></td>
       <td><?php echo $iAppointRow['time']; ?></td>
-      <td><a href ="editAppointment-manager.php?id=<?php echo $iAppointRow['id']; ?>">
-        <button>Edit</button> </a>
-        <button onclick="javascript:delete_id(<?php echo $iAppointRow['id'];?>)">Delete</button></td>
     </tr>
     <?php  } }  else { ?>
     <tr>
@@ -85,15 +79,5 @@ if (!mysqli_select_db($database, "petcare1"))
     <?php } ?>
   </tbody>
 </table>
-
-<script type="text/javascript">
-function delete_id(id){
-  if(confirm('Are you sure?')){
-    window.location.href='page7viewappoitment.php?action=delete&id='+id;
-  }
-}
-
-</script>
-
 </body>
 </html>

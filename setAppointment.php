@@ -1,4 +1,5 @@
 <?php
+session_start();
 
   if (!($database = mysqli_connect("localhost", "root", "")))
     die("<p>Could not connect to database</p>");
@@ -38,44 +39,31 @@
   </head> 
 
   <body>
-    <section class="header">
-        <nav> 
-            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
-            <div>
-
-                <div class="header-links">
-    
-                    <ul>
-                        <li> <a href="#ABOUTUS"> About </a> </li>
-                        <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
-                        <li> <a href="#services"> Services </a> </li>
-                        <li> <a href="page4Add.php"> Add Service </a> </li>
-    
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"> Appointments </button>
-                                <div class="dropdown-content">
-                                    <a href="page5set.php"> Set Appointment </a>
-                                    <a href="page7ViewAppoitment.php"> All Appointments </a>
-                                    <a href="page6AcceptDecline.php"> Appointment Requests </a>
-                                    <a href="previous.php"> Previous Appointments </a>
-                                    <a href="page 3Upcoming.php"> Upcoming Appointments </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li> <a href="Reviews.php"> Owners Review </a> </li>
-                        <li> <a href="logout.php"> Logout </a> </li>
-                        <li> <a href="owners.php"> Contact </a> </li>
-                    </ul>
-    
-    
-                </div>
-    
+  <section class="header">
+  <nav> <a href="manager-home.php"> <img id=logo src="Image (2).jpeg"></a>
+    <div>
+      <div class="header-links">
+        <ul>
+          <li> <a href="addService.php"> Add Service </a> </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"> Appointments </button>
+              <div class="dropdown-content"> 
+              <a href="setAppointment.php"> Set Appointment </a> 
+              <a href="page7ViewAppoitment.php"> All Appointments </a> 
+              <a href="page6AcceptDecline.php"> Appointment Requests </a> 
+              <a href="previous.php"> Previous Appointments </a> 
+              <a href="upcoming.php"> Upcoming Appointments </a> </div>
             </div>
-        </nav>
-       
+          </li>
+          <li> <a href="Reviews.php"> Owners Review </a> </li>
+          <li> <a href="Home.php"> Logout </a> </li>
 
-    </section>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</section>
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title">Set Appointment</div>
        
@@ -86,14 +74,31 @@
   
 
 
+            <!-- edited :) -->
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="service" id="pet">
-             <option value="Classic Bath,Brush & Nails" >Classic Bath,Brush & Nails</option>
-             <option value="Deluxe Bath,Brush & Nails">Deluxe Bath,Brush & Nails</option>
-             <option value="Spaying Surgery">Spaying Surgery</option>
-             <option value="Exams & Consultations">Exams & Consultations</option>
-             <option value="Dentistry">Dentistry</option>
+           <?php
+
+
+           $query2 = "SELECT name FROM service";
+           $result2 = mysqli_query($database,$query2);
+
+
+
+            if(mysqli_num_rows($result2)>0)
+              {
+
+            while($rows2 = mysqli_fetch_array($result2))
+             {
+
+           ?>
+
+
+             <option value="<?php echo $rows2['name']; ?>" ><?php echo $rows2['name']; ?></option> 
+             <?php
+            }}
+            ?>
            </select>
            </div></div> 
            
