@@ -29,7 +29,7 @@ $_SESSION['ID']= $query_executed['id'];
     header('Location: Owner homepage.php');
 
     else if ($who == "manager")
-    header('Location: Manger homepage.php');
+    header('Location: manager-home.php');
 
     $_SESSION['email'] = $email;
     $_SESSION['password'] = $password;
