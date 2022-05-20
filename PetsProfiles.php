@@ -116,7 +116,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
    } else {
    echo ' <tr>
     <td colspan="4">No record found...</td>
-  </tr>' 
+  </tr>' ;
    }   
      ?>       
         </tbody> 
