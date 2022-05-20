@@ -161,7 +161,7 @@ else {
       }
   }
        ?>       
-        
+         <div class="content" > <a style="color: #617470;font-size: large;" href="javascript:history.back()">Back</a>  </div>     
         </form>
 
 
