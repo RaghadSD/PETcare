@@ -12,7 +12,7 @@ if (!mysqli_select_db($database, "petcare1"))
       $name=$_POST['name'];
       $description=$_POST['description'];
       $price=$_POST['price'];
-      $photo=$_POST['photo'];
+      $photo=addslashes(file_get_contents($_FILES["photo"]["tmp_name"]));
 
 
       $query = "INSERT INTO service VALUES('$name','$description','$price','$photo')";
