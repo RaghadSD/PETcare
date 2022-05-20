@@ -13,17 +13,18 @@ die("<p>Could not connect to database</p>");
 
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
+
 if(isset($_GET['review'])){
-$idREV=$_GET['review'];
-echo $idREV;
+$_SESSION['IDrev'] = $_GET['review'];
 }
 
 else 
 echo "doesnt set";
 
 if (isset($_POST['submitRev'])) {
-$rev = $_POST['Textt'];
 
+$idREV= $_SESSION['IDrev'];
+$rev = $_POST['Textt'];
 $query= "UPDATE appointment SET review = '$rev' WHERE id= '$idREV' ";
 $u = mysqli_query($database, $query);
  if ($u) {
@@ -35,7 +36,7 @@ $u = mysqli_query($database, $query);
 
 header("location: Previous Appointments.php");
 
-  
+
 }
 
 
