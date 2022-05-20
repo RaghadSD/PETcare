@@ -8,10 +8,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 if (!mysqli_select_db($database, "petcare1"))
     die("<p>Could not open URL database</p>");
     session_start();
-	
 
-$petresult=mysqli_query($database, "select * from pet where id='".$_GET['id']."'");
-$iPetDet = mysqli_fetch_assoc($petresult); 
     	
 ?>
 <html lang="en" dir="ltr">
@@ -51,39 +48,88 @@ $iPetDet = mysqli_fetch_assoc($petresult);
 <div class="title"> Pet Profile </div>
 <div class="field">
 <form >
-  <img style="padding-left: 30%;border-radius: 90%; height: 20%;width: 75%;" src="images/Kitten-Blog.jpg" alt="Pet photo">
-  <div class="content">
-    <p>
-      <lable style="color: #617470;font-size: x-large;padding-top: 20%;">
-      <?php echo $iPetDet['name']; ?> </p>
-  </div>
-  <div class="content">
-    <p>
-      <lable style="color: #000000;font-size: large;">
-      <?php echo $iPetDet['breed']; ?> </p>
-  </div>
-  <div class="content">
-    <p>
-      <lable style="color: #617470;font-size: large;">
-      <?php echo $iPetDet['gender']; ?>  </p>
-  </div>
-  <div class="content" >
-    <p> Date Of Birth:  <?php echo $iPetDet['DOB']; ?> </p>
-  </div>
-  <div class="content">
-    <p>
-      <lable style="color: #617470;font-size: large;">
-      <?php echo $iPetDet['neuterStatus']; ?> </p>
-  </div>
-  <div class="content">
-    <p>Owner Email:</p>
-  </div>
-  <div class="content">
-  <a href="mailto:<?php echo $iPetDet['emailO']; ?>" style="color: #617470;font-size: large;"> <?php echo $iPetDet['emailO']; ?> </a>
-  </div>
 
+<?php  
 
-   <div class="content" > <a style="color: #617470;font-size: large;" href="javascript:history.back()">Back</a>  </div>
-</form>
+        if(isset($_GET['id'])){
+          $id=$_GET['id'];
+
+          $q = "select profilePic from pet WHERE Id='$id'";
+                            $newResult = mysqli_query($database,$q);
+                            $ReqSTATresult = mysqli_fetch_assoc($newResult);
+                            $img= $ReqSTATresult['profilePic'];
+
+                        if(!empty($img)){ ?>
+                           
+                         <img style="   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;" src="data:image/jpeg;base64, <?php echo base64_encode($ReqSTATresult['profilePic']) ;?>">
+                           <?php
+                        }
+                           else{
+                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/profile-male.jpeg' alt='profile picture'>";
+                           }
+                           $query="SELECT * FROM `pet` WHERE Id='$id'";
+
+                           $result = mysqli_query($database, $query);
+                           if ($result) {                   
+                            $row= mysqli_fetch_assoc($result);
+                            $name=$row['name'];
+                            $gender=$row['gender'];
+                            $vaccinations=$row['vaccinations'];
+                            $profilePic=$row['profilePic'];
+                            $breed=$row['breed'];
+                            $DOB=$row['DOB'];
+                            $neuterStatus=$row['neuterStatus'];
+                            $medHistory=$row['medHistory'];
+                            $owneremail = $row['emailO'];
+                       
+                            echo  ' <div class="content">
+                            <p> <lable style="color: #617470;font-size: x-large;padding-top: 20%;">'.$name.' </p>
+                         </div>
+                       
+                         <div class="content">
+                            <p> <lable style="color: #000000;font-size: large;"> '.$breed.' </p>
+                         </div>
+                         
+                         <div class="content">
+                            <p> <lable style="color: #617470;font-size: large;"> '.$gender.' </p>
+                         </div>
+                          <div class="content" >
+                            <p>  Date Of Birth: '.$DOB.'</p>
+                         </div>
+                       
+                          <div class="content">
+                            <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
+                         </div>';
+                         
+                         if(!empty($vaccinations)){
+                             
+                           echo '<div class="content" >
+                          <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
+                        </div>'; }
+                        
+                        if(!empty($medHistory)){
+                           
+                            echo '<div class="content" >
+                              <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
+                            </div>';}?>
+
+                            <div class="content">
+                            <p>Owner Email:</p>
+                          </div>
+                          <div class="content">
+                          <a href="mailto:<?php echo $row['emailO']; ?>" style="color: #617470;font-size: large;"> <?php echo $row['emailO']; ?> </a>
+                          </div>
+                            <?php
+                            }
+                       
+                       else { 
+                             echo  $database->error;
+                              exit();
+                             }
+                         }
+                              ?>  
+                              <div class="content" > <a style="color: #617470;font-size: large;" href="javascript:history.back()">Back</a>  </div>     
+                               
+                               </form>
 </body>
 </html>
