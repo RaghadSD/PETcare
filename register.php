@@ -94,8 +94,8 @@
                 
                 $gender = $_POST['gender'];
                 $phone = $_POST['phone'];
-                $profile =$_POST['profile'];
-
+                $profile =addslashes(file_get_contents($_FILES["profile"]["tmp_name"]));
+              
                 $query = "INSERT INTO owner VALUES('$email','$password','$gender','$phone','$profile','$FName','$LName')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
