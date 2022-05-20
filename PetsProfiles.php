@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login.php");
     exit();
 }
 
@@ -26,16 +26,20 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 </head>
 <body>
 <section class="header">
-<nav> 
-            <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+        <nav> 
+            <a href="Owner homepage.html"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
 
                 <ul>
+                    <li> <a href="#ABOUTUS"> About </a> </li>
+                    <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
+                    <li> <a href="#services"> Services </a> </li>
+
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My pets </button>
+                            <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
                                 <a href="AddPet.php"> Add Pet </a>
                                 <a href="PetsProfiles.php"> View My Pets </a>
@@ -45,7 +49,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
+                            <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
                                 <a href="Book Appointment.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
@@ -58,7 +62,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Profile </button>
+                            <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
                                 <a href="ownerprofile.php"> View My Profile </a>
                                 <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
@@ -66,6 +70,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
+                    <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
 
@@ -73,9 +78,10 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-       
+        
 
     </section>
+
 
     <table>
         <thead>
@@ -96,27 +102,32 @@ if (!($database = mysqli_connect("localhost", "root", "")))
    $result = mysqli_query($database, $query);
 
    if ($result) {
+    if(mysqli_num_rows($result)>0){ 
        while(  $row= mysqli_fetch_assoc($result)){
         $id=$row['Id'];
         $name=$row['name'];
         $gender=$row['gender'];
 
-        echo  ' <tr>
-        <td> '.$id.'</td>
-        <td> '.$name.'</button></a> </td>
-        <td> '.$gender.'</td>
-        <td> <a href="PET1Profile.php?Viewid='.$id.'">  <button>View</button></a> 
-        <a href="UpdatePetProfile.php?Updateid='.$id.'">  <button> Edit</button> </a>
-         <a href="Delete.php?deleteid='.$id.'">   <button> Delete</button></a></td> 
-        
 
-    </tr>';
+          echo  ' <tr>
+          <td> '.$id.'</td>
+          <td> '.$name.'</button></a> </td>
+          <td> '.$gender.'</td>
+          <td> <a href="PET1Profile.php?Viewid='.$id.'">  <button>View</button></a> 
+          <a href="UpdatePetProfile.php?Updateid='.$id.'">  <button> Edit</button> </a>
+           <a href="Delete.php?deleteid='.$id.'">   <button> Delete</button></a></td> 
+          
+
+      </tr>';}
 }
+else echo '<tr>
+<td colspan="4">No record found...</td>
+</tr>';
 
    } else {
-   echo ' <tr>
-    <td colspan="4">No record found...</td>
-  </tr>' ;
+       echo "<script>alert('Error: Cannot get profiles!')</script>";
+       echo  $database->error;
+       exit();
    }   
      ?>       
         </tbody> 
