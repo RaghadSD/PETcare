@@ -11,8 +11,7 @@
       <div class="title">Regestration Form</div>
 
       <div class="field">
-      <form method = "post" action = "register.php">
-      
+      <form method = "post" action = "register.php" enctype="multipart/form-data" >      
       <div class="field"  >
         <input type="email" name ="email" required>
         <label>Email Address</label>
@@ -53,19 +52,21 @@
           <label for="female">female</label>
       </div></div>
       
-      <p> <lable style="color: #617470;"> Profile photo <br<>
-          <input type="file" id="myFile" name="profile">
+     
+
+
+          <div lable style="color: #617470;"> Profile photo
+                        <input type="file" id="myFile" name="profile" required > </div>  
       <p>
         <div class="field">
           <input type="submit" value="Sign Up" name="create">
-          <div class="content">
-            <a style="color: #617470;font-size: large;" href="login-manager.php">Back</a>
-         </div>
+          
 
           </div>
       </p>
       </form>
       <?php
+
             if (!($database = mysqli_connect("localhost", "root", "")))
                 die("<p>Could not connect to database</p>");
 
@@ -91,18 +92,19 @@
                 exit();
               }
                 $password = $_POST['password'];
-                
+                $profile =addslashes(file_get_contents($_FILES["profile"]["tmp_name"]));
                 $gender = $_POST['gender'];
                 $phone = $_POST['phone'];
-                $profile =$_POST['profile'];
-
+                //$profile =$_POST['profile'];
+                $profilePic =addslashes(file_get_contents($_FILES["profilePic"]["tmp_name"]));
                 $query = "INSERT INTO owner VALUES('$email','$password','$gender','$phone','$profile','$FName','$LName')";
                 $result = mysqli_query($database, $query);
                 if ($result) {
+                  session_start();
                     header('Location: owner homepage.php');
                 } else {
                   function_alert( "Error: can not create new user!");
-                   // echo  $database->error;
+                    echo  $database->error;
                     exit();
                 }
             }
@@ -125,10 +127,6 @@
               echo "<script>alert('$message');</script>";
           }
             ?>
-
-
-
-
 
   </body>
 </html>
