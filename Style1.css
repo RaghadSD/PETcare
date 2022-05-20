@@ -9,11 +9,10 @@ html,body{
   display: grid;
   height: 100%;
   width: 100%;
-  place-items: center;
-  background-image:url('images/andrew-schultz-DTSDD968Mpw-unsplash.jpg') ;
- background-repeat: no-repeat;
- background-size: cover;
- background-attachment: fixed;;
+  background-image: linear-gradient(rgba(62, 66, 82, 0.7), rgba(62, 66, 82, 0.7)), url("welcome.jpg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
  
 }
 ::selection{
