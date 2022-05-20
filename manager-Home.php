@@ -81,12 +81,14 @@ $rows2 = mysqli_fetch_array($result3);
     </section>
     <section class="Services" id="services">
         <br>
-        <h1> Our services </h1>
+        <h1> Our services <a href="services.php?role=manager" class="show">SHOW MORE</a></h1> 
         <br>
 
-        <div class = "row"> 
-        <?php
-                $service= "select * from service";
+        
+
+        <div class = "row" style="align:center;"> 
+           <?php
+                $service= "select * from service limit 3";
                 $res = mysqli_query($database,$service);
                 if(mysqli_num_rows($res)>0)
                  {
@@ -95,6 +97,8 @@ $rows2 = mysqli_fetch_array($result3);
                  {
                 ?>
             <div class = "Services-column"> 
+
+            <img  style = "width:70px; height:70px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
                 
     
                 <h3> <?php echo $serRow['name']; ?> </h3>
@@ -102,14 +106,17 @@ $rows2 = mysqli_fetch_array($result3);
                 <?php echo $serRow['description']; ?><br>
                 price: <?php echo $serRow['price']; ?> SR
                       <br>
-                      <img  style = "width:75px; height:75px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
+                      
                 </p>
             </div><br>
+         
             <?php
                  }
                 }
             ?>
-    </section>
+            </div> 
+            
+       </section>
 
 
     <section class="about-section" id="ABOUTUS">
