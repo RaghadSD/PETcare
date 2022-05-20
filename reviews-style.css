@@ -332,3 +332,61 @@ margin-right: -8%;
     color: #617470;
     letter-spacing: 1px;
   }  
+
+
+  
+  .Services {
+width : 100%;
+}   
+
+  .row ,.row2{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%; 
+  }
+  
+  .Services-column{
+    flex-basis: 60%;
+    height: 250px;
+    width: 150px;
+    background-color:  #b4c9d3;
+    border: 0px solid #b4c9d3; 
+    border-radius: 10px;
+    margin-bottom: 2%;
+    margin-left: 3%;
+    margin-right: 3%;
+    padding: 20px 15px;
+    box-sizing: border-box;
+  }
+  
+  .Services-column img{
+    background-color: transparent;
+    height: 90px;
+    width: 90px;
+    margin-top: 5%;
+    margin-bottom: 1%;
+  
+  }
+  .Services-column h3{
+  text-transform: uppercase;
+  font-weight: bolder;
+  
+  
+  }
+  .Services-column p, .Services-column h3, label{
+    background-color: transparent;
+    color: #617470;
+    text-align: center;
+    margin-bottom: 1%;
+  
+  }
+
+  .Services-column p {
+    font-size: 15px;
+  }
+
+
+  
+  
