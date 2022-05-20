@@ -2,10 +2,14 @@
 
 session_start();
 
-$ID = $_SESSION['ID'];
+if(isset($_GET['id'])){
+    if(!isset($_SESSION['id'])){
+        $_SESSION['id']=$_GET['id'];
+    }
+}
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login.php");
     exit();
 }
 
@@ -15,8 +19,6 @@ die("<p>Could not connect to database</p>");
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
-
-
 if(isset($_POST['Update'])){
 
     $petName = $_POST['pet2'];
@@ -24,6 +26,7 @@ if(isset($_POST['Update'])){
     $date = $_POST['date'];
     $time = $_POST['time'];
     $note = $_POST['Notes'];
+
 
     $petID = "SELECT id From pet where idO = $ID && name ='$petName' " ;
     $result = mysqli_query($database, $petID);
@@ -34,12 +37,10 @@ if(isset($_POST['Update'])){
     $Updateid=$_GET['Updateid'];
     
 //$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$emaill')";
-$query = "UPDATE `appointment` SET ,`note`='$note',`date`='$date',`time`='$time,`serviceName`='$service',`petId`='$petID',`emailOwner`='$emaill' WHERE id='$Updateid'";
+//$query = "UPDATE `appointment` SET ,`note`='$note',`date`='$date',`time`='$time,`serviceName`='$service',`petId`='$petID',`emailOwner`='$emaill' WHERE id='$Updateid'";
+$query = "UPDATE appointment SET  date='$date', time='$time', serviceName='$service' , petId = '$petID' ,note = '$note' WHERE id='$Updateid'";
 if ($result=mysqli_query($database, $query))
 function_alert("Appointment request updated successfully");
-
-
-
 
 }
 function function_alert($message) {
@@ -47,7 +48,6 @@ function function_alert($message) {
     echo "<script>alert('$message');</script>";
 }
                
-
 ?>
 <!DOCTYPE html> 
 
@@ -135,11 +135,10 @@ function function_alert($message) {
   
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet2" id="pet">
+            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
             <option disabled selected>Choose your pet</option>
-           
             <?php
-            $records = mysqli_query($database, "SELECT name From pet where idO = '$ID';");
+            $records = mysqli_query($database, "SELECT name From pet where emailO = '$emaill';");
             while ($data = mysqli_fetch_array($records)) {
             echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) .
            "</option>";
@@ -148,37 +147,34 @@ function function_alert($message) {
             </select>
            </div></div>
 
-
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-
            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="service" id="service">
-
-           <option disabled selected>Choose service</option>
-
+           <option selected> Choose a service </option>
            <?php
            $records = mysqli_query($database, "SELECT name From service");
        
            while ($data = mysqli_fetch_array($records)) {
-                echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) . 
-                 "</option>";
-            }
             ?>
+            <option value="<?php echo $data['name']; ?>"> <?php echo $data['name']; ?></option>
+            <?php
+           }
+            ?>
+
            </select>
            </div>
-        </div> 
+        </div>
            
-           <div class="field">
-            <input type="date" name ="date" value="<?php echo $rows2['date'];?>">
+        <div class="field">
+            <input type="date" name ="date" value="<?php echo $row['date']; ?>">
             <label>Date </label>
           </div>
 
           <div class="field">
-            <input type="time" name ="time"  value="<?php echo $rows2['time'];?>">
+            <input type="time" name ="time"  value="<?php echo $row['time']; ?>">
             <label>Time </label>
           </div>
 
-       
 
         <div class="field">
             <input type="text" name = "Notes" id = "Notes" 
@@ -187,13 +183,10 @@ function function_alert($message) {
           </div>
 
    
-
-
-        <div class="field">
+          <div class="field">
             <input name= "Update" type="submit" value="Update">
           </div>
 
-     
         </form>
 </div> 
 

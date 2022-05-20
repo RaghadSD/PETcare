@@ -20,24 +20,20 @@
                     <ul>
                         <li> <a href="#ABOUTUS"> About </a> </li>
                         <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
-                        <li> <a href="#services"> Services </a> </li>
-                        <li> <a href="page4Add.html"> Add Service </a> </li>
-    
-                        <li>
-                            <div class="dropdown">
-                                <button class="dropbtn"> Appointments </button>
-                                <div class="dropdown-content">
-                                    <a href="page5set.html"> Set Appointment </a>
-                                    <a href="page7ViewAppoitment.html"> All Appointments </a>
-                                    <a href="page6AcceptDecline.html"> Appointment Requests </a>
-                                    <a href="previous.html"> Previous Appointments </a>
-                                    <a href="page 3Upcoming.html"> Upcoming Appointments </a>
-                                </div>
-                            </div>
-                        </li>
-                        <li> <a href="Reviews.html"> Owners Review </a> </li>
-                        <li> <a href="logout.php"> Logout </a> </li>
-                        <li> <a href="owners.html"> Contact </a> </li>
+                        <<li> <a href="addService.php"> Add Service </a> </li>
+          <li>
+            <div class="dropdown">
+              <button class="dropbtn"> Appointments </button>
+              <div class="dropdown-content"> 
+              <a href="setAppointment.php"> Set Appointment </a> 
+              <a href="page7ViewAppoitment.php"> All Appointments </a> 
+              <a href="page6AcceptDecline.php"> Appointment Requests </a> 
+              <a href="previous.php"> Previous Appointments </a> 
+              <a href="upcoming.php"> Upcoming Appointments </a> </div>
+            </div>
+          </li>
+          <li> <a href="Reviews.php"> Owners Review </a> </li>
+          <li> <a href="Home.php"> Logout </a> </li>
                     </ul>
     
     
