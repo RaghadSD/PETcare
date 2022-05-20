@@ -1,6 +1,7 @@
 <?php
 
 session_start();
+$ID = $_SESSION['ID'];
 
 if(isset($_GET['id'])){
     if(!isset($_SESSION['id'])){
@@ -133,7 +134,7 @@ function function_alert($message) {
             <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
             <option disabled selected>Choose your pet</option>
             <?php
-            $records = mysqli_query($database, "SELECT name From pet where emailO = '$emaill';");
+            $records = mysqli_query($database, "SELECT name From pet where idO = '$ID';");
             while ($data = mysqli_fetch_array($records)) {
             echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) .
            "</option>";

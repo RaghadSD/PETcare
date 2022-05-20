@@ -15,7 +15,7 @@
     
 <section class="header">
 <nav> 
-  <a href="Manger homepage.php"> <img id=logo src="Image (2).jpeg"></a>
+  <a href="Home.php"> <img id=logo src="Image (2).jpeg"></a>
 
 <div> 
     <div class="header-links">
