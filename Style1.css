@@ -9,10 +9,12 @@ html,body{
   display: grid;
   height: 100%;
   width: 100%;
+  place-items: center;
   background-image: linear-gradient(rgba(62, 66, 82, 0.7), rgba(62, 66, 82, 0.7)), url("welcome.jpg");
-    background-position: center;
-    background-size: cover;
-    position: relative;
+  background-position: center;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
  
 }
 ::selection{
