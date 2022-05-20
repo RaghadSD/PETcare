@@ -24,13 +24,14 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 $neuterStatus = $_POST['neuterStatus'];
                 $vaccinations =$_POST['vaccinations'];
                 $medHistory =$_POST['medHistory'];
-                $Petphoto =$_POST['Petphoto'];
+                
+                $profile =addslashes(file_get_contents($_FILES["profile"]["tmp_name"]));
 
                 $emaill = $_SESSION['email'];
                 $id=$_GET['Updateid'];
 
 
-                $query ="UPDATE `pet` SET `name`='$PName',`medHistory`='$medHistory',`vaccinations`='$vaccinations',`profilePic`='$Petphoto',`gender`='$gender',`breed`='$PBreed',`DOB`='$date',`neuterStatus`='$neuterStatus' WHERE Id='$id'";
+                $query ="UPDATE `pet` SET `name`='$PName',`medHistory`='$medHistory',`vaccinations`='$vaccinations',`profilePic`='$profile',`gender`='$gender',`breed`='$PBreed',`DOB`='$date',`neuterStatus`='$neuterStatus' WHERE Id='$id'";
                 $r_update = mysqli_query($database, $query);
                 if ($r_update) {
                     echo "<script>alert('Pet has been Updated successfully')</script>";
@@ -56,7 +57,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
   <body>
     <section class="header">
-    <nav> 
+        <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -65,7 +66,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 <ul>
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My pets </button>
+                            <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
                                 <a href="AddPet.php"> Add Pet </a>
                                 <a href="PetsProfiles.php"> View My Pets </a>
@@ -75,7 +76,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
+                            <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
                                 <a href="Book Appointment.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
@@ -88,7 +89,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Profile </button>
+                            <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
                                 <a href="ownerprofile.php"> View My Profile </a>
                                 <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
@@ -112,7 +113,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         <div class="title">Update Pet Profile</div>
         
         <div class="field">
-        <form action="" method="POST">
+        <form action="" method="POST" enctype="multipart/form-data" >
         
        
         <?php
@@ -164,19 +165,18 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                          if( $rows2['neuterStatus']== "Spayed")
                           echo "checked";
                            ?> >
-                        <label for="Spayed">Spayed</label>
+                        <label for="Spayed">Spayed  </label>
                         <input type="radio" name="neuterStatus" value ="UnSpayed"
                          <?php
                          if( $rows2['neuterStatus']== "UnSpayed")
                           echo "checked";
                            ?>   >
-                        <label for="UnSpayed">UnSpayed</label><br>
+                        <label   for="UnSpayed"> UnSpayed</label><br>
                     </div></div>
 
 
-                    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo <br>
-        <input  type="file" id="myFile" name="Petphoto">
-    </div>
+                    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Pet Profile photo <br<>
+                        <input type="file" id="myFile" name="profile" value = <?php  $rows2['profilePic']; ?> > </div> 
 
 
 <p style="color: #617470;">Optional fields</p>          
