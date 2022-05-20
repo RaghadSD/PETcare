@@ -156,7 +156,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
      }
 
 else { 
-      echo  $database->error;
+      //echo  $database->error;
        exit();
       }
   }
