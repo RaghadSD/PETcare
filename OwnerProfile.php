@@ -2,7 +2,7 @@
 session_start();
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login-manager.php");
+    header("location: login.php");
     exit();
 }
 
@@ -81,7 +81,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         </nav>
      
 
-    </section>
+</section>
 
 
     <div class="wrapper" style="margin-top:-48% ;">
@@ -90,11 +90,25 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         <div class="field">
   
      <form>
-     <img style="padding-left: 18%;border-radius: 80%;" src="images/images-1.jpeg" alt="my profile photo">
+    <!-- <img style="padding-left: 18%;border-radius: 80%;" src="images/images-1.jpeg" alt="my profile photo">-->
             
      <?php
 
      $emaill = $_SESSION['email'];
+
+     $q = "select profilePic from owner WHERE `email` ='$emaill'";
+                            $newResult = mysqli_query($database,$q);
+                            $ReqSTATresult = mysqli_fetch_assoc($newResult);
+                            $img= $ReqSTATresult['profilePic'];
+
+                        if(!empty($img)){ ?>
+                           
+                         <img style="   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;" src="data:image/jpeg;base64, <?php echo base64_encode($ReqSTATresult['profilePic']) ;?>">
+                           <?php
+                        }
+                           else{
+                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/profile-male.jpeg' alt='profile picture'>";
+                           }
 
    $query= "SELECT * FROM `owner` WHERE `email` ='$emaill'";
   
@@ -142,7 +156,5 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         
         </form>
-
-
 
   </body>
