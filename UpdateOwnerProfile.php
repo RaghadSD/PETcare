@@ -51,16 +51,13 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
     <body >
     <section class="header">
-    <nav> 
+  <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
             <div class="header-links">
 
                 <ul>
-                    <li> <a href="#ABOUTUS"> About </a> </li>
-                    <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
-                    <li> <a href="#services"> Services </a> </li>
 
                     <li>
                         <div class="dropdown">
@@ -95,7 +92,6 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
-                    <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
 

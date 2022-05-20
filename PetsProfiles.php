@@ -33,10 +33,6 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             <div class="header-links">
 
                 <ul>
-                    <li> <a href="#ABOUTUS"> About </a> </li>
-                    <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
-                    <li> <a href="#services"> Services </a> </li>
-
                     <li>
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My pets </button>
@@ -70,7 +66,6 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
-                    <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
 
