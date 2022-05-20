@@ -111,11 +111,12 @@ $rows2 = mysqli_fetch_array($result3);
         </div>
 
     </section>
-     <section class="Services" id="services">
+       <section class="Services" id="services">
         <br>
-        <h1> Our services <a href="services.php?role=guest" class="show">SHOW MORE</a></h1> 
+        <h1> Our services <a href="services.php?role=owner" class="show">SHOW MORE</a></h1> 
         <br>
 
+        
 
         <div class = "row" style="align:center;"> 
            <?php
