@@ -107,7 +107,7 @@ if($role=='owner')
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
-                    <li> <a href="#contact"> Contact </a> </li>
+                    
                 </ul>
 
 
