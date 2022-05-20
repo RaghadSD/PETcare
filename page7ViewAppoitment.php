@@ -33,7 +33,7 @@ if (!mysqli_select_db($database, "petcare1"))
           <li> <a href="addService.php"> Add Service </a> </li>
           <li>
             <div class="dropdown">
-              <button class="dropbtn"> Appointments </button>
+              <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> Appointments </button>
               <div class="dropdown-content"> 
               <a href="setAppointment.php"> Set Appointment </a> 
               <a href="page7ViewAppoitment.php"> All Appointments </a> 

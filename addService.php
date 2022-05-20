@@ -49,7 +49,7 @@ if (!mysqli_select_db($database, "petcare1"))
           <li> <a href="addService.php"> Add Service </a> </li>
           <li>
             <div class="dropdown">
-              <button class="dropbtn"> Appointments </button>
+              <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> Appointments </button>
               <div class="dropdown-content"> 
               <a href="setAppointment.php"> Set Appointment </a> 
               <a href="page7ViewAppoitment.php"> All Appointments </a> 
@@ -78,11 +78,7 @@ if (!mysqli_select_db($database, "petcare1"))
                     <label>Service Name: </label>
                   </div>
 
-                 <div style="padding-top: 4%;padding-left: 6%;"> 
-                  <p> <lable style="color: #617470;">  photo <br<>
-                    <input type = "file" name = "photo" id = "photo">
-                <p>
-                </div>
+
                    
            
           <div class="field">
@@ -96,7 +92,11 @@ if (!mysqli_select_db($database, "petcare1"))
                     <label for = "des"> Description: </label>
                   </div>
 
-
+                  <div style="padding-top: 4%;padding-left: 6%;"> 
+                  <p> <lable style="color: #617470; FONT-SIZE: 18PX ; ">  Photo <br<>
+                    <input type = "file" name = "photo" id = "photo">
+                <p>
+                </div>
         <div class="field" >
             <input type="submit" name="submit" value="Add">
           </div>
