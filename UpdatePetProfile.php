@@ -176,7 +176,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
 
                     <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Pet Profile photo <br<>
-                        <input type="file" id="myFile" name="profile" value = <?php  $rows2['profilePic']; ?> > </div> 
+                        <input type="file" id="myFile" name="profile"  > </div> 
 
 
 <p style="color: #617470;">Optional fields</p>          
