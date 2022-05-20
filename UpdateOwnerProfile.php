@@ -23,8 +23,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                     $gender = $_POST['gender'];
                     $emaill = $_SESSION['email'];
                     $password = $_POST['password'];
+                    $profile =addslashes(file_get_contents($_FILES["profile"]["tmp_name"]));
               
-                    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password',`gender`='$gender' WHERE email= '$emaill'";
+                    $query= "UPDATE owner SET phoneNumber='$phoneNumber',Fname='$Fname',Lname='$Lname',password='$password',`gender`='$gender' , profilePic ='$profile' WHERE email= '$emaill'";
            $r_update = mysqli_query($database, $query);
           if ($r_update) {
             echo "<script>alert('profile has been updated successfully')</script>";
@@ -159,10 +160,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                   <br>  
 
-                        <div style=" padding-left: 5% ;font-size: large;" > <lable style="color: #617470;"> Change Profile Photo 
-                            <input  type="file" id="myFile" name="photo">
-                          </div>
-                          <br>
+                        
+                          <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile photo <br<>
+                        <input type="file" id="myFile" name="profile" value = <?php  $rows2['profilePic']; ?> > </div> 
 
                         <div class="field">
                         <input type="submit" value="update" name="update" />

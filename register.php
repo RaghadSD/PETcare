@@ -11,7 +11,7 @@
       <div class="title">Regestration Form</div>
 
       <div class="field">
-      <form method = "post" action = "register.php">
+      <form method = "post" action = "register.php" enctype="multipart/form-data" >
       
       <div class="field"  >
         <input type="email" name ="email" required>
