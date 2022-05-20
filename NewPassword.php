@@ -50,8 +50,27 @@ if (!mysqli_select_db($database, "petcare1"))
     <meta charset="utf-8">
 
     <link rel="stylesheet" href="Style1.css">
+    <link rel="stylesheet" href="home page style.css">
+
   </head>
   <body>
+  <nav> 
+  <a href="Home.php"> <img id=logo src="Image (2).jpeg"></a>
+
+<div> 
+    <div class="header-links">
+
+        <ul>
+            <li> <a href="#ABOUTUS"> About </a> </li>
+           <!-- <li> <a href="#LoginOP"> Login </a> </li> --> 
+            <li> <a href="#services"> Services </a> </li>
+            <li> <a href="#contact"> Contact </a> </li>
+        </ul>
+
+    </div>
+    
+</div>
+</nav>
     <div class="wrapper">
       <div class="title">Reset Password</div>
 

@@ -60,10 +60,6 @@ if (isset($_POST['Add'])) {
             <div class="header-links">
 
                 <ul>
-                    <li> <a href="#ABOUTUS"> About </a> </li>
-                    <!-- <li> <a href="#LoginOP"> Login </a> </li> -->
-                    <li> <a href="#services"> Services </a> </li>
-
                     <li>
                         <div class="dropdown">
                             <button class="dropbtn"> My pets </button>
@@ -97,7 +93,6 @@ if (isset($_POST['Add'])) {
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
-                    <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
 
