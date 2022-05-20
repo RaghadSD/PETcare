@@ -152,7 +152,7 @@ if (isset($_POST['Add'])) {
                     </div></div>
 
                     <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Pet Profile photo <br<>
-                        <input type="file" id="myFile" name="profile"> </div> 
+                        <input type="file" id="myFile" name="profile" required > </div> 
 
 
           <p style="color: #617470;">Optional fields</p> 
