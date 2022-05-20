@@ -114,9 +114,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 }
 
    } else {
-       echo "<script>alert('Error: Cannot get profiles!')</script>";
-       echo  $database->error;
-       exit();
+   echo ' <tr>
+    <td colspan="4">No record found...</td>
+  </tr>' 
    }   
      ?>       
         </tbody> 
