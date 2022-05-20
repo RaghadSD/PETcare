@@ -3,6 +3,13 @@ include_once 'header.php';
         
     require "mail.php";
 
+if (!($database = mysqli_connect("localhost", "root", "")))
+    die("<p>Could not connect to database</p>");
+
+
+  if (!mysqli_select_db($database, "petcare1"))
+    die("<p>Could not open URL database</p>");
+
     if(isset($_POST['sendM'])) {
        $email = $_POST['Email'];
        $message = $_POST['message'];
@@ -15,6 +22,12 @@ include_once 'header.php';
         // Display the alert box
         echo "<script>alert('$message');</script>";
     }
+
+$query3 = "SELECT * FROM aboutus";
+$result3 = mysqli_query($database,$query3);
+
+
+$rows2 = mysqli_fetch_array($result3);
 
 ?>
 
@@ -41,131 +54,98 @@ include_once 'header.php';
 <br> 
     <h1> Our services </h1>
     <br>
-    <div class = "row"> 
-        <div class = "Services-column"> 
+       <div class = "row"> 
+        <?php
+                $service= "select * from service";
+                $res = mysqli_query($database,$service);
+                if(mysqli_num_rows($res)>0)
+                 {
 
-            <h3> Classic Bath, Brush & Nails </h3>
-            <p>
-                Teethbrushing, facial mask naturally exfoliates and hydrates leaving your pets 
-                face with a brighter, fresh smelling complexion, nail trim, and nail filing.  <br>
-                <img src = "pet-shampoo.png" />
-            </p>
-        </div>
-        <div class = "Services-column"> 
-            <h3> Delux Bath, Brush & Nails </h3>
-            <p>
-                Professional groomers start each cut and style experience with a moisturizing 
-                massage and bath before cutting, drying, and styling your pet. 
-                <img src = "bathtub.png" />
-
-            </p>
-        </div>
-        <div class = "Services-column"> 
-            <h3> Shaving & Haircut </h3>
-            <p>
-                Create the perfect look for your pet! We offer full haircuts, bath and neaten, 
-                and maintenance brushing from our list of pet grooming services. <br>
-                <img src = "beauty-saloon.png" />
-            </p>
-        </div>
-    </div>
-    <div class = "row2"> 
-        <div class = "Services-column"> 
-            <h3> Spaying Surgery </h3>
-            <p>
-             Our surgical suite is supplied with professional surgical tables, anesthesia monitors, 
-              and other equipment to keep your pet as safe as possible during the procedure.  <br>
-             <img src = "medicine.png" />
-            </p>
-        </div>
-
-        <div class = "Services-column"> 
-            <h3> Exams & Consultations </h3>
-            <p>
-              Our vets provide physical examination services to check for potential health problems and recommend 
-              proper treatment and work-up if needed.  
-                <img src = "medicine (1).png" />
-
-            </p>
-        </div>
-        <div class = "Services-column"> 
-            <h3> Dentistry </h3>
-            <p>
-            Dental care is a critical part of your pet’s overall health regimen to prevent oral disease. One of the most 
-             common conditions of small animals is Periodontal Gum Disease.      <br>       
-              <img src = "surgery.png" />
-            </p>
-        </div>
-    </div>
-</section>
-
-
-<section class="about-section" id = "ABOUTUS">
-  <div class="box">
-    <h1>About Us!</h1>
-    <p class="about-content">
-      Our caring team creates a relaxing environment for your pet in our modern spa
-      facilities, which are designed to cater to the comfort of our furry guests. 
-      Our pet spa is fully stocked with hypoallergenic shampoos, conditioners and 
-      products designed specifically to be safe and gentle on a pet’s skin and coat. 
-      Our place attendants are highly trained at handling pets of all sizes and breeds, 
-      and know how to put your pup at ease during any treatment.          
-      </p>
-      <div class="words">
-            
-      <span class="active">Riyadh, Hitten</span>
-                <span ><a  href="tel:1-212-555-5555" style="text-decoration: none; color: #617470; background-color: transparent ;"> (212) 555-2368 </a></span>
-                <span ><a id ="words" href="mailto:PetCare@gmail.com" style="text-decoration: none; color: #617470; background-color: transparent ;">PetCare@gmail.com </a></span>
-      </div>
- </div>
-</section>
-
-<section id="contact">
-  
-  <h1 class="contact-header">Contact us!</h1>
-  
-  <div class="contact-wrapper">
-  
-  <!-- Left contact page --> 
-   
-  <form id="contact-form" class="form-horizontal" role="form" method = "post" action = "Owner homepage.php">
-
-<div class="form-group">
-    <div class="col-sm-12">
-        <input type="text" class="feilds" id="name" name="title" placeholder="TITLE" required>
-    </div>
-</div>
-
-<div class="form-group">
-    <div class="col-sm-12">
-        <input type="email" class="feilds" id="email" name="Email" placeholder="EMAIL" required>
-    </div>
-</div>
-
-<textarea class="feilds" id="message" rows="5" placeholder="MESSAGE" name="message" required></textarea>
-
-<button class="send-button" name = "sendM" id="submit" type="submit"> SEND </button>
-
-</form>
-  <!-- Left contact page --> 
+                 while($serRow = mysqli_fetch_array($res))
+                 {
+                ?>
+            <div class = "Services-column"> 
+                
     
-  <div class="contact-information"> <BR><BR> <BR><BR><BR><BR>
-    <hr>
-        <ul class="contact-list">
-          <li class="list-item"><span class="contact-text place"> Riyadh, Hitten</span></li>
-          
-          <li class="list-item"><span class="contact-text phone"><a href="tel:1-212-555-5555"> (212) 555-2368 </a></span></li>
-          
-          <li class="list-item"><span class="contact-text email"><a href="mailto:PetCare@gmail.com"> PetCare@gmail.com </span></li>
-        </ul>
+                <h3> <?php echo $serRow['name']; ?> </h3>
+                <p>
+                <?php echo $serRow['description']; ?><br>
+                price: <?php echo $serRow['price']; ?> SR
+                      <br>
+                      <img  style = "width:75px; height:75px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
+                </p>
+            </div><br>
+            <?php
+                 }
+                }
+            ?>
+    </section>
 
-        <hr>
+   <section class="about-section" id="ABOUTUS">
+        <div class="box">
+            <h1><?php echo $rows2['title'];?> </h1>
+            <p class="about-content">
+            <?php echo $rows2['description'];?> 
+            </p>
+            <div class="words">
+                   
+            <span class="active"><?php echo $rows2['location'];?></span>
+                <span ><a  href="tel:<?php echo $rows2['phoneNumber']; ?>" style="text-decoration: none; color: #617470; background-color: transparent ;"> <?php echo $rows2['phoneNumber']; ?></a></span>
+                <span ><a id ="words" href="mailto:<?php echo $rows2['email'];?>" style="text-decoration: none; color: #617470; background-color: transparent ;"><?php echo $rows2['email'];?> </a></span>
+            </div>
+            <br> <br>
+        </div>
+    </section>
+    <section id="contact">
 
-      </div>
-    
-  </div>
-  
-</section>  
+        <h1 class="contact-header">Contact us!</h1>
+
+        <div class="contact-wrapper">
+
+            <!-- Left contact page -->
+
+            <form id="contact-form" class="form-horizontal" role="form" method = "post" action = "Owner homepage.php">
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="text" class="feilds" id="name" name="title" placeholder="TITLE" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-sm-12">
+                        <input type="email" class="feilds" id="email" name="Email" placeholder="EMAIL" required>
+                    </div>
+                </div>
+
+                <textarea class="feilds" id="message" rows="5" placeholder="MESSAGE" name="message" required></textarea>
+
+                <button class="send-button" name = "sendM" id="submit" type="submit"> SEND </button>
+
+            </form>
+
+            <!-- Left contact page -->
+
+            <div class="contact-information"> <BR><BR> <BR><BR><BR><BR>
+                <hr>
+                <ul class="contact-list">
+                    <li class="list-item"><span class="contact-text place"> <?php echo $rows2['location'];?></span></li>
+
+                    <li class="list-item"><span class="contact-text phone"><a href="tel:<?php echo $rows2['phoneNumber']; ?>"> <?php echo $rows2['phoneNumber']; ?>
+                            </a></span></li>
+
+                    <li class="list-item"><span class="contact-text email"><a href="mailto:<?php echo $rows2['email'];?>">
+                                <?php echo $rows2['email'];?> </a></span></li>
+                </ul>
+
+                <hr>
+
+            </div>
+
+        </div>
+
+    </section>
 
 </body>
+
 </html>

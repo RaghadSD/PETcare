@@ -44,7 +44,6 @@ $rows2 = mysqli_fetch_array($result3);
     <div>
       <div class="header-links">
         <ul>
-          <li> <a href="#ABOUTUS"> About </a> </li>
           <li> <a href="addService.php"> Add Service </a> </li>
           <li>
             <div class="dropdown">
@@ -84,61 +83,32 @@ $rows2 = mysqli_fetch_array($result3);
         <br>
         <h1> Our services </h1>
         <br>
+
         <div class = "row"> 
+        <?php
+                $service= "select * from service";
+                $res = mysqli_query($database,$service);
+                if(mysqli_num_rows($res)>0)
+                 {
+
+                 while($serRow = mysqli_fetch_array($res))
+                 {
+                ?>
             <div class = "Services-column"> 
+                
     
-                <h3> Classic Bath, Brush & Nails </h3>
+                <h3> <?php echo $serRow['name']; ?> </h3>
                 <p>
-                    Teethbrushing, facial mask naturally exfoliates and hydrates leaving your pets 
-                    face with a brighter, fresh smelling complexion, nail trim, and nail filing.  <br>
-                    <img src = "pet-shampoo.png" />
+                <?php echo $serRow['description']; ?><br>
+                price: <?php echo $serRow['price']; ?> SR
+                      <br>
+                      <img  style = "width:75px; height:75px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
                 </p>
-            </div>
-            <div class = "Services-column"> 
-                <h3> Delux Bath, Brush & Nails </h3>
-                <p>
-                    Professional groomers start each cut and style experience with a moisturizing 
-                    massage and bath before cutting, drying, and styling your pet. 
-                    <img src = "bathtub.png" />
-    
-                </p>
-            </div>
-            <div class = "Services-column"> 
-                <h3> Shaving & Haircut </h3>
-                <p>
-                    Create the perfect look for your pet! We offer full haircuts, bath and neaten, 
-                    and maintenance brushing from our list of pet grooming services. <br>
-                    <img src = "beauty-saloon.png" />
-                </p>
-            </div>
-        </div>
-        <div class = "row2"> 
-            <div class = "Services-column"> 
-                <h3> Spaying Surgery </h3>
-                <p>
-                 Our surgical suite is supplied with professional surgical tables, anesthesia monitors, 
-                  and other equipment to keep your pet as safe as possible during the procedure.  <br>
-                 <img src = "medicine.png" />
-                </p>
-            </div>
-    
-            <div class = "Services-column"> 
-                <h3> Exams & Consultations </h3>
-                <p>
-                  Our vets provide physical examination services to check for potential health problems and recommend 
-                  proper treatment and work-up if needed.  
-                    <img src = "medicine (1).png" />
-    
-                </p>
-            </div>
-            <div class = "Services-column"> 
-                <h3> Dentistry </h3>
-                <p>
-                Dental care is a critical part of your pet’s overall health regimen to prevent oral disease. One of the most 
-                 common conditions of small animals is Periodontal Gum Disease.      <br>       
-                  <img src = "surgery.png" />
-                </p>
-            </div>
+            </div><br>
+            <?php
+                 }
+                }
+            ?>
     </section>
 
 
@@ -149,9 +119,10 @@ $rows2 = mysqli_fetch_array($result3);
             <?php echo $rows2['description'];?> 
             </p>
             <div class="words">
-                <span class="active">Thalassotherapy</span>
-                <span>Balneotherapy</span>
-                <span>Aromatherapy</span>
+                   
+            <span class="active"><?php echo $rows2['location'];?></span>
+                <span ><a  href="tel:<?php echo $rows2['phoneNumber']; ?>" style="text-decoration: none; color: #617470; background-color: transparent ;"> <?php echo $rows2['phoneNumber']; ?></a></span>
+                <span ><a id ="words" href="mailto:<?php echo $rows2['email'];?>" style="text-decoration: none; color: #617470; background-color: transparent ;"><?php echo $rows2['email'];?> </a></span>
             </div>
             <br> <br>
             <a href="editAboutUs.php" class="editAbout"> Edit About us </a>
