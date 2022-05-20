@@ -651,3 +651,16 @@ hr {
   {
       background-color: #b4c9d3;
   }
+
+.show{
+  text-decoration: none;
+  color: #EDE9E4;
+  font-size: 14px;
+  background-color: #617470;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.show:hover{
+  background-color: #CBC3BA;
+}
