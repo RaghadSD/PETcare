@@ -6,39 +6,40 @@ if (!isset($_SESSION['email']) ) {
     exit();
 }
 
+
 if (!($database = mysqli_connect("localhost", "root", "")))
-                die("<p>Could not connect to database</p>");
+    die("<p>Could not connect to database</p>");
 
-            if (!mysqli_select_db($database, "petcare1"))
-                die("<p>Could not open URL database</p>");
+if (!mysqli_select_db($database, "petcare1"))
+    die("<p>Could not open URL database</p>");
 
-            if (isset($_POST['Add'])) {
 
-                $PName = $_POST['PName'];
-                $date = $_POST['date'];
-                $PBreed = $_POST['PBreed'];
-                $gender = $_POST['gender'];
-                $NStatus = $_POST['NStatus'];
-                $vaccinations =$_POST['vaccinations'];
-                $MHistory =$_POST['MHistory'];
-                $Petphoto =$_POST['Petphoto'];
+if (isset($_POST['Add'])) {
 
-                $id =000; 
-                $emaill = $_SESSION['email'];
+    $PName = $_POST['PName'];
+    $medHistory = $_POST['medHistory'];
+    $vaccinations = $_POST['vaccinations'];
+    $PBreed = $_POST['PBreed'];
+    $gender = $_POST['gender'];
+    $date = $_POST['date'];
+    $NStatus =$_POST['NStatus'];
+    $profile =addslashes(file_get_contents($_FILES["profile"]["tmp_name"]));
 
-                $query = "INSERT INTO pet VALUES('$id','$PName','$MHistory','$vaccinations','$Petphoto','$gender','$PBreed','$date','$NStatus','$emaill')";
-                $r_update = mysqli_query($database, $query);
-                if ($r_update) {
-                    echo "<script>alert('Pet has been Add successfully')</script>";
-                    header("location: PetsProfiles.php");
-                } else {
-                    echo "<script>alert('Error: can not Add new Pet!')</script>";
-                    echo  $database->error;
-                    exit();
-                }
-            
-            }
-            ?>
+    $id =000; 
+    $emaill = $_SESSION['email'];
+
+    $query = "INSERT INTO pet VALUES('$id','$PName','$medHistory','$vaccinations','$profile','$gender','$PBreed','$date','$NStatus','$emaill')";
+    $result = mysqli_query($database, $query);
+
+    if ($result) {
+        header('Location: petsprofiles.php');
+    } else {
+        echo "Error: can not create new user!";
+        echo  $database->error;
+        exit();
+    }
+}
+?>
 
 <!DOCTYPE html> 
 
@@ -109,21 +110,20 @@ if (!($database = mysqli_connect("localhost", "root", "")))
     </section>
 
 
-    <div class="wrapper" style="margin-top:-45% ;">
+     <div class="wrapper" style="margin-top:-45%;">
         <div class="title">Add Pet</div>
         
         <div class="field">
-        <form action="addpet.php" method="POST">
-           
-            
+        <form method = "post" action = "" enctype="multipart/form-data" >
       
-        <div class="field">
+
+      <div class="field">
             <input type="text" name ="PName"required>
             <label>Pet Name</label>
           </div>
     
           <div class="field">
-            <input style="color: #617470;" type="date" name ="date"   >
+            <input style="color: #617470;" type="date" name ="date">
             <label>Date Of Birth</label>
           </div>
         
@@ -151,30 +151,32 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <label for="UnSpayed">UnSpayed</label><br>
                     </div></div>
 
-    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Change Profile Photo <br>
-        <input  type="file" id="myFile" name="Petphoto">
-    </div>
+                    <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Pet Profile photo <br<>
+                        <input type="file" id="myFile" name="profile"> </div> 
 
 
-<p style="color: #617470;">Optional fields</p>          
+          <p style="color: #617470;">Optional fields</p> 
+                   
         <div class="field">
             <input type="text" name ="vaccinations" >
             <label>vaccinations </label>
           </div>
 
         <div class="field">
-            <input type="text" name ="MHistory">
+            <input type="text" name ="medHistory">
             <label> Medical History  </label>
           </div>
 
+         
+      <p>
         <div class="field">
-            <input type="submit" value="Add" name="Add"> 
-          </div>
-           
-        </form>
-</div> 
+          <input  type="submit" value="Add" name="Add" > 
+              </div> 
+              </div> 
 </div>
-
-
+  
+      </p>
+      </form>
 
   </body>
+  </html> 
