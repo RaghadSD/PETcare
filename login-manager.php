@@ -20,10 +20,11 @@ if(isset($_POST['login'])){
 
 
 $result=mysqli_query($database, $query);
-$query_executed = mysqli_fetch_assoc ($result);
-$_SESSION['ID']= $query_executed['id'];
  
   if(mysqli_num_rows($result)>0){
+    
+$query_executed = mysqli_fetch_assoc ($result);
+$_SESSION['ID']= $query_executed['id'];
     $_SESSION['email'] = $email;
     if($who == "owner")
     header('Location: Owner homepage.php');
