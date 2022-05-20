@@ -92,12 +92,25 @@ if (!($database = mysqli_connect("localhost", "root", "")))
   
      <form>  
 
-     <img style="padding-left: 12%;border-radius: 90%; ;" src="images/images.jpeg" alt="Pet photo">
-
+   
      <?php  
 
         if(isset($_GET['Viewid'])){
           $id=$_GET['Viewid'];
+
+          $q = "select profilePic from pet WHERE Id='$id'";
+                            $newResult = mysqli_query($database,$q);
+                            $ReqSTATresult = mysqli_fetch_assoc($newResult);
+                            $img= $ReqSTATresult['profilePic'];
+
+                        if(!empty($img)){ ?>
+                           
+                         <img style="   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;" src="data:image/jpeg;base64, <?php echo base64_encode($ReqSTATresult['profilePic']) ;?>">
+                           <?php
+                        }
+                           else{
+                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/profile-male.jpeg' alt='profile picture'>";
+                           }
 
     $query="SELECT * FROM `pet` WHERE Id='$id'";
 
@@ -112,7 +125,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
      $DOB=$row['DOB'];
      $neuterStatus=$row['neuterStatus'];
      $medHistory=$row['medHistory'];
-     //echo "<script>alert('Error: Can get profile info!')</script>";
+     $img= $row['profilePic'];
+
      echo  ' <div class="content">
      <p> <lable style="color: #617470;font-size: x-large;padding-top: 20%;">'.$name.' </p>
   </div>
@@ -130,30 +144,27 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
    <div class="content">
      <p> <lable style="color: #617470;font-size: large;"> '.$neuterStatus.' </p>
-  </div>'
-  ;
+  </div>';
+  
   if(!empty($vaccinations)){
-    // if($vaccinations== 'null' ){
-    
+      
     echo '<div class="content" >
    <p style="color: #617470;font-size: large;">  Vaccinations: '.$vaccinations.'</p>
- </div>';}
+ </div>'; }
  
  if(!empty($medHistory)){
     
      echo '<div class="content" >
        <p style="color: #617470;font-size: large;">  Medical History: '.$medHistory.'</p>
      </div>';}
- 
+     
      }
 
-else {
-      //echo "<script>alert('Error: Cannot Delete Pet!')</script>";
+else { 
       echo  $database->error;
        exit();
       }
-
-}
+  }
        ?>       
         
         </form>
