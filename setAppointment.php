@@ -77,6 +77,8 @@ session_start();
             <!-- edited :) -->
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
+            <label>Service </label>
+
            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px; color: #617470;" name="service" id="pet">
            <?php
 
@@ -101,7 +103,7 @@ session_start();
             ?>
            </select>
            </div></div> 
-           
+
            <div class="field">
             <input type="date" name ="date" >
             <label>Date </label>
