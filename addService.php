@@ -71,7 +71,7 @@ if (!mysqli_select_db($database, "petcare1"))
        
   
         <div class="field">
-            <form method = "post" action = "addService.php">
+            <form method = "post" action = "addService.php"  enctype="multipart/form-data" >
   
                 <div class="field">
                     <input type="text" name = "name" id = "Service Name" placeholder = "checkup,grooming,...." >
