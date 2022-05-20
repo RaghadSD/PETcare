@@ -7,6 +7,7 @@ die("<p>Could not open URL database</p>");
 
 session_start();
 $ID = $_SESSION['ID'];
+$emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
     header("location: login-manager.php");
@@ -16,10 +17,6 @@ if (!isset($_SESSION['email']) ) {
 $today = date("Y-m-d");
 $today_time = strtotime($today);
                        
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -87,10 +84,8 @@ $today_time = strtotime($today);
         <?php
 echo "<div class='main'>";
 
-
-
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID' AND status = 'request' ");
-
+$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill' AND status = 'request' ");
+if ($result) {
 echo " 
 <table>
 <thead>
@@ -103,7 +98,7 @@ echo "
 
     </tr>
 </thead> ";
-
+if(mysqli_num_rows($result)>0){ 
 while($row = mysqli_fetch_array($result)) {
     $isPrev = $row['date'];
     $id = $row['id'];
@@ -143,11 +138,19 @@ $time = $row['time'];
 }
    // }
 }
+}
+else echo '<tr>
+<td colspan="5">No record found...</td>
+</tr>';
+
+   } else {
+       echo "<script>alert('Error: Cannot get profiles!')</script>";
+       echo  $database->error;
+       exit();
+   }
 echo "</table>";
 
-
 ?>    
-
 
 </body>
 </html>

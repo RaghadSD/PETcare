@@ -7,6 +7,7 @@ die("<p>Could not open URL database</p>");
 
 session_start();
 $ID = $_SESSION['ID'];
+$emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
     header("location: manager.php");
@@ -84,7 +85,7 @@ echo "<div class='main'>";
 
 
 
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill'");
 
 echo "<table>
 <thead>
@@ -96,7 +97,8 @@ echo "<table>
 <th> Review </th>
 </tr>
 </thead> ";
-
+if ($result) {
+    if(mysqli_num_rows($result)>0){ 
 
 while($row = mysqli_fetch_array($result)) {
 $isPrev = $row['date'];
@@ -124,8 +126,18 @@ if ( ($expire_time < $today_time) || ($expire_time == $today_time) ){
     </tr>';
 }
 }
-echo "</table>";
+}
+else echo '<tr>
+<td colspan="5">No record found...</td>
+</tr>';
 
+   } else {
+       echo "<script>alert('Error!')</script>";
+       echo  $database->error;
+       exit();
+   }   
+
+echo "</table>";
 
 ?>
             

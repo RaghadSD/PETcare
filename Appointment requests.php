@@ -7,6 +7,7 @@ die("<p>Could not open URL database</p>");
 
 session_start();
 $ID = $_SESSION['ID'];
+$emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
     header("location: login-manager.php");
@@ -15,13 +16,8 @@ if (!isset($_SESSION['email']) ) {
 
 $today = date("Y-m-d");
 $today_time = strtotime($today);
-                       
-
-
-
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -83,8 +79,6 @@ $today_time = strtotime($today);
 
     </section>
 
-    
-    
         <h1>My Appointment Request</h1>
   
         <?php
@@ -92,9 +86,7 @@ $today_time = strtotime($today);
 
 echo "<div class='main'>";
 
-
-
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill'");
 
 echo " 
 <table>
@@ -108,7 +100,8 @@ echo "
         <th> Manage </th>
     </tr>
 </thead> ";
-
+if ($result) {
+    if(mysqli_num_rows($result)>0){ 
 while($row = mysqli_fetch_array($result)) {
     $status = $row['status'];
     if ($status == "requested"){
@@ -140,14 +133,20 @@ $AppointmentId = $row['id'];
      
 }
 }
+}
+else echo '<tr>
+<td colspan="6">No record found...</td>
+</tr>';
+
+   } else {
+       echo "<script>alert('Error!')</script>";
+       echo  $database->error;
+       exit();
+   }   
 
 echo "</table>";
 
-
 ?>   
-   
-    
-    
 
 </body>
 </html>
