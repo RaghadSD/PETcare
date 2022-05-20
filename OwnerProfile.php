@@ -27,7 +27,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
   <body>
   <section class="header">
-  <nav> 
+        <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -40,7 +40,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My pets </button>
+                            <button class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
                                 <a href="AddPet.php"> Add Pet </a>
                                 <a href="PetsProfiles.php"> View My Pets </a>
@@ -50,7 +50,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
+                            <button class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
                                 <a href="Book Appointment.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
@@ -63,7 +63,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Profile </button>
+                            <button class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
                                 <a href="ownerprofile.php"> View My Profile </a>
                                 <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
@@ -121,7 +121,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $phoneNumber=$row['phoneNumber'];
         $profilePic=$row['profilePic'];
         $gender=$row['gender'];
-               
+        
+        // echo "<script>alert('Error: Can get profile info!')</script>";
 
           echo  '<div class="content">
           <p> <lable style="color: #617470;font-size: x-large;padding-top: 15%;"> '.$Fname.' '.$Lname.' </p>
@@ -138,7 +139,6 @@ if (!($database = mysqli_connect("localhost", "root", "")))
        <p> <lable style="color: #000000;font-size: large;">'.$gender.' </p>
     </div> 
     <div class="content">
-    
         <a style="color: #617470;font-size: large;" href="UpdateOwnerProfile.php">Edit</a>
         <a style="color: #617470;font-size: large;"href="DeleteOwner.php"">Delete</a>
         
@@ -147,7 +147,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
     else {
        echo "<script>alert('Error: Cannot get profile info!')</script>";
-       echo  $database->error;
+       //echo  $database->error;
        exit();
    }   
      ?>       
