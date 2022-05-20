@@ -104,7 +104,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                            <?php
                         }
                            else{
-                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/profile-male.jpeg' alt='profile picture'>";
+                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/andrew-schultz-DTSDD968Mpw-unsplash.jpg' alt='profile picture'>";
                            }
 
     $query="SELECT * FROM `pet` WHERE Id='$id'";
