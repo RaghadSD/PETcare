@@ -31,8 +31,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             echo "<script>alert('profile has been updated successfully')</script>";
             header("location: OwnerProfile.php");
           } else {
-            echo "<script>alert('Error: Cannot update profile!')</script>";
-            echo  $database->error;
+            echo "<script>alert('Error: Cannot update profile! $database->error')</script>";
+            //echo  $database->error;
             exit();
           }
             
