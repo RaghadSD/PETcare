@@ -167,7 +167,6 @@ $rows2 = mysqli_fetch_array($result3);
             </div>
             <?php }?>
             <br> <br>
-            <a href="editAboutUs.php" class="editAbout"> Edit About us </a>
 
         </div>
     </section>
