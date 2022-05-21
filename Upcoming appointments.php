@@ -26,7 +26,7 @@ $today_time = strtotime($today);
 </head>
 <body>
 <section class="header">
-<nav> 
+ <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -74,7 +74,7 @@ $today_time = strtotime($today);
         </div>
         </nav>
 
-    </section>
+</section>
 
     
         <h1> My Upcoming Appointments</h1>
