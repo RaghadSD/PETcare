@@ -104,7 +104,7 @@ if ($result) {
     if(mysqli_num_rows($result)>0){ 
 while($row = mysqli_fetch_array($result)) {
     $status = $row['status'];
-    if ($status == "requested"){
+    if ($status == "pending"){
         $id = $row['id'];
         $id = $row['date'];
         $ThatTime = $row['time'];
