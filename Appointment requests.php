@@ -127,7 +127,7 @@ $AppointmentId = $row['id'];
      <td> '.$time.' </td>
      <td> 
      <a href="EditAppointmentReq.php?Updateid='.$AppointmentId.'">  <button> Edit </button> </a>
-      <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
+      <a href="Cancel.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
      </tr>';
      
 }
