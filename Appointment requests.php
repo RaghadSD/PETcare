@@ -6,7 +6,6 @@ if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
 session_start();
-$ID = $_SESSION['ID'];
 $emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
