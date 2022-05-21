@@ -83,7 +83,7 @@ function function_alert($message) {
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
