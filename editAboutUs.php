@@ -26,7 +26,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $picture=addslashes(file_get_contents($_FILES["picture"]["tmp_name"]));
         
 
-        $query2 = "UPDATE aboutus SET email='$email' , description='$description', title='$title' , picture='$picture', location='$location', phoneNumber='$phone' , emailM ='$emailM' where Id=1 ";
+        $query2 = "UPDATE aboutus SET email='$email' , description='$description', title='$title' , picture='$picture', location='$location', phoneNumber='$phone'  where Id=1 ";
         $result2 = mysqli_query($database, $query2);
         if ($result2) {
             echo "<script>alert('About Us has been updated successfully')
