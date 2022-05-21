@@ -150,7 +150,7 @@ $rows2 = mysqli_fetch_array($result3);
             
        </section>
 
-<<section class="about-section" id="ABOUTUS">
+<section class="about-section" id="ABOUTUS">
         <div class="box">
 
             <?php if(mysqli_num_rows($result3)>0){?>
