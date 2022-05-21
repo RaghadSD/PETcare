@@ -105,7 +105,7 @@ while($row = mysqli_fetch_array($result)) {
     $status = $row['status'];
     if ($status == "pending"){
         $id = $row['id'];
-        $id = $row['date'];
+       // $id = $row['date'];
         $ThatTime = $row['time'];
         
 
