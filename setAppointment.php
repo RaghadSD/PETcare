@@ -14,7 +14,7 @@ session_start();
         $time=$_POST['time'];
 
 
-        $query = "INSERT INTO appointment (date,time,serviceName) VALUES('$date','$time','$service')";
+        $query = "INSERT INTO appointment (status,date,time,serviceName) VALUES('new','$date','$time','$service')";
         $result = mysqli_query($database, $query);
         if ($result) {
             echo "<script>alert('Appointment has been added successfully')</script>";
