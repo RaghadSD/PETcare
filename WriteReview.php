@@ -25,7 +25,8 @@ if (isset($_POST['submitRev'])) {
 
 $idREV= $_SESSION['IDrev'];
 $rev = $_POST['Textt'];
-$query= "UPDATE appointment SET review = '$rev' WHERE id= '$idREV' ";
+$id=$_GET['review'];
+$query= "UPDATE appointment SET review = '$rev' WHERE id= '$id' ";
 $u = mysqli_query($database, $query);
  if ($u) {
     function_alert("Review submitted successfully");
