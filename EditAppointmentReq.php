@@ -1,16 +1,16 @@
 <?php
 
-session_start();
-$ID = $_SESSION['ID'];
 
-if(isset($_GET['id'])){
-    if(!isset($_SESSION['id'])){
-        $_SESSION['id']=$_GET['id'];
+session_start();
+
+if(isset($_GET['Updateid'])){
+    if(!isset($_SESSION['Updateid'])){
+        $_SESSION['Updateid']=$_GET['Updateid'];
     }
 }
 
 if (!isset($_SESSION['email']) ) { 
-    header("location: login.php");
+    header("location: login-manager.php");
     exit();
 }
 
@@ -20,36 +20,45 @@ die("<p>Could not connect to database</p>");
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
+
+$id = $_SESSION['Updateid'];
+$email = $_SESSION['email'];
+$query2 = "select * from appointment where id='$id'";
+$result2 = mysqli_query($database,$query2);
+
+
+
 if(isset($_POST['Update'])){
 
-    $petName = $_POST['pet2'];
+    $petID = $_POST['pet'];
     $service = $_POST['service'];
     $date = $_POST['date'];
     $time = $_POST['time'];
-    $note = $_POST['Notes'];
 
 
-    $petID = "SELECT id From pet where idO = $ID && name ='$petName' " ;
-    $result = mysqli_query($database, $petID);
-    $query_executed = mysqli_fetch_assoc ($result);
-    $petID = $query_executed['id'];
+$query = "UPDATE appointment SET  petId='$petID', date='$date', time='$time', serviceName='$service' WHERE id='$id'";
+$result=mysqli_query($database, $query);
+if ($result){
 
-    $emaill = $_SESSION['email'];
-    $Updateid=$_GET['Updateid'];
-    
-//$query = "INSERT INTO appointment VALUES (DEFAULT , 'request', '$note','$date','$time',DEFAULT,DEFAULT,'$service','$petID','$emaill')";
-//$query = "UPDATE `appointment` SET ,`note`='$note',`date`='$date',`time`='$time,`serviceName`='$service',`petId`='$petID',`emailOwner`='$emaill' WHERE id='$Updateid'";
-$query = "UPDATE appointment SET  date='$date', time='$time', serviceName='$service' , petId = '$petID' ,note = '$note' WHERE id='$Updateid'";
-if ($result=mysqli_query($database, $query))
-function_alert("Appointment request updated successfully");
+    echo "<script>
+    alert('Appointment has been updated successfully');
+    window.location.href='Appointment requests.php';
+    </script>";
+
+}else{
+    echo "<script>
+    alert('Appointment Cannot be updated, Try again');
+    </script>";
 
 }
-function function_alert($message) {
-    // Display the alert box
-    echo "<script>alert('$message');</script>";
+
+
 }
-               
+
+
+    	
 ?>
+
 <!DOCTYPE html> 
 
 <html>
@@ -61,7 +70,7 @@ function function_alert($message) {
   </head> 
 
   <body>
-    <section class="header">
+  <section class="header">
     <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
@@ -111,7 +120,7 @@ function function_alert($message) {
         </nav>
        
 
-    </section>
+</section>
 
     <div class="wrapper" style="margin-top:-48% ;">
         <div class="title">Edit Request</div>
@@ -119,32 +128,28 @@ function function_alert($message) {
         <div class="field">
             <form method = "post" action = "EditAppointmentReq.php">
 
-            <?php
-         $emaill = $_SESSION['email'];
-         $Updateid=$_GET['Updateid'];
-       
-         $query3 = "SELECT * FROM appointment WHERE id= '$Updateid'";
-         $result3 = mysqli_query($database,$query3);
-         $rows2 = mysqli_fetch_array($result3);
-         ?>
-  
-  
-           <div class="field"> 
+            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
-            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
-            <option disabled selected>Choose your pet</option>
-            <?php
-            $records = mysqli_query($database, "SELECT name From pet where idO = '$ID';");
-            while ($data = mysqli_fetch_array($records)) {
-            echo "<option value='" . htmlspecialchars($data['id']) . "'>" . htmlspecialchars($data['name']) .
-           "</option>";
-             }
-             ?>
-            </select>
-           </div></div>
 
+           <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="pet" id="pet">
+           <option selected> Choose your pet </option>
+           <?php
+           $records = mysqli_query($database, "SELECT * From pet where emailO='$email'");
+       
+           while ($data = mysqli_fetch_array($records)) {
+            ?>
+            <option value="<?php echo $data['Id']; ?>"> <?php echo $data['name']; ?></option>
+            <?php
+           }
+            ?>
+
+           </select>
+           </div>
+        </div> 
+  
            <div class="field"> 
             <div style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;"> 
+
            <select style="height: 100%;width: 100%;border: 1px solid;border-radius: 25px;color: #617470;" name="service" id="service">
            <option selected> Choose a service </option>
            <?php
@@ -159,9 +164,9 @@ function function_alert($message) {
 
            </select>
            </div>
-        </div>
+        </div> 
            
-        <div class="field">
+           <div class="field">
             <input type="date" name ="date" value="<?php echo $row['date']; ?>">
             <label>Date </label>
           </div>
@@ -172,17 +177,14 @@ function function_alert($message) {
           </div>
 
 
-        <div class="field">
-            <input type="text" name = "Notes" id = "Notes" 
-            placeholder = "Any thing You want to tell us about!" >      
-            <label for = "Notes"> Notes: </label>
-          </div>
-
    
-          <div class="field">
+
+
+        <div class="field">
             <input name= "Update" type="submit" value="Update">
           </div>
 
+     
         </form>
 </div> 
 
@@ -190,4 +192,3 @@ function function_alert($message) {
   </body>
 
 </html>
-
