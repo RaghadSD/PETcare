@@ -98,7 +98,8 @@ $today_time = strtotime($today);
   if(mysqli_num_rows($result)>0){ 
   while($iAppointRow = mysqli_fetch_assoc($result)) {
    $petresult=mysqli_query($database, "select * from pet where id='".$iAppointRow['petId']."'");
-   $iPetDet = mysqli_fetch_assoc($petresult);  
+   $iPetDet = mysqli_fetch_assoc($petresult); 
+    
 	?>
     <tr>
       <td><?php echo $iAppointRow['id']; ?></td>
@@ -106,7 +107,7 @@ $today_time = strtotime($today);
       <td><?php echo $iAppointRow['serviceName']; ?></td>
       <td><?php echo $iAppointRow['date']; ?></td>
       <td><?php echo $iAppointRow['time']; ?></td>
-      <td> <a href="WriteReview.php?review='.$id.'"><button> Review </button></a></td> 
+      <td> <a href="WriteReview.php?id=<?php echo $iAppointRow['id']; ?>"><button> Review </button></a></td> 
     </tr>
     <?php  } }  else { ?>
     <tr>
