@@ -98,7 +98,8 @@ $today_time = strtotime($today);
   if(mysqli_num_rows($result)>0){ 
   while($iAppointRow = mysqli_fetch_assoc($result)) {
    $petresult=mysqli_query($database, "select * from pet where id='".$iAppointRow['petId']."'");
-   $iPetDet = mysqli_fetch_assoc($petresult);  
+   $iPetDet = mysqli_fetch_assoc($petresult); 
+    
 	?>
     <tr>
       <td><?php echo $iAppointRow['id']; ?></td>
@@ -106,7 +107,17 @@ $today_time = strtotime($today);
       <td><?php echo $iAppointRow['serviceName']; ?></td>
       <td><?php echo $iAppointRow['date']; ?></td>
       <td><?php echo $iAppointRow['time']; ?></td>
-      <td> <a href="WriteReview.php?review='.$id.'"><button> Review </button></a></td> 
+<<<<<<< HEAD
+<<<<<<< HEAD
+      <td> <?php echo <a href="WriteReview.php?review='.$id.'"><button> Review </button></a>?></td> 
+      
+      
+=======
+      <td> <a href="WriteReview.php?id=<?php echo $iAppointRow['id']; ?>"><button> Review </button></a></td> 
+>>>>>>> 3ba68b142dc7a1520ec2f6781bc904b828d7640d
+=======
+      <td> <a href="WriteReview.php?id=<?php echo $iAppointRow['id']; ?>"><button> Review </button></a></td> 
+>>>>>>> 38b5c8e13a1aa93a3dfc09419fb26139dda8ff55
     </tr>
     <?php  } }  else { ?>
     <tr>
