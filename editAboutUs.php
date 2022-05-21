@@ -26,7 +26,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
         $picture=addslashes(file_get_contents($_FILES["picture"]["tmp_name"]));
         
 
-        $query2 = "UPDATE aboutus SET email='$email' , description='$description', title='$title' , picture='$picture', location='$location', phoneNumber='$phone' , emailM ='$emailM' where Id=1 ";
+        $query2 = "UPDATE aboutus SET email='$email' , description='$description', title='$title' , picture='$picture', location='$location', phoneNumber='$phone'  where Id=1 ";
         $result2 = mysqli_query($database, $query2);
         if ($result2) {
             echo "<script>alert('About Us has been updated successfully')
@@ -91,30 +91,31 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
           $rows2 = mysqli_fetch_array($result3);
           
+          
 
 ?>
             <label for="label">Label</label> <br>
 
             <div class="form-group">
                 <div class="col-sm-12">
-                    <input type="text" class="feilds" id="email" name="title" value="<?php echo $rows2['title']; ?>" required>
+                    <input type="text" class="feilds" id="email" name="title"  required>
                 </div>
             </div>
             <br>
             <label for="label">Text</label> <br>
-            <textarea class="feilds" id="message" rows="5"  name="Textt" required> <?php echo $rows2['description']; ?> </textarea>
+            <textarea class="feilds" id="message" rows="5"  name="Textt" required></textarea>
             <br>
             <label for="pic">Picture</label><br>
             <input type="file" name="picture" class="feilds" style="padding-top: 10px; padding-bottom: 10px;" required>
             <br>
             <label for="location">Location</label><br>
-            <input type="text" name ="location" class="feilds" value="<?php echo $rows2['location']; ?>">
+            <input type="text" name ="location" class="feilds" >
             <br>
             <label for="Phone">Phone Number</label><br>
-            <input type="text" name = "phone" class = "feilds" value="<?php echo $rows2['phoneNumber']; ?>">
+            <input type="text" name = "phone" class = "feilds">
             <br>
             <label for="email">Email</label><br>
-            <input type="email" name="email" class="feilds"  value="<?php echo $rows2['email']; ?>">
+            <input type="email" name="email" class="feilds">
             <br>
 
             <input type="submit" name="submit" value="Submit" class="editAboutt" style="height: 45px;

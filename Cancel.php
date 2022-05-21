@@ -5,8 +5,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
             if (!mysqli_select_db($database, "petcare1"))
                 die("<p>Could not open URL database</p>");
 
-                if(isset($_GET['cancelId'])){
-                    $id=$_GET['cancelId'];
+                if(isset($_GET['deleteid'])){
+                    $id=$_GET['deleteid'];
                   $query= "DELETE FROM appointment WHERE id = $id";
 
                   $cancelA = mysqli_query($database, $query);
@@ -18,7 +18,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                       echo  $database->error;
                       exit();
                   }
-                  header("location: Upcoming appointments.php");
+                  header("location: Appointment requests.php");
 
 
                 

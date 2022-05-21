@@ -56,8 +56,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
   </head> 
 
   <body>
-    <section class="header">
-        <nav> 
+  <section class="header">
+ <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -66,7 +66,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                 <ul>
                     <li>
                         <div class="dropdown">
-                            <button class="dropbtn"> My pets </button>
+                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My pets </button>
                             <div class="dropdown-content">
                                 <a href="AddPet.php"> Add Pet </a>
                                 <a href="PetsProfiles.php"> View My Pets </a>
@@ -76,9 +76,9 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button class="dropbtn"> My Appointments </button>
+                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -89,7 +89,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
                     <li>
                         <div class="dropdown">
-                            <button class="dropbtn"> My Profile </button>
+                            <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Profile </button>
                             <div class="dropdown-content">
                                 <a href="ownerprofile.php"> View My Profile </a>
                                 <a href="UpdateOwnerProfile.php"> Edit My Profile </a>
@@ -97,7 +97,6 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         </div>
                     </li>
                     <li> <a href="logout.php"> Logout </a> </li>
-                    <li> <a href="#contact"> Contact </a> </li>
                 </ul>
 
 
@@ -105,8 +104,8 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
-        
-    </section>
+
+</section>
 
 
     <div class="wrapper" style="margin-top:-45% ;">
@@ -176,7 +175,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
 
                     <div style=" padding-bottom:6%;padding-left: 25% ;font-size: larger;" > <lable style="color: #617470;"> Pet Profile photo <br<>
-                        <input type="file" id="myFile" name="profile" value = <?php  $rows2['profilePic']; ?> > </div> 
+                        <input type="file" id="myFile" name="profile"  > </div> 
 
 
 <p style="color: #617470;">Optional fields</p>          

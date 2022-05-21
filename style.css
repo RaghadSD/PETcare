@@ -229,7 +229,6 @@ transition: 0.25s;
 
 
 .Services {
-  min-height: 100vh;
   width : 100%;
 }   
 
@@ -497,3 +496,11 @@ hr {
   {
       background-color: #b4c9d3;
   }
+
+.aboutimg{
+  border: 6px solid #aac9dd;
+  border-radius: 10px;
+  float: left;
+  margin-right: 30px;
+  
+}

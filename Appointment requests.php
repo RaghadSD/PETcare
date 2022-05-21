@@ -6,7 +6,7 @@ if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
 session_start();
-$ID = $_SESSION['ID'];
+$emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
     header("location: login-manager.php");
@@ -15,13 +15,8 @@ if (!isset($_SESSION['email']) ) {
 
 $today = date("Y-m-d");
 $today_time = strtotime($today);
-                       
-
-
-
 
 ?>
-
 
 <!DOCTYPE html>
 <html>
@@ -53,7 +48,7 @@ $today_time = strtotime($today);
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -83,8 +78,6 @@ $today_time = strtotime($today);
 
     </section>
 
-    
-    
         <h1>My Appointment Request</h1>
   
         <?php
@@ -92,9 +85,7 @@ $today_time = strtotime($today);
 
 echo "<div class='main'>";
 
-
-
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID'");
+$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill'");
 
 echo " 
 <table>
@@ -108,12 +99,13 @@ echo "
         <th> Manage </th>
     </tr>
 </thead> ";
-
+if ($result) {
+    if(mysqli_num_rows($result)>0){ 
 while($row = mysqli_fetch_array($result)) {
     $status = $row['status'];
-    if ($status == "requested"){
+    if ($status == "pending"){
         $id = $row['id'];
-        $id = $row['date'];
+       // $id = $row['date'];
         $ThatTime = $row['time'];
         
 
@@ -135,19 +127,25 @@ $AppointmentId = $row['id'];
      <td> '.$time.' </td>
      <td> 
      <a href="EditAppointmentReq.php?Updateid='.$AppointmentId.'">  <button> Edit </button> </a>
-      <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
+      <a href="Cancel.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
      </tr>';
      
 }
 }
+}
+else echo '<tr>
+<td colspan="6">No record found...</td>
+</tr>';
+
+   } else {
+       echo "<script>alert('Error!')</script>";
+       echo  $database->error;
+       exit();
+   }   
 
 echo "</table>";
 
-
 ?>   
-   
-    
-    
 
 </body>
 </html>

@@ -68,7 +68,7 @@ $rows2 = mysqli_fetch_array($result3);
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -111,14 +111,16 @@ $rows2 = mysqli_fetch_array($result3);
         </div>
 
     </section>
-     <section class="Services" id="services">
+       <section class="Services" id="services">
         <br>
-        <h1> Our services </h1>
+        <h1> Our services <a href="services.php?role=owner" class="show">SHOW MORE</a></h1> 
         <br>
 
-        <div class = "row"> 
-        <?php
-                $service= "select * from service";
+        
+
+        <div class = "row" style="align:center;"> 
+           <?php
+                $service= "select * from service limit 3";
                 $res = mysqli_query($database,$service);
                 if(mysqli_num_rows($res)>0)
                  {
@@ -127,6 +129,8 @@ $rows2 = mysqli_fetch_array($result3);
                  {
                 ?>
             <div class = "Services-column"> 
+
+            <img  style = "width:70px; height:70px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
                 
     
                 <h3> <?php echo $serRow['name']; ?> </h3>
@@ -134,19 +138,25 @@ $rows2 = mysqli_fetch_array($result3);
                 <?php echo $serRow['description']; ?><br>
                 price: <?php echo $serRow['price']; ?> SR
                       <br>
-                      <img  style = "width:75px; height:75px;"alt="service picture" src="data:image/jpeg;base64, <?php echo base64_encode($serRow['photo']) ;?>">
+                      
                 </p>
             </div><br>
+         
             <?php
                  }
                 }
             ?>
-    </section>
+            </div> 
+            
+       </section>
 
-   <section class="about-section" id="ABOUTUS">
+<section class="about-section" id="ABOUTUS">
         <div class="box">
+
+            <?php if(mysqli_num_rows($result3)>0){?>
             <h1><?php echo $rows2['title'];?> </h1>
             <p class="about-content">
+            <img  class="aboutimg" style="height: 230px; width: 230px;" alt="about us picture" src="data:image/jpeg;base64, <?php echo base64_encode($rows2['picture']) ;?>">
             <?php echo $rows2['description'];?> 
             </p>
             <div class="words">
@@ -155,9 +165,12 @@ $rows2 = mysqli_fetch_array($result3);
                 <span ><a  href="tel:<?php echo $rows2['phoneNumber']; ?>" style="text-decoration: none; color: #617470; background-color: transparent ;"> <?php echo $rows2['phoneNumber']; ?></a></span>
                 <span ><a id ="words" href="mailto:<?php echo $rows2['email'];?>" style="text-decoration: none; color: #617470; background-color: transparent ;"><?php echo $rows2['email'];?> </a></span>
             </div>
+            <?php }?>
             <br> <br>
+
         </div>
     </section>
+
     <section id="contact">
 
         <h1 class="contact-header">Contact us!</h1>
@@ -191,6 +204,8 @@ $rows2 = mysqli_fetch_array($result3);
             <div class="contact-information"> <BR><BR> <BR><BR><BR><BR>
                 <hr>
                 <ul class="contact-list">
+                    <?php if(mysqli_num_rows($result3)>0){
+                        ?>
                     <li class="list-item"><span class="contact-text place"> <?php echo $rows2['location'];?></span></li>
 
                     <li class="list-item"><span class="contact-text phone"><a href="tel:<?php echo $rows2['phoneNumber']; ?>"> <?php echo $rows2['phoneNumber']; ?>
@@ -198,6 +213,7 @@ $rows2 = mysqli_fetch_array($result3);
 
                     <li class="list-item"><span class="contact-text email"><a href="mailto:<?php echo $rows2['email'];?>">
                                 <?php echo $rows2['email'];?> </a></span></li>
+                                <?php } ?>
                 </ul>
 
                 <hr>
@@ -207,6 +223,7 @@ $rows2 = mysqli_fetch_array($result3);
         </div>
 
     </section>
+
 
 </body>
 

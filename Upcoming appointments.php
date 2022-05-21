@@ -6,7 +6,7 @@ if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
 session_start();
-$ID = $_SESSION['ID'];
+$emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
     header("location: login-manager.php");
@@ -16,10 +16,6 @@ if (!isset($_SESSION['email']) ) {
 $today = date("Y-m-d");
 $today_time = strtotime($today);
                        
-
-
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,7 +26,7 @@ $today_time = strtotime($today);
 </head>
 <body>
 <section class="header">
-<nav> 
+ <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -51,7 +47,7 @@ $today_time = strtotime($today);
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -78,76 +74,44 @@ $today_time = strtotime($today);
         </div>
         </nav>
 
-    </section>
+</section>
 
     
         <h1> My Upcoming Appointments</h1>
-     
-    
-        <?php
-echo "<div class='main'>";
-
-
-
-$result = mysqli_query($database,"SELECT * FROM appointment where idO= '$ID' AND status = 'request' ");
-
-echo " 
-<table>
-<thead>
+        
+        <table>
+  <thead>
     <tr>
-        <th> Pet Name </th>
-        <th> Service </th>
-        <th> Date </th>
-        <th> Time </th>
-        <th> Manage </th>
-
+      <th>Id</th>
+      <th>Pet Name</th>
+      <th>Service</th>
+      <th>Date</th>
+      <th>Time</th>
     </tr>
-</thead> ";
-
-while($row = mysqli_fetch_array($result)) {
-    $isPrev = $row['date'];
-    $id = $row['id'];
-    $ThatTime = $row['time'];
-
-    $expire_time = strtotime($isPrev);
-
-    $petid = $row['petId'];
-    $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
-    
-    $query_executed = mysqli_fetch_assoc ($records);
-    
-    if ( ($expire_time > $today_time) || ( ($expire_time == $today_time)  )){ 
-     //if (time() >= strtotime($ThatTime)) {
-
-    $petid = $row['petId'];
-    $records = mysqli_query($database, "SELECT name From pet where Id = '$petid';");
-    
-    $query_executed = mysqli_fetch_assoc ($records);
-    $petName = $query_executed['name'];
-$serviceName = $row['serviceName'];
-$date = $row['date'];
-$time = $row['time'];
-
-    echo '<tr>
-     <td> '.$petName.' </td>
-     <td> '.$serviceName.' </td>
-     <td> '.$date.' </td>
-     <td> '.$time.' </td>
-     <td> <a href="Cancel.php?cancelId='.$id.'"><button> Cancel</button></a></td> 
-     </tr>';
-
-/*<td> <a href="/.php?Viewid='.$id.'">  <button> View </button></a> 
-     <a href="/.php?Updateid='.$id.'">  <button> Edit </button> </a>
-      <a href="Cancel Appointment.php?deleteid='.$id.'">   <button> Cancel </button></a></td> 
-     </tr>';*/
-}
-   // }
-}
-echo "</table>";
-
-
-?>    
-
+  </thead>
+  <tbody>
+    <?php 
+ $query="select * from appointment where emailOwner = '$emaill' AND status='Accept' and  date>='".date("Y-m-d")."'";
+  $result=mysqli_query($database, $query);
+  if(mysqli_num_rows($result)>0){ 
+  while($iAppointRow = mysqli_fetch_assoc($result)) {
+   $petresult=mysqli_query($database, "select * from pet where id='".$iAppointRow['petId']."'");
+   $iPetDet = mysqli_fetch_assoc($petresult);  
+	?>
+    <tr>
+      <td><?php echo $iAppointRow['id']; ?></td>
+      <td><?php echo $iPetDet['name']; ?></td>
+      <td><?php echo $iAppointRow['serviceName']; ?></td>
+      <td><?php echo $iAppointRow['date']; ?></td>
+      <td><?php echo $iAppointRow['time']; ?></td>
+    </tr>
+    <?php  } }  else { ?>
+    <tr>
+      <td colspan="6">No record found...</td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
 </body>
 </html>

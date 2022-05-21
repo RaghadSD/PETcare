@@ -71,7 +71,7 @@ if (!mysqli_select_db($database, "petcare1"))
        
   
         <div class="field">
-            <form method = "post" action = "addService.php">
+            <form method = "post" action = "addService.php"  enctype="multipart/form-data" >
   
                 <div class="field">
                     <input type="text" name = "name" id = "Service Name" placeholder = "checkup,grooming,...." >
@@ -94,7 +94,7 @@ if (!mysqli_select_db($database, "petcare1"))
 
                   <div style="padding-top: 4%;padding-left: 6%;"> 
                   <p> <lable style="color: #617470; FONT-SIZE: 18PX ; ">  Photo <br<>
-                    <input type = "file" name = "photo" id = "photo">
+                    <input type = "file" name = "photo" id = "photo" required>
                 <p>
                 </div>
         <div class="field" >

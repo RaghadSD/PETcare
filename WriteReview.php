@@ -14,18 +14,18 @@ die("<p>Could not connect to database</p>");
 if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
-if(isset($_GET['review'])){
-$_SESSION['IDrev'] = $_GET['review'];
+if(isset($_GET['id'])){
+    if(!isset($_SESSION['id'])){
+        $_SESSION['id']=$_GET['id'];
+    }
 }
 
-else 
-echo "doesnt set";
+$id=$_SESSION['id'];
 
 if (isset($_POST['submitRev'])) {
 
-$idREV= $_SESSION['IDrev'];
 $rev = $_POST['Textt'];
-$query= "UPDATE appointment SET review = '$rev' WHERE id= '$idREV' ";
+$query= "UPDATE appointment SET review = '$rev' WHERE id= '$id' ";
 $u = mysqli_query($database, $query);
  if ($u) {
     function_alert("Review submitted successfully");
@@ -34,7 +34,7 @@ $u = mysqli_query($database, $query);
  function_alert("Review cannot submitted");
 }
 
-header("location: Previous Appointments.php");
+
 
 
 }
@@ -43,7 +43,8 @@ header("location: Previous Appointments.php");
 function function_alert($message) {
       
     // Display the alert box
-    echo "<script>alert('$message');</script>";
+    echo "<script>alert('$message');
+    window.location.href='previous appointments.php';</script>";
 }
 ?> 
 <!DOCTYPE html>
@@ -78,7 +79,7 @@ function function_alert($message) {
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -106,7 +107,7 @@ function function_alert($message) {
         </nav>
         <section style = "background-color: transparent; margin-top:-70px;" class="edit-about-section" id="ABOUTUS">
     <div>     
-         <form method = "post" action = "WriteReview.php">
+         <form method = "post" action = "WriteReview.php" enctype="multipart/form-data">
             <h1> Write Review</h1>
             <div class="form-group">
             <textarea class="feilds" id="message" rows="4" name="Textt" required></textarea>

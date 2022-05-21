@@ -49,7 +49,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                         <div class="dropdown">
                             <button style = "font-family: 'Gill Sans', sans-serif" class="dropbtn"> My Appointments </button>
                             <div class="dropdown-content">
-                                <a href="Book Appointment.php"> Book Appointment </a>
+                                <a href="Book-table.php"> Book Appointment </a>
                                 <a href="Appointment requests.php"> Appointment Requests </a>
                                 <a href="Upcoming appointments.php"> Upcoming Appointment </a>
                                 <a href="Previous Appointments.php"> Previous Appointment </a>
@@ -104,7 +104,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                            <?php
                         }
                            else{
-                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/profile-male.jpeg' alt='profile picture'>";
+                            echo "<img style='   margin: auto;display: block;border-radius: 90%; height: 130px;  width: 150px; ;' src='images/andrew-schultz-DTSDD968Mpw-unsplash.jpg' alt='profile picture'>";
                            }
 
     $query="SELECT * FROM `pet` WHERE Id='$id'";
@@ -161,7 +161,7 @@ else {
       }
   }
        ?>       
-        
+         <div class="content" > <a style="color: #617470;font-size: large;" href="javascript:history.back()">Back</a>  </div>     
         </form>
 
 

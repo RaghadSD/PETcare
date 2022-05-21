@@ -1,32 +1,27 @@
-<?php 
-session_start();
+<?php
 
-if (!isset($_SESSION['email']) ) { 
-    header("location: login.php");
-    exit();
-}
-
+ 
 if (!($database = mysqli_connect("localhost", "root", "")))
-                die("<p>Could not connect to database</p>");
-
-            if (!mysqli_select_db($database, "petcare1"))
-                die("<p>Could not open URL database</p>");
-                
-
-  // $emaill = $_SESSION['email'];
-?> 
+    die("<p>Could not connect to database</p>");
+	
 
 
+if (!mysqli_select_db($database, "petcare1"))
+    die("<p>Could not open URL database</p>");
+    session_start();
+
+    	
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Pets Profiles</title>
-    <link rel = "stylesheet" href = "table-style.css">
+<meta charset="UTF-8">
+<title>Book Appointment</title>
+<link rel = "stylesheet" href = "table-style.css">
 </head>
 <body>
 <section class="header">
- <nav> 
+        <nav> 
             <a href="Owner homepage.php"> <img id=logo src="Image (2).jpeg"></a>
         <div>
 
@@ -73,60 +68,43 @@ if (!($database = mysqli_connect("localhost", "root", "")))
 
         </div>
         </nav>
+            
+    
+        </section>
 
-</section>
+<h1>Book appointment</h1>
+<table>
+  <thead>
+    <tr>
+      <th> Service</th>
+      <th> Date</th>
+      <th> Time </th>
+      <th> Book </th>
+    </tr>
+  </thead>
+  <tbody>
+    <?php 
+  $query="select * from appointment where status='new' ";
+  $result=mysqli_query($database, $query);
+  if(mysqli_num_rows($result)>0){ 
+  while($iAppointRow = mysqli_fetch_assoc($result)) {
+	?>
+    <tr>
 
+      <td><?php echo $iAppointRow['serviceName']; ?></td>
+      <td><?php echo $iAppointRow['date']; ?></td>
+      <td><?php echo $iAppointRow['time']; ?></td>
+      <td><a href ="book-appointment.php?id=<?php echo $iAppointRow['id']; ?>">
+        <button>Book</button> </a>
+    </tr>
+    <?php  } }  else { ?>
+    <tr>
+      <td colspan="6">No record found...</td>
+    </tr>
+    <?php } ?>
+  </tbody>
+</table>
 
-    <table>
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th> Pet Name </th>
-                <th>Gender </th>
-                <th> Manage </th>
-            </tr>
-        </thead>
-
-        <tbody>
-     <?php
-
-     $emaill = $_SESSION['email'];
-
-   $query="SELECT * FROM `pet` WHERE emailO='$emaill'";
-   $result = mysqli_query($database, $query);
-
-   if ($result) {
-    if(mysqli_num_rows($result)>0){ 
-       while(  $row= mysqli_fetch_assoc($result)){
-        $id=$row['Id'];
-        $name=$row['name'];
-        $gender=$row['gender'];
-
-
-          echo  ' <tr>
-          <td> '.$id.'</td>
-          <td> '.$name.'</button></a> </td>
-          <td> '.$gender.'</td>
-          <td> <a href="PET1Profile.php?Viewid='.$id.'">  <button>View</button></a> 
-          <a href="UpdatePetProfile.php?Updateid='.$id.'">  <button> Edit</button> </a>
-           <a href="Delete.php?deleteid='.$id.'">   <button> Delete</button></a></td> 
-          
-
-      </tr>';}
-}
-else echo '<tr>
-<td colspan="4">No record found...</td>
-</tr>';
-
-   } else {
-       echo "<script>alert('Error: Cannot get profiles!')</script>";
-       echo  $database->error;
-       exit();
-   }   
-     ?>       
-        </tbody> 
-    </table>
-    <br>
 
 </body>
 </html>
