@@ -18,7 +18,7 @@ if (!($database = mysqli_connect("localhost", "root", "")))
                       echo  $database->error;
                       exit();
                   }
-                  header("location: Upcoming appointments.php");
+                  header("location: appointment requests .php");
 
 
                 
