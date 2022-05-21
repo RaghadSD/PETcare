@@ -84,7 +84,7 @@ $today_time = strtotime($today);
         <?php
 echo "<div class='main'>";
 
-$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill' AND status = 'request' ");
+$result = mysqli_query($database,"SELECT * FROM appointment where emailOwner= '$emaill' AND status = 'pending' ");
 if ($result) {
 echo " 
 <table>
