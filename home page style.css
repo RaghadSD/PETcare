@@ -663,3 +663,12 @@ hr {
 .show:hover{
   background-color: #CBC3BA;
 }
+
+
+.aboutimg{
+  border: 6px solid #aac9dd;
+  border-radius: 10px;
+  float: left;
+  margin-right: 30px;
+  
+}
