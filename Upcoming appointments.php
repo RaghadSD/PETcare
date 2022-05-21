@@ -6,7 +6,6 @@ if (!mysqli_select_db($database, "petcare1"))
 die("<p>Could not open URL database</p>");
 
 session_start();
-$ID = $_SESSION['ID'];
 $emaill = $_SESSION['email'];
 
 if (!isset($_SESSION['email']) ) { 
@@ -92,7 +91,7 @@ $today_time = strtotime($today);
   </thead>
   <tbody>
     <?php 
-  $query="select * from appointment where status='Accept' and  date>='".date("Y-m-d")."'";
+ $query="select * from appointment where emailOwner = '$emaill' AND status='Accept' and  date>='".date("Y-m-d")."'";
   $result=mysqli_query($database, $query);
   if(mysqli_num_rows($result)>0){ 
   while($iAppointRow = mysqli_fetch_assoc($result)) {
