@@ -107,17 +107,9 @@ $today_time = strtotime($today);
       <td><?php echo $iAppointRow['serviceName']; ?></td>
       <td><?php echo $iAppointRow['date']; ?></td>
       <td><?php echo $iAppointRow['time']; ?></td>
-<<<<<<< HEAD
-<<<<<<< HEAD
-      <td> <?php echo <a href="WriteReview.php?review='.$id.'"><button> Review </button></a>?></td> 
-      
-      
-=======
+
       <td> <a href="WriteReview.php?id=<?php echo $iAppointRow['id']; ?>"><button> Review </button></a></td> 
->>>>>>> 3ba68b142dc7a1520ec2f6781bc904b828d7640d
-=======
-      <td> <a href="WriteReview.php?id=<?php echo $iAppointRow['id']; ?>"><button> Review </button></a></td> 
->>>>>>> 38b5c8e13a1aa93a3dfc09419fb26139dda8ff55
+
     </tr>
     <?php  } }  else { ?>
     <tr>
