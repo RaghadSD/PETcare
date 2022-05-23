@@ -60,6 +60,9 @@ if (!isset($_SESSION['email']) ) {
             $query = "SELECT * FROM appointment";
             $result = mysqli_query($connect,$query);
 
+            $owwner = "select Fname, Lname, email from owner, appointment where email=emailOwner";
+            $query2=mysqli_query($connect,$owwner);
+
             if(!$connect){
                 die("<script>alert('Connection Failed')</script>");
             }
@@ -80,10 +83,10 @@ if (!isset($_SESSION['email']) ) {
                         
                         <div class="pic">
                             <?php 
-                            $owwner = "select Fname, Lname, email from owner, appointment where email=emailOwner";
+                            // $owwner = "select Fname, Lname, email from owner, appointment where email=emailOwner";
                             
 
-                            $query2=mysqli_query($connect,$owwner);
+                            // $query2=mysqli_query($connect,$owwner);
                             
                             if(mysqli_num_rows($query2)>0) 
                             {
@@ -93,7 +96,7 @@ if (!isset($_SESSION['email']) ) {
                             
                             $emaill=$row['email'];
 
-                            $q = "select profilePic from owner where email='$emaill'";
+                            $q = "select profilePic, Fname, Lname from owner where email='$emaill'";
                             $newResult = mysqli_query($connect,$q);
                             $ReqSTATresult = mysqli_fetch_assoc($newResult);
                             $img= $ReqSTATresult['profilePic'];
@@ -108,6 +111,7 @@ if (!isset($_SESSION['email']) ) {
                            else{
                             echo "<img src='images/profile-male.jpeg' alt='profile picture'>";
                            }
+                          
                             ?>
 
                         </div>
@@ -116,10 +120,11 @@ if (!isset($_SESSION['email']) ) {
 
                             <strong><?php 
                             
-
-                            echo $row['Fname'] . " " . $row['Lname'];
-                           }
                             
+
+                            echo $ReqSTATresult['Fname'] . " " . $ReqSTATresult['Lname'];
+                          }
+                        
                             ?></strong>
                             <span><?php echo $rows['emailOwner'];?></span>
                     
@@ -139,6 +144,7 @@ if (!isset($_SESSION['email']) ) {
                 </div>
             </div>
             <?php
+                            
             }
              } 
             }
