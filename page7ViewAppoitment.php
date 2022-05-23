@@ -64,7 +64,7 @@ if (!mysqli_select_db($database, "petcare1"))
   </thead>
   <tbody>
     <?php 
-  $query="select * from appointment where status='Accept' ";
+  $query="select * from appointment where status='new' ";
   $result=mysqli_query($database, $query);
   if(mysqli_num_rows($result)>0){ 
   while($iAppointRow = mysqli_fetch_assoc($result)) {
